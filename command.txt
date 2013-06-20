@@ -1,0 +1,20 @@
+﻿
+1.get android level
+	android list
+		~~~~
+			id: 13 or "android-17"
+		~~~~
+		so android level==13
+
+2.build:
+	android create uitest-project –n xx -t targetId -p projectPath
+	get targetId：android list targets
+	exmp:
+	android create uitest-project -n uiautomator -t 13 -p E:\eclipse\workspace\uiautomator
+
+3.push the jar file into the phone 
+adb push uiautomator.jar /data/local/tmp/
+
+4.run command
+adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.PlayerTest 
+

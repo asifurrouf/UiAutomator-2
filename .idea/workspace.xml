@@ -4,6 +4,7 @@
     <list default="true" id="684cbd0a-e535-4c99-9e3e-30796cc273e1" name="Default" comment="" />
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +68,8 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="39" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.67164177">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="14" column="40" selection-start="456" selection-end="456" vertical-scroll-proportion="0.24110219">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,6 +80,14 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -379,10 +386,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="39" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.67164177">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="14" column="40" selection-start="456" selection-end="456" vertical-scroll-proportion="0.24110219">
+          <folding />
         </state>
       </provider>
     </entry>
