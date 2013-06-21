@@ -947,6 +947,9 @@ public class PlayerTest extends UiAutomatorTestCase{
             menu_button.click();
             sleep(1000);
             device.pressBack();
+            sleep(1000);
+            device.pressMenu();
+            sleep(1000);
         }
 
         killPlayer();

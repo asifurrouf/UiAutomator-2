@@ -5,7 +5,7 @@
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
-    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371807966338" ignored="false" />
+    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371809368522" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +79,11 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="948" column="31" selection-start="38429" selection-end="38429" vertical-scroll-proportion="0.67741936">
+            <state line="951" column="22" selection-start="38509" selection-end="38509" vertical-scroll-proportion="0.7311828">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1371807972288" expanded="true" signature="19000:22537" placeholder="{...}" />
-                <marker date="1371807972288" expanded="true" signature="29111:30130" placeholder="{...}" />
+                <marker date="1371809373702" expanded="true" signature="19000:22537" placeholder="{...}" />
+                <marker date="1371809373702" expanded="true" signature="29111:30130" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -110,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/asdad.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/asdad.java" />
         <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java" />
       </list>
     </option>
@@ -441,13 +442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.1034484">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/com.miui.player.test.PlayerTest">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -470,13 +464,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="17" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.36037737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="948" column="31" selection-start="38429" selection-end="38429" vertical-scroll-proportion="0.67741936">
+        <state line="951" column="22" selection-start="38509" selection-end="38509" vertical-scroll-proportion="0.7311828">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1371807972288" expanded="true" signature="19000:22537" placeholder="{...}" />
-            <marker date="1371807972288" expanded="true" signature="29111:30130" placeholder="{...}" />
+            <marker date="1371809373702" expanded="true" signature="19000:22537" placeholder="{...}" />
+            <marker date="1371809373702" expanded="true" signature="29111:30130" placeholder="{...}" />
           </folding>
         </state>
       </provider>
