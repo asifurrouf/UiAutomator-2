@@ -83,18 +83,6 @@ public class PlayerTest extends UiAutomatorTestCase{
     public void unlockPhone() throws RemoteException {
         /*解锁*/
         debug("unlockPhone");
-/*        if (device.isScreenOn()) {
-            device.pressKeyCode(KeyEvent.KEYCODE_BACK,KeyEvent.ACTION_DOWN);
-            debug("1111111");
-            sleep(500);
-            device.pressKeyCode(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.ACTION_DOWN);
-            debug("2222222");
-            device.pressKeyCode(KeyEvent.KEYCODE_VOLUME_UP,KeyEvent.ACTION_UP);
-            debug("3333333333");
-            sleep(500);
-            device.pressKeyCode(KeyEvent.KEYCODE_BACK,KeyEvent.ACTION_UP);
-            debug("44444444");
-        }*/
         int phone_type = phoneType();
         int start_x = 0;
         int start_y = 0;
@@ -285,7 +273,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         int list_count;
         list_count = list_view.getChildCount() -2;
         /*debug("list_count=" + list_count);*/
-        int rnd = 0;
+        int rnd;
         rnd = randomIndex(list_count)+1;
         /*debug("rnd=" + rnd);*/
         UiObject song;
