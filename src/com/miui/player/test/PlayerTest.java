@@ -254,7 +254,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
     }
 
-    private void homePageMenu() throws IOException {
+    private void homePageMenu() throws IOException, UiObjectNotFoundException {
         /*首页Menu菜单*/
         debug("homePageMenu");
 
@@ -262,11 +262,111 @@ public class PlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
 
+        UiObject menu_list;
+        int menu_list_child_count;
+        UiObject menu_button;
         /*歌曲页Menu*/
+        device.pressMenu();
+        sleep(1000);
+        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        menu_list_child_count = menu_list.getChildCount();
+        device.pressBack();
+        sleep(1000);
+        for (int j = 0; j < menu_list_child_count;j++){
+            device.pressMenu();
+            sleep(1000);
+            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+            debug("menu_button"+menu_button.getBounds());
+            menu_button.click();
+            sleep(1000);
+            switch (j){
+                case 0:
+                    break;
+                case 1:
+                    device.pressBack();
+                    sleep(1000);
+                    break;
+            }
+        }
         /*歌手页Menu*/
+        sleep(1000);
+        swipePhone(LEFT);
+        sleep(1000);
+
+        device.pressMenu();
+        sleep(1000);
+        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        menu_list_child_count = menu_list.getChildCount();
+        device.pressBack();
+        sleep(1000);
+        for (int j = 0; j < menu_list_child_count;j++){
+            device.pressMenu();
+            sleep(1000);
+            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+            debug("menu_button"+menu_button.getBounds());
+            menu_button.click();
+            sleep(1000);
+            switch (j){
+                case 0:
+                    break;
+            }
+        }
         /*专辑页Menu*/
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
+        UiObject albums;
+        albums = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        albums.clickAndWaitForNewWindow();
+        sleep(1000);
+
+        device.pressMenu();
+        sleep(1000);
+        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        menu_list_child_count = menu_list.getChildCount();
+        device.pressBack();
+        sleep(1000);
+        for (int j = 0; j < menu_list_child_count;j++){
+            device.pressMenu();
+            sleep(1000);
+            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+            debug("menu_button"+menu_button.getBounds());
+            menu_button.click();
+            sleep(1000);
+            switch (j){
+                case 0:
+                    break;
+            }
+        }
         /*列表页Menu*/
         /*文件夹页Menu*/
+        sleep(1000);
+        swipePhone(LEFT);
+        sleep(1000);
+        UiObject folders;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
+        folders = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        folders.clickAndWaitForNewWindow();
+        sleep(1000);
+
+        device.pressMenu();
+        sleep(1000);
+        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        menu_list_child_count = menu_list.getChildCount();
+        device.pressBack();
+        sleep(1000);
+        for (int j = 0; j < menu_list_child_count;j++){
+            device.pressMenu();
+            sleep(1000);
+            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+            debug("menu_button"+menu_button.getBounds());
+            menu_button.click();
+            sleep(1000);
+            switch (j){
+                case 0:
+                    break;
+            }
+            break;
+        }
         /*在线页Menu*/
 
     }
@@ -445,13 +545,13 @@ public class PlayerTest extends UiAutomatorTestCase{
 
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-        debug("list_view=" + page.getBounds());
+        /*debug("list_view=" + page.getBounds());*/
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-        debug("list_view=" + list_view.getBounds());
+        /*debug("list_view=" + list_view.getBounds());*/
         UiObject albums;
         albums = page.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        debug("albums=" + albums.getBounds());
+        /*debug("albums=" + albums.getBounds());*/
         albums.click();
         sleep(1000);
         device.pressBack();
@@ -462,7 +562,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(list_count)+1;
         UiObject singer;
         singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        debug("singer="+singer.getBounds());
+        /*debug("singer="+singer.getBounds());*/
         singer.click();
         sleep(1000);
         device.pressBack();
@@ -547,7 +647,6 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
 
         UiObject list_view;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
         /*debug("list_view=" + list_view.getBounds());*/
 
         UiObject folders;
