@@ -846,7 +846,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     case 2:
                         order = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
                     /*debug("order="+order.getBounds());*/
-                        for (int j = 0; j < 3 ;j++){
+                        for (int j = 0; j < 2 ;j++){
                             order.click();
                             sleep(1000);
                         }
@@ -871,7 +871,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     case 1:
                         order = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
                     /*debug("order="+order.getBounds());*/
-                        for (int j = 0; j < 3 ;j++){
+                        for (int j = 0; j < 2 ;j++){
                             order.click();
                             sleep(1000);
                         }
@@ -940,15 +940,17 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject menu_button;
         int menu_list_child_count;
         menu_list_child_count = menu_list.getChildCount();
+        device.pressBack();
+        sleep(1000);
         for (int i = 0; i < menu_list_child_count;i++){
+            device.pressMenu();
+            sleep(1000);
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
             debug("menu_button="+menu_button.getBounds());
             menu_button.click();
             sleep(1000);
             device.pressBack();
-            sleep(1000);
-            device.pressMenu();
             sleep(1000);
         }
 
