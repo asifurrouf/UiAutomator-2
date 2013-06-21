@@ -5,7 +5,7 @@
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
-    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371784743847" ignored="false" />
+    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371787823148" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +69,10 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="685" column="43" selection-start="26857" selection-end="26857" vertical-scroll-proportion="0.63582444">
+            <state line="664" column="2" selection-start="25670" selection-end="25776" vertical-scroll-proportion="0.27995256">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1371784751838" expanded="true" signature="18943:22480" placeholder="{...}" />
+                <marker date="1371787899009" expanded="true" signature="19040:22577" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -395,10 +395,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="685" column="43" selection-start="26857" selection-end="26857" vertical-scroll-proportion="0.63582444">
+        <state line="664" column="2" selection-start="25670" selection-end="25776" vertical-scroll-proportion="0.27995256">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1371784751838" expanded="true" signature="18943:22480" placeholder="{...}" />
+            <marker date="1371787899009" expanded="true" signature="19040:22577" placeholder="{...}" />
           </folding>
         </state>
       </provider>

@@ -484,6 +484,8 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         for (int i=0;i < 3;i++) {
             switch (i){
+/*                MIUI-15431
+                        <音乐> 歌手tab页 编辑模式 选择项目 点击编辑模式的播放按钮 不退出编辑模式*/
                 case 0:
                     /*播放*/
                     singer.longClick();
@@ -659,7 +661,10 @@ public class PlayerTest extends UiAutomatorTestCase{
                         debug(String.format("list_button(%d) %s", j, list_button.getBounds()));
                         list_button.click();
                         sleep(2000);
-                        device.pressBack();
+                        if (j != 0)
+/*                            MIUI-15430
+                                    <音乐> 长按最近播放列表 选择播放 不进入正在播放页*/
+                            device.pressBack();
                         sleep(2000);
                     }
                     break;
