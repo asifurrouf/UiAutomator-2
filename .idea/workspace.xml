@@ -5,6 +5,7 @@
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
+    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371782675399" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +69,10 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="40" selection-start="456" selection-end="456" vertical-scroll-proportion="0.24110219">
-              <folding />
+            <state line="593" column="30" selection-start="21789" selection-end="21789" vertical-scroll-proportion="0.6865672">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,6 +97,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/asdad.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/asdad.java" />
+        <option value="$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java" />
       </list>
     </option>
   </component>
@@ -137,6 +141,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="UiAutomator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -386,8 +394,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="456" selection-end="456" vertical-scroll-proportion="0.24110219">
-          <folding />
+        <state line="593" column="30" selection-start="21789" selection-end="21789" vertical-scroll-proportion="0.6865672">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
