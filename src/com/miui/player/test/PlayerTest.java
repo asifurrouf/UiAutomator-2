@@ -254,6 +254,23 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
     }
 
+    private void homePageMenu() throws IOException {
+        /*首页Menu菜单*/
+        debug("homePageMenu");
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+
+        /*歌曲页Menu*/
+        /*歌手页Menu*/
+        /*专辑页Menu*/
+        /*列表页Menu*/
+        /*文件夹页Menu*/
+        /*在线页Menu*/
+
+    }
+
     private void songPage() throws UiObjectNotFoundException, IOException {
         /*歌曲页*/
         debug("songPage");

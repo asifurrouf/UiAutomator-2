@@ -5,7 +5,7 @@
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
-    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371809598467" ignored="false" />
+    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371810108228" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +79,11 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="943" column="18" selection-start="38055" selection-end="38055" vertical-scroll-proportion="0.38172042">
+            <state line="264" column="20" selection-start="7908" selection-end="7908" vertical-scroll-proportion="0.4408602">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1371809841629" expanded="true" signature="19000:22537" placeholder="{...}" />
-                <marker date="1371809841629" expanded="true" signature="29111:30130" placeholder="{...}" />
+                <marker date="1371810139059" expanded="true" signature="19303:22840" placeholder="{...}" />
+                <marker date="1371810139059" expanded="true" signature="29414:30433" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -483,11 +483,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="943" column="18" selection-start="38055" selection-end="38055" vertical-scroll-proportion="0.38172042">
+        <state line="264" column="20" selection-start="7908" selection-end="7908" vertical-scroll-proportion="0.4408602">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1371809841629" expanded="true" signature="19000:22537" placeholder="{...}" />
-            <marker date="1371809841629" expanded="true" signature="29111:30130" placeholder="{...}" />
+            <marker date="1371810139059" expanded="true" signature="19303:22840" placeholder="{...}" />
+            <marker date="1371810139059" expanded="true" signature="29414:30433" placeholder="{...}" />
           </folding>
         </state>
       </provider>
