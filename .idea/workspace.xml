@@ -69,7 +69,7 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="664" column="2" selection-start="25670" selection-end="25776" vertical-scroll-proportion="0.27995256">
+            <state line="707" column="39" selection-start="28159" selection-end="28159" vertical-scroll-proportion="-0.022538552">
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1371787899009" expanded="true" signature="19040:22577" placeholder="{...}" />
@@ -395,7 +395,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="664" column="2" selection-start="25670" selection-end="25776" vertical-scroll-proportion="0.27995256">
+        <state line="707" column="39" selection-start="28159" selection-end="28159" vertical-scroll-proportion="-0.022538552">
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1371787899009" expanded="true" signature="19040:22577" placeholder="{...}" />
