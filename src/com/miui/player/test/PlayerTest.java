@@ -573,7 +573,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     break;
                 case 5:
-                    new_list = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
+                    new_list = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout"));
                     debug("new_list=" + new_list.getBounds());
                     new_list.click();
                     sleep(1000);
@@ -605,9 +605,21 @@ public class PlayerTest extends UiAutomatorTestCase{
             sleep(1000);
         }
 
-        /*长按操作*/
+        UiObject the_create_list;
+        the_create_list = new UiObject(new UiSelector().className("android.widget.ListView").index(2))
+                .getChild(new UiSelector().className("ndroid.widget.RelativeLayout"));
+        debug("the_create_list="+the_create_list.getBounds());
+        the_create_list.longClick();
         UiObject long_click_list;
         int long_click_list_child_count = 0;
+        long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject long_click_delete_button;
+        long_click_delete_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        debug("long_click_delete_button="+long_click_delete_button.getBounds());
+        long_click_delete_button.click();
+        sleep(1000);
+
+        /*长按操作*/
         for (int i = 0; i < 4 ;i++){
             switch (i){
                 case 0:
