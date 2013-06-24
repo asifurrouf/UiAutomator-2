@@ -9,6 +9,7 @@ package com.miui.player.test;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
@@ -562,15 +563,15 @@ public class PlayerTest extends UiAutomatorTestCase{
                 /*debug("m_fav="+m_fav.getBounds());*/
             }
             else if (i==1){
-                m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(1));
+                m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_send=" + m_send.getBounds());*/
             }
             else if (i==2){
-                m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(2));
+                m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_set_ring="+m_set_ring.getBounds());*/
             }
             else if (i==3){
-                m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(3));
+                m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_id3="+m_id3.getBounds());*/
             }
         }
@@ -1513,10 +1514,295 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-        wait = "Wait 10 seconds for the searhing result.";
+        wait = "Please wait 10 seconds for the searhing result.";
         debug(wait);
+        sleep(10000);
+        device.pressMenu();
+        sleep(1000);
+        device.pressBack();
         sleep(1000);
 
+        UiObject online_albums;
+        online_albums = new UiObject(new UiSelector().className("android.widget.GridView").index(0));
+        int online_albums_child_count;
+        online_albums_child_count = online_albums.getChildCount();
+        int rnd;
+        rnd = randomIndex(online_albums_child_count);
+        UiObject online_album;
+        online_album = online_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        online_album.click();
+        wait = "Please wait 10 second for the album detail loading.";
+        debug(wait);
+        sleep(10000);
+
+        swipePhone(TOP);
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        UiObject play_all;
+        play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        play_all.clickAndWaitForNewWindow();
+        wait = "Please wait 10 second for the online song loading.";
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        sleep(1000);
+        rnd = randomIndex(list_view_child_count);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject online_album_song;
+        online_album_song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
+        online_album_song.clickAndWaitForNewWindow();
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        sleep(1000);
+        UiObject download_online_album_song;
+        download_online_album_song = online_album_song.getChild(new UiSelector().className("android.widget.ImageView").index(1));
+        download_online_album_song.click();
+        wait = "Please wait 20 seconds for the online song downloading.";
+        debug(wait);
+        sleep(20000);
+
+        /*编辑模式*/
+        online_album_song.longClick();
+        sleep(1000);
+        /* 编辑模式：取消 全选 取消全选*/
+        UiObject select_buttons;
+        UiObject cancel = null;
+        select_buttons = new UiObject(new UiSelector().className("android.view.View").index(1))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        UiObject select_all = null;
+        int select_buttons_count;
+        select_buttons_count = select_buttons.getChildCount();
+        /*debug("select_buttons_count="+select_buttons_count);*/
+        for (int i = 0; i<select_buttons_count;i++){
+            select_buttons = new UiObject(new UiSelector().className("android.view.View").index(1))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            //debug("i>>"+i+">"+select_buttons.getChild(new UiSelector().className(android.widget.TextView.class.getName()).index(i)).getBounds());
+            if (i==0)
+                cancel = select_buttons.getChild(new UiSelector().index(i));
+            else if (i==2)
+                select_all = select_buttons.getChild(new UiSelector().index(i));
+        }
+        /*debug("select_all=" + select_all.getBounds());*/
+        for (int i = 0;i<2;i++){
+            if (null != select_all) {
+                select_all.click();
+            }
+            sleep(2000);
+        }
+        /*debug("cancel=" + cancel.getBounds());*/
+        if (null != cancel) {
+            cancel.click();
+        }
+        sleep(1000);
+        online_album_song.longClick();
+        UiObject e_more;
+        e_more = new UiObject(new UiSelector().className("android.widget.Button").instance(3));
+        e_more.click();
+        UiObject more_menu;
+        more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        /*debug("more_menu="+more_menu.getBounds());*/
+        int more_menu_child_count;
+        more_menu_child_count = more_menu.getChildCount();
+        UiObject m_fav = null;
+        UiObject m_down = null;
+        UiObject m_send = null;
+        UiObject m_set_ring = null;
+        UiObject m_id3 = null;
+        for (int i = 0; i < more_menu_child_count;i++){
+            more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+            if (more_menu_child_count == 4){
+                if (i==0) {
+                    m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_fav="+m_fav.getBounds());*/
+                }
+                else if (i==1){
+                    m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_send=" + m_send.getBounds());*/
+                }
+                else if (i==2){
+                    m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                }
+                else if (i==3){
+                    m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_id3="+m_id3.getBounds());*/
+                }
+            }
+            else if (more_menu_child_count == 5){
+                if (i==0) {
+                    m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_fav="+m_fav.getBounds());*/
+                }
+                else if (i==1){
+                    m_down = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                }
+                else if (i==2){
+                    m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_send=" + m_send.getBounds());*/
+                }
+                else if (i==3){
+                    m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                }
+                else if (i==4){
+                    m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_id3="+m_id3.getBounds());*/
+                }
+            }
+        }
+        /*喜欢*/
+        m_fav.click();
+        /*发送*/
+        online_album_song.longClick();
+        e_more.click();
+        if (m_down != null){
+            m_down.click();
+            sleep(1000);
+            UiObject confirm_down;
+            confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm_down.click();
+            sleep(1000);
+        }
+        online_album_song.longClick();
+        e_more.click();
+        if (m_send.isEnabled()){
+            m_send.click();
+            device.pressBack();
+        }
+        /*用作手机铃声*/
+        e_more.click();
+        if (m_set_ring.isEnabled()){
+            m_set_ring.click();
+        }
+        /*修改歌曲信息*/
+        e_more.click();
+        m_id3.click();
+        device.pressBack();
+        device.pressBack();
+
+        device.pressMenu();
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject m_down_all;
+        m_down_all = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        m_down_all.click();
+        sleep(1000);
+        UiObject confirm_down;
+        confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        confirm_down.click();
+        wait = "Please wait 10 seconds for downloading all songs.";
+        debug(wait);
+        sleep(10000);
+
+        for (int i=0;i < 3;i++) {
+            online_album_song.longClick();
+            UiObject e_play;
+            e_play = new UiObject(new UiSelector().className("android.widget.Button").instance(0));
+            UiObject e_add_to;
+            e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
+            UiObject e_delete;
+            e_delete = new UiObject(new UiSelector().className("android.widget.Button").instance(2));
+            switch (i){
+                case 0:
+                    /*播放*/
+                    e_play.click();
+                    device.pressBack();
+                    break;
+                case 1:
+                    /*添加到*/
+                    e_add_to.click();
+                    device.pressBack();
+                    device.pressBack();
+                    break;
+                case 2:
+                    /*删除*/
+                    select_all.click();
+                    e_delete.click();
+                    UiObject confirm_delete;
+                    confirm_delete = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                    confirm_delete.click();
+                    sleep(1000);
+                    break;
+            }
+            sleep(1000);
+        }
+        device.pressBack();
+        sleep(1000);
+
+        /*在线歌手*/
+        swipePhone(TOP);
+        sleep(1000);
+        UiObject online_singers;
+        online_singers = new UiObject(new UiSelector().className("android.widget.GridView").index(0));
+        int online_singers_child_count;
+        online_singers_child_count = online_singers.getChildCount();
+        rnd = randomIndex(online_singers_child_count);
+        UiObject online_singer;
+        online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        wait = "Please wait 10 second for the singers detail loading.";
+        debug(wait);
+        sleep(10000);
+        swipePhone(LEFT);
+        sleep(5000);
+        swipePhone(TOP);
+        sleep(1000);
+        UiObject online_singer_albums;
+        online_singer_albums = new UiObject(new UiSelector().className("android.widget.GridView").index(0));
+        int online_singer_albums_child_count;
+        online_singer_albums_child_count = online_singer_albums.getChildCount();
+        rnd = randomIndex(online_singer_albums_child_count);
+        UiObject online_singer_album;
+        online_singer_album =  online_singer_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        sleep(5000);
+        device.pressBack();
+        device.pressBack();
+        sleep(1000);
+
+        /*热门推荐*/
+        swipePhone(RIGHT);
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        list_view_child_count = list_view.getChildCount();
+        rnd = (int) (Math.random()*list_view_child_count);
+        UiObject board;
+        board = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        debug("board="+board.isClickable());
+        board.click();
+        wait = "Please wait seconds for the board loading.";
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        sleep(1000);
+        swipePhone(TOP);
+        sleep(1000);
+        device.pressBack();
+        sleep(1000);
+
+        /*随心听*/
+        swipePhone(RIGHT);
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        list_view_child_count = list_view.getChildCount();
+        rnd = (int) (Math.random()*list_view_child_count);
+        UiObject fm;
+        fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        debug("fm="+fm.isClickable());
+        fm.click();
+        wait = "Please wait 10 seconds for the fm loading.";
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        device.pressBack();
+        sleep(1000);
+
+        killPlayer();
     }
 
 }
