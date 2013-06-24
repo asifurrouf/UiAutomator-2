@@ -16,15 +16,20 @@ public class Test {
                 return;
             }
         }
+
     }
 
     private void debug(String msg){
+
         System.out.println(msg);
+
     }
 
     public static void main(String args[]){
+
         Test test = new Test();
         test.forTest();
+
     }
 
 }
