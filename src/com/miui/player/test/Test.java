@@ -22,4 +22,9 @@ public class Test {
         System.out.println(msg);
     }
 
+    public static void main(String args[]){
+        Test test = new Test();
+        test.forTest();
+    }
+
 }
