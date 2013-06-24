@@ -39,6 +39,13 @@ public class PlayerTest extends UiAutomatorTestCase{
     private static final int RIGHT = 3;
     private static final int CENTRAL = 4;
 
+    private static final String SONG = "song";
+    private static final String SINGER = "singer";
+    private static final String LIST = "list";
+    private static final String ONLINE = "online";
+    private static final String ALBUMS = "albums";
+    private static final String FOLDER = "folder";
+
     private static final int[][] unlock_start_point= {
             {240,360,540,},
             {920,920,920,},
@@ -208,7 +215,12 @@ public class PlayerTest extends UiAutomatorTestCase{
         //singerPage();
         //listPage();
         //onlinePage();
-        nowplayingPage();
+        //nowplayingPage();
+        //albumsPage();
+        //folderPage();
+        //listdetailPage();
+        onlinedetailPage();
+
     }
 
     private void homeTop() throws UiObjectNotFoundException, IOException {
@@ -252,6 +264,61 @@ public class PlayerTest extends UiAutomatorTestCase{
         }
         device.pressBack();
         sleep(1000);
+    }
+
+    private void gotoPage(String page) throws UiObjectNotFoundException {
+        /*进入指定页面*/
+
+        if (page.equals(SINGER)){
+            for (int i = 0;i < 1;i++){
+                swipePhone(LEFT);
+                sleep(1000);
+            }
+            swipePhone(TOP);
+            sleep(1000);
+        }
+        else if (page.equals(LIST)){
+            for (int i = 0;i < 2;i++){
+                swipePhone(LEFT);
+                sleep(1000);
+            }
+            swipePhone(TOP);
+            sleep(1000);
+        }
+        else if (page.equals(ONLINE)){
+            for (int i = 0;i < 3;i++){
+                swipePhone(LEFT);
+                sleep(1000);
+            }
+            swipePhone(TOP);
+            sleep(1000);
+        }
+        else if (page.equals(ALBUMS)){
+            for (int i = 0;i < 1;i++){
+                swipePhone(LEFT);
+                sleep(1000);
+            }
+
+            UiObject list_view;
+            list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
+            UiObject albums;
+            albums = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            albums.clickAndWaitForNewWindow();
+            sleep(1000);
+        }
+        else if (page.equals(FOLDER)){
+            for (int i = 0;i < 2;i++){
+                swipePhone(LEFT);
+                sleep(1000);
+            }
+
+            UiObject list_view;
+            UiObject folders;
+            list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
+            folders = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            folders.clickAndWaitForNewWindow();
+            sleep(1000);
+        }
     }
 
     private void homePageMenu() throws IOException, UiObjectNotFoundException {
@@ -536,12 +603,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
-        for (int i = 0;i < 1;i++){
-            swipePhone(LEFT);
-            sleep(1000);
-        }
-        swipePhone(TOP);
-        sleep(1000);
+        gotoPage(SINGER);
 
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
@@ -639,12 +701,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
-        for (int i = 0;i < 2;i++){
-            swipePhone(LEFT);
-            sleep(1000);
-        }
-        swipePhone(TOP);
-        sleep(1000);
+        gotoPage(LIST);
 
         UiObject list_view;
         /*debug("list_view=" + list_view.getBounds());*/
@@ -836,12 +893,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
-        for (int i = 0;i < 3;i++){
-            swipePhone(LEFT);
-            sleep(1000);
-        }
-        swipePhone(TOP);
-        sleep(1000);
+        gotoPage(ONLINE);
 
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
@@ -1042,7 +1094,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         }
         UiObject seek_bar;
         seek_bar = new UiObject(new UiSelector().className("android.widget.SeekBar").index(1));
-        debug("seek_bar="+seek_bar.getBounds());
+        /*debug("seek_bar="+seek_bar.getBounds());*/
         seek_bar.click();
         sleep(5000);
         seek_bar.click();
@@ -1071,6 +1123,400 @@ public class PlayerTest extends UiAutomatorTestCase{
         }
 
         killPlayer();
+    }
+
+    private void albumsPage() throws IOException, UiObjectNotFoundException {
+        /*专辑页*/
+        debug("albumsPage");
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        gotoPage(ALBUMS);
+
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        int rnd;
+        rnd = randomIndex(list_view_child_count);
+        UiObject album;
+        album = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        album.clickAndWaitForNewWindow();
+        sleep(1000);
+        device.pressBack();
+
+        /*编辑模式*/
+        album.longClick();
+        sleep(2000);
+        /* 编辑模式：取消 全选 取消全选*/
+        UiObject select_buttons;
+        UiObject cancel = null;
+        select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        /*debug("select_buttons="+select_buttons.getBounds());*/
+        UiObject select_all = null;
+        int select_buttons_count;
+        select_buttons_count = select_buttons.getChildCount();
+        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count);*/
+        for (int i = 0; i<select_buttons_count;i++){
+            select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            if (i==0)
+                cancel = select_buttons.getChild(new UiSelector().index(i));
+            else if (i==2)
+                select_all = select_buttons.getChild(new UiSelector().index(i));
+        }
+        /*debug("select_all=" + select_all.getBounds());*/
+        for (int i = 0;i<2;i++){
+            if (null != select_all) {
+                select_all.click();
+            }
+            sleep(2000);
+        }
+        /*debug("cancel=" + cancel.getBounds());*/
+        if (null != cancel) {
+            cancel.click();
+        }
+        sleep(1000);
+        for (int i=0;i < 3;i++) {
+            album.longClick();
+            switch (i){
+                case 0:
+                    /*播放*/
+                    UiObject e_play;
+                    e_play = new UiObject(new UiSelector().className("android.widget.Button").instance(0));
+                    e_play.click();
+                    break;
+                case 1:
+                    /*添加到*/
+                    UiObject e_add_to;
+                    e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
+                    e_add_to.click();
+                    device.pressBack();
+                    break;
+                case 2:
+                    /*删除*/
+                    UiObject e_delete;
+                    e_delete = new UiObject(new UiSelector().className("android.widget.Button").instance(2));
+                    e_delete.click();
+                    device.pressBack();
+                    break;
+            }
+            sleep(1000);
+            device.pressBack();
+            sleep(1000);
+        }
+        killPlayer();
+    }
+
+    private void folderPage() throws IOException, UiObjectNotFoundException {
+        /*文件夹页*/
+        debug("folderPage");
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        gotoPage(FOLDER);
+
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        int rnd;
+        rnd = randomIndex(list_view_child_count);
+        UiObject folder;
+        folder = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        folder.clickAndWaitForNewWindow();
+        sleep(1000);
+        device.pressBack();
+        sleep(1000);
+
+        /*编辑模式*/
+        folder.longClick();
+        sleep(2000);
+        /* 编辑模式：取消 全选 取消全选*/
+        UiObject select_buttons;
+        UiObject cancel = null;
+        select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        /*debug("select_buttons="+select_buttons.getBounds());*/
+        UiObject select_all = null;
+        int select_buttons_count;
+        select_buttons_count = select_buttons.getChildCount();
+        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count);*/
+        for (int i = 0; i<select_buttons_count;i++){
+            select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            if (i==0)
+                cancel = select_buttons.getChild(new UiSelector().index(i));
+            else if (i==2)
+                select_all = select_buttons.getChild(new UiSelector().index(i));
+        }
+        /*debug("select_all=" + select_all.getBounds());*/
+        for (int i = 0;i<2;i++){
+            if (null != select_all) {
+                select_all.click();
+            }
+            sleep(2000);
+        }
+        /*debug("cancel=" + cancel.getBounds());*/
+        if (null != cancel) {
+            cancel.click();
+        }
+        sleep(1000);
+        for (int i=0;i < 3;i++) {
+            folder.longClick();
+            switch (i){
+                case 0:
+                    /*播放*/
+                    UiObject e_play;
+                    e_play = new UiObject(new UiSelector().className("android.widget.Button").instance(0));
+                    e_play.click();
+                    break;
+                case 1:
+                    /*添加到*/
+                    UiObject e_add_to;
+                    e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
+                    e_add_to.click();
+                    device.pressBack();
+                    break;
+                case 2:
+                    /*删除*/
+                    UiObject e_delete;
+                    e_delete = new UiObject(new UiSelector().className("android.widget.Button").instance(2));
+                    e_delete.click();
+                    device.pressBack();
+                    break;
+            }
+            sleep(1000);
+            device.pressBack();
+            sleep(1000);
+        }
+        killPlayer();
+    }
+
+    private void listdetailPage() throws IOException, UiObjectNotFoundException {
+        /*列表详情页*/
+        debug("listdetailPage");
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        gotoPage(LIST);
+
+        UiObject list_view;
+        /*debug("list_view=" + list_view.getBounds());*/
+        UiObject fav_list;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
+        /*debug("list_view=" + list_view.getBounds());*/
+        fav_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        /*debug("folders=" + folders.getBounds());*/
+        fav_list.click();
+        sleep(1000);
+
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject play_all;
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        play_all.clickAndWaitForNewWindow();
+        sleep(1000);
+        device.pressBack();
+        sleep(1000);
+
+        /*添加歌曲*/
+        UiObject add_songs;
+        add_songs = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        add_songs.clickAndWaitForNewWindow();
+        sleep(1000);
+        UiObject select_buttons;
+        UiObject cancel = null;
+        select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        debug("select_buttons="+select_buttons.getBounds());
+        UiObject select_all;
+        select_all = select_buttons.getChild(new UiSelector().index(2));
+        select_all.click();
+        sleep(1000);
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.Button").index(0));
+        debug("confirm="+confirm.getBounds());
+        confirm.click();
+        sleep(1000);
+
+        /*编辑模式*/
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject song;
+        int rnd;
+        rnd = randomIndex(list_view_child_count);
+        song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
+        song.longClick();
+        sleep(1000);
+
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
+        UiObject change_pos = song.getChild(new UiSelector().index(0));
+
+        int swipe_pos_x;
+        int swipe_pos_y;
+        swipe_pos_x = change_pos.getBounds().centerX();
+        swipe_pos_y = change_pos.getBounds().centerY();
+
+        int end_y;
+        end_y = height - swipe_pos_y;
+        for (int i = 0; i < 3 ;i++){
+            device.swipe(swipe_pos_x,swipe_pos_y,swipe_pos_x,end_y,SWIPE_STEPS*3);
+            sleep(1000);
+        }
+        device.pressBack();
+
+        for (int i=0;i < 3;i++) {
+            song.longClick();
+            UiObject e_play;
+            e_play = new UiObject(new UiSelector().className("android.widget.Button").instance(0));
+            UiObject e_add_to;
+            e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
+            UiObject e_delete;
+            e_delete = new UiObject(new UiSelector().className("android.widget.Button").instance(2));
+            switch (i){
+                case 0:
+                    /*播放*/
+                    e_play.click();
+                    sleep(1000);
+                    device.pressBack();
+                    break;
+                case 1:
+                    /*添加到*/
+                    e_add_to.click();
+                    device.pressBack();
+                    sleep(1000);
+                    device.pressBack();
+                    break;
+                case 2:
+                    /*删除*/
+                    e_delete.click();
+                    UiObject confirm_delete;
+                    confirm_delete = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                    confirm_delete.click();
+                    sleep(1000);
+                    break;
+            }
+        }
+        song.longClick();
+        UiObject e_more;
+        e_more = new UiObject(new UiSelector().className("android.widget.Button").instance(3));
+        e_more.click();
+        UiObject more_menu;
+        more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(3))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        /*debug("more_menu="+more_menu.getBounds());*/
+        int more_menu_child_count;
+        more_menu_child_count = more_menu.getChildCount();
+        UiObject m_fav = null;
+        UiObject m_send = null;
+        UiObject m_set_ring = null;
+        UiObject m_id3 = null;
+        for (int i = 0; i < more_menu_child_count;i++){
+            more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(3))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+            if (i==0) {
+                m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_fav="+m_fav.getBounds());*/
+            }
+            else if (i==1){
+                m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_send=" + m_send.getBounds());*/
+            }
+            else if (i==2){
+                m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+            }
+            else if (i==3){
+                m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_id3="+m_id3.getBounds());*/
+            }
+        }
+        /*喜欢*/
+        m_fav.click();
+        /*发送*/
+        song.longClick();
+        e_more.click();
+        m_send.click();
+        device.pressBack();
+        /*用作手机铃声*/
+        e_more.click();
+        m_set_ring.click();
+        /*修改歌曲信息*/
+        e_more.click();
+        m_id3.click();
+        device.pressBack();
+        device.pressBack();
+        killPlayer();
+        sleep(1000);
+    }
+
+    private void onlinedetailPage() throws IOException, UiObjectNotFoundException {
+        /*在线详情页*/
+        debug("onlinedetailPage");
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        gotoPage(ONLINE);
+
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
+        /*debug("list_view=" + list_view.getBounds());*/
+        UiObject recommend;
+        recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        /*debug("recommend="+recommend.getBounds());*/
+        recommend.clickAndWaitForNewWindow();
+        String wait;
+        wait = "Please wait 10 seconds to load online data.";
+        debug(wait);
+        sleep(10000);
+        UiObject to_search;
+        to_search = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        to_search.click();
+        sleep(1000);
+
+        UiObject edit_text;
+        edit_text = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
+        String search_string;
+        search_string = "";
+        String all_s = "0123456789abcdefghijklmnopqrstuvwxyz";
+        int length  = all_s.length();
+        char[] tmp = all_s.toCharArray();
+        for (int i = 0; i< 8;i++){
+            int rnd = (int) (Math.random()*length);
+            search_string = search_string + tmp[rnd];
+            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string);
+        }
+        edit_text.setText(search_string);
+        sleep(1000);
+        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+        wait = "Wait 10 seconds for the searhing result.";
+        debug(wait);
+        sleep(1000);
+
     }
 
 }

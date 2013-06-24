@@ -25,10 +25,24 @@ public class Test {
 
     }
 
+    private void random(){
+        String search_string;
+        search_string = "";
+        String all_s = "0123456789abcdefghijklmnopqrstuvwxyz";
+        int length  = all_s.length();
+        char[] tmp = all_s.toCharArray();
+        for (int i = 0; i< 8;i++){
+            int rnd = (int) (Math.random()*length);
+            search_string = search_string + tmp[rnd];
+            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string);
+        }
+    }
+
+
     public static void main(String args[]){
 
         Test test = new Test();
-        test.forTest();
+        test.random();
 
     }
 
