@@ -1513,11 +1513,13 @@ public class PlayerTest extends UiAutomatorTestCase{
         edit_text.setText(search_string);
         sleep(1000);
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+        sleep(500);
         wait = "Please wait 10 seconds for the searhing result.";
         debug(wait);
         sleep(10000);
         device.pressMenu();
+        sleep(1000);
+        device.pressBack();
         sleep(1000);
         device.pressBack();
         sleep(1000);
