@@ -1618,7 +1618,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject m_send = null;
         UiObject m_set_ring = null;
         UiObject m_id3 = null;
-        debug("more_menu_child_count="+more_menu_child_count);
+        /*debug("more_menu_child_count="+more_menu_child_count);*/
         for (int i = 0; i < more_menu_child_count;i++){
             more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
@@ -1630,12 +1630,12 @@ public class PlayerTest extends UiAutomatorTestCase{
                 }
                 else if (i==1){
                     m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    debug("m_send="+m_send.isEnabled());
+                    /*debug("m_send="+m_send.isEnabled());*/
                 /*debug("m_send=" + m_send.getBounds());*/
                 }
                 else if (i==2){
                     m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    debug("m_set_ring="+m_set_ring.isEnabled());
+                    /*debug("m_set_ring="+m_set_ring.isEnabled());*/
                 /*debug("m_set_ring="+m_set_ring.getBounds());*/
                 }
                 else if (i==3){
@@ -1650,16 +1650,16 @@ public class PlayerTest extends UiAutomatorTestCase{
                 }
                 else if (i==1){
                     m_down = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    debug("m_down="+m_down.isEnabled());
+                    /*debug("m_down="+m_down.isEnabled());*/
                 }
                 else if (i==2){
                     m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    debug("m_send="+m_send.isEnabled());
+                    /*debug("m_send="+m_send.isEnabled());*/
                 /*debug("m_send=" + m_send.getBounds());*/
                 }
                 else if (i==3){
                     m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    debug("m_set_ring="+m_set_ring.isEnabled());
+                    /*debug("m_set_ring="+m_set_ring.isEnabled());*/
                 /*debug("m_set_ring="+m_set_ring.getBounds());*/
                 }
                 else if (i==4){
@@ -1671,9 +1671,9 @@ public class PlayerTest extends UiAutomatorTestCase{
         /*喜欢*/
         m_fav.click();
         /*下载*/
-        debug("aaaaaaaaa");
+        /*debug("aaaaaaaaa");*/
         if (null != m_down){
-            debug("111111111");
+            /*debug("111111111");*/
             online_album_song.longClick();
             e_more.click();
             sleep(1000);
@@ -1686,26 +1686,26 @@ public class PlayerTest extends UiAutomatorTestCase{
         }
 
         /*发送*/
-        debug("bbbbbbbb");
+        online_album_song.longClick();
+        e_more.click();
         if (m_send.isEnabled()){
-            debug("222222");
-            online_album_song.longClick();
-            e_more.click();
+            /*debug("22222222222");*/
             m_send.click();
             sleep(1000);
             device.pressBack();
         }
 
         /*用作手机铃声*/
-        debug("ccccccccccc");
+        e_more.click();
         if (m_set_ring.isEnabled()){
-            debug("3333333333333");
-            e_more.click();
+            /*debug("3333333333333");*/
             m_set_ring.click();
             sleep(1000);
         }
+        else {
+            device.pressBack();
+        }
         /*修改歌曲信息*/
-        debug("dddddddddd");
         e_more.click();
         m_id3.click();
         sleep(1000);
@@ -1719,12 +1719,17 @@ public class PlayerTest extends UiAutomatorTestCase{
         m_down_all = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
         m_down_all.click();
         sleep(1000);
-        UiObject confirm_down;
-        confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        confirm_down.click();
-        wait = "Please wait 30 seconds for downloading all songs.";
-        debug(wait);
-        sleep(30000);
+        if (list_view_child_count > 2){
+            UiObject confirm_down;
+            confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm_down.click();
+            wait = "Please wait 30 seconds for downloading all songs.";
+            debug(wait);
+            sleep(30000);
+        }
+        else {
+            sleep(2000);
+        }
 
         for (int i=0;i < 3;i++) {
             online_album_song.longClick();
@@ -1766,16 +1771,51 @@ public class PlayerTest extends UiAutomatorTestCase{
         device.pressBack();
         sleep(1000);
 
+        /*更多*/
+        UiObject sc_view;
+        UiObject more_albums = null;
+        UiObject more_singers = null;
+        for (int i = 0;i<2;i++){
+            sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+            if (i==0){
+                more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                        .getChild(new UiSelector().className("android.widget.TextView").index(1));
+            }
+            else
+            {
+                more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+                        .getChild(new UiSelector().className("android.widget.TextView").index(1));
+            }
+        }
+
+
+        more_albums.clickAndWaitForNewWindow();
+        wait = "Please wait 10 seconds for the albums loading.";
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        sleep(2000);
+
+        more_singers.clickAndWaitForNewWindow();
+        wait = "Please wait 10 seconds for the singers loading.";
+        debug(wait);
+        sleep(10000);
+        device.pressBack();
+        sleep(2000);
+
         /*在线歌手*/
         swipePhone(TOP);
         sleep(1000);
         UiObject online_singers;
-        online_singers = new UiObject(new UiSelector().className("android.widget.GridView").index(0));
+        online_singers = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(3))
+                .getChild(new UiSelector().className("android.widget.GridView").index(0));
         int online_singers_child_count;
         online_singers_child_count = online_singers.getChildCount();
         rnd = randomIndex(online_singers_child_count);
         UiObject online_singer;
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        online_singer.clickAndWaitForNewWindow();
         wait = "Please wait 10 second for the singers detail loading.";
         debug(wait);
         sleep(10000);
@@ -1790,20 +1830,21 @@ public class PlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(online_singer_albums_child_count);
         UiObject online_singer_album;
         online_singer_album =  online_singer_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        online_singer_album.clickAndWaitForNewWindow();
         sleep(5000);
         device.pressBack();
         device.pressBack();
-        sleep(1000);
+        sleep(3000);
 
         /*热门推荐*/
-        swipePhone(RIGHT);
+        swipePhone(LEFT);
         sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         list_view_child_count = list_view.getChildCount();
         rnd = (int) (Math.random()*list_view_child_count);
         UiObject board;
         board = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        debug("board="+board.isClickable());
+        /*debug("board="+board.isClickable());*/
         board.click();
         wait = "Please wait seconds for the board loading.";
         debug(wait);
@@ -1811,19 +1852,17 @@ public class PlayerTest extends UiAutomatorTestCase{
         device.pressBack();
         sleep(1000);
         swipePhone(TOP);
-        sleep(1000);
-        device.pressBack();
-        sleep(1000);
+        sleep(3000);
 
         /*随心听*/
-        swipePhone(RIGHT);
+        swipePhone(LEFT);
         sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         list_view_child_count = list_view.getChildCount();
         rnd = (int) (Math.random()*list_view_child_count);
         UiObject fm;
         fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        debug("fm="+fm.isClickable());
+        /*debug("fm="+fm.isClickable());*/
         fm.click();
         wait = "Please wait 10 seconds for the fm loading.";
         debug(wait);
