@@ -224,6 +224,17 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     }
 
+    private void waitMsg(String wait,int timeout){
+        debug(wait);
+        int length;
+        length = timeout / 1000;
+        for (int i = 0; i < length;i++){
+            debug(""+(length-i));
+            sleep(1000);
+        }
+        sleep(timeout);
+    }
+
     private void homeTop() throws UiObjectNotFoundException, IOException {
         /*首页顶栏*/
         debug("homeTop");
@@ -1490,8 +1501,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         recommend.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 10 seconds to load online data.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait,10000);
         UiObject to_search;
         to_search = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
@@ -1515,8 +1525,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
         sleep(500);
         wait = "Please wait 10 seconds for the searhing result.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressMenu();
         sleep(1000);
         device.pressBack();
@@ -1534,8 +1543,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         online_album = online_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_album.click();
         wait = "Please wait 10 second for the album detail loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
 
         swipePhone(TOP);
         sleep(1000);
@@ -1546,8 +1554,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         play_all.clickAndWaitForNewWindow();
         wait = "Please wait 10 second for the online song loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressBack();
         sleep(1000);
         rnd = randomIndex(list_view_child_count);
@@ -1555,17 +1562,15 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject online_album_song;
         online_album_song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
         online_album_song.clickAndWaitForNewWindow();
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressBack();
         sleep(1000);
         UiObject download_online_album_song;
         download_online_album_song = online_album_song.getChild(new UiSelector().className("android.widget.ImageView").index(2));
         /*debug("download_online_album_song=("+download_online_album_song.getBounds().centerX()+","+download_online_album_song.getBounds().centerY()+")"+download_online_album_song.getBounds());*/
         download_online_album_song.click();
-        wait = "Please wait 20 seconds for the online song downloading.";
-        debug(wait);
-        sleep(20000);
+        wait = "Please wait 20 seconds for this online song downloading.";
+        waitMsg(wait, 20000);
 
         /*编辑模式*/
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -1724,8 +1729,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
             confirm_down.click();
             wait = "Please wait 30 seconds for downloading all songs.";
-            debug(wait);
-            sleep(30000);
+            waitMsg(wait, 30000);
         }
         else {
             sleep(2000);
@@ -1781,26 +1785,24 @@ public class PlayerTest extends UiAutomatorTestCase{
             if (i==0){
                 more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                         .getChild(new UiSelector().className("android.widget.TextView").index(1));
+                debug("more_albums"+more_albums.getBounds());
             }
             else
             {
                 more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
                         .getChild(new UiSelector().className("android.widget.TextView").index(1));
+                debug("more_singers="+more_singers.getBounds());
             }
         }
-
-
         more_albums.clickAndWaitForNewWindow();
         wait = "Please wait 10 seconds for the albums loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressBack();
         sleep(2000);
 
         more_singers.clickAndWaitForNewWindow();
         wait = "Please wait 10 seconds for the singers loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressBack();
         sleep(2000);
 
@@ -1817,8 +1819,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer.clickAndWaitForNewWindow();
         wait = "Please wait 10 second for the singers detail loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         swipePhone(LEFT);
         sleep(5000);
         swipePhone(TOP);
@@ -1846,9 +1847,8 @@ public class PlayerTest extends UiAutomatorTestCase{
         board = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("board="+board.isClickable());*/
         board.click();
-        wait = "Please wait seconds for the board loading.";
-        debug(wait);
-        sleep(10000);
+        wait = "Please wait 10 seconds for the board loading.";
+        waitMsg(wait, 10000);
         device.pressBack();
         sleep(1000);
         swipePhone(TOP);
@@ -1865,8 +1865,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         /*debug("fm="+fm.isClickable());*/
         fm.click();
         wait = "Please wait 10 seconds for the fm loading.";
-        debug(wait);
-        sleep(10000);
+        waitMsg(wait, 10000);
         device.pressBack();
         device.pressBack();
         sleep(1000);
