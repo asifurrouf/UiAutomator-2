@@ -233,7 +233,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         int length;
         length = timeout / 1000;
         for (int i = 0; i < length;i++){
-            debug(""+(length-i)+" ",0);
+            debug(""+(length-i),0);
             /*System.out.print(""+(length-i)+" ");*/
             sleep(1000);
         }
@@ -1868,6 +1868,8 @@ public class PlayerTest extends UiAutomatorTestCase{
         wait = "Please wait 10 seconds for the fm loading.";
         waitMsg(wait, 10000);
         device.pressBack();
+        swipePhone(TOP);
+        sleep(1000);
         device.pressBack();
         sleep(1000);
 
