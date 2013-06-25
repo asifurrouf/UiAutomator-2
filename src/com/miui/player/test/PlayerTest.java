@@ -58,12 +58,12 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     protected void setUp() throws Exception {
         /*setUp*/
-        debug("setUp");
+        debug("setUp",1);
         super.setUp();
         device = getUiDevice();
         width = device.getDisplayWidth();
         height = device.getDisplayHeight();
-        debug("width=" + width + " height=" + height);
+        debug("width=" + width + " height=" + height,1);
         wakePhone();
 
     }
@@ -75,7 +75,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     public void lockPhone() throws RemoteException {
         /*锁屏*/
-        debug("lockPhone");
+        debug("lockPhone",1);
         if (device.isScreenOn())
             device.sleep();
         sleep(2000);
@@ -84,14 +84,14 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     public void wakePhone() throws RemoteException {
         /*唤醒手机*/
-        debug("wakePhone");
+        debug("wakePhone",1);
         device.wakeUp();
         sleep(3000);
     }
 
     public void unlockPhone() throws RemoteException {
         /*解锁*/
-        debug("unlockPhone");
+        debug("unlockPhone",1);
         int phone_type = phoneType();
         int start_x = 0;
         int start_y = 0;
@@ -101,14 +101,14 @@ public class PlayerTest extends UiAutomatorTestCase{
         start_y = unlock_start_point[1][phone_type];
         end_x = unlock_end_point[0][phone_type];
         end_y = unlock_end_point[1][phone_type];
-        /*debug("swipe_point="+","+start_x+","+start_y+","+end_x+","+end_y);*/
+        /*debug("swipe_point="+","+start_x+","+start_y+","+end_x+","+end_y,1);*/
         device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         sleep(1000);
     }
 
     private int phoneType(){
         /*手机分辨率类型*/
-        debug("phoneType");
+        debug("phoneType",1);
         int phone_type = P_720;
         if (width == 720 && height == 1280) {
             phone_type =  P_720;
@@ -119,13 +119,13 @@ public class PlayerTest extends UiAutomatorTestCase{
         else if (width == 1080 && height == 1920){
             phone_type = P_1080;
         }
-        /*debug("phone_type="+phone_type);*/
+        /*debug("phone_type="+phone_type,1);*/
         return phone_type;
     }
 
     public void swipePhone(int type){
         /*滑动手机屏幕*/
-        debug("swipePhone+"+type);
+        debug("swipePhone+"+type,1);
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
@@ -162,14 +162,14 @@ public class PlayerTest extends UiAutomatorTestCase{
                 end_y = height / 2;
                 break;
         }
-        /*debug("point="+start_x+","+start_y+","+end_x+","+end_y);*/
+        /*debug("point="+start_x+","+start_y+","+end_x+","+end_y,1);*/
         device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
         sleep(1000);
     }
 
     public void killPlayer() throws IOException {
         /*杀掉播放器*/
-        debug("killPlayer");
+        debug("killPlayer",1);
         String kill = "am kill " + PLAYER_PAC_NAME;
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
@@ -179,33 +179,38 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     public void launchPlayer() throws IOException {
         /*打开播放器*/
-        debug("launchPlayer");
+        debug("launchPlayer",1);
         String launch = "am start -n com.miui.player/.ui.MusicBrowserActivity";
         Runtime.getRuntime().exec(launch);
         sleep(3000);
     }
 
-    public void debug(String debug_msg){
+
+
+    public void debug(String debug_msg,int wrap){
         /*打印信息*/
-        System.out.println("<"+debug_msg+">");
+        if (wrap == 1)
+            System.out.println("<"+debug_msg+">");
+        else
+            System.out.print(" <"+debug_msg+"> ");
     }
 
     public int randomIndex(int area){
         /*获取随机数*/
-        debug("randomIndex");
+        debug("randomIndex",1);
         int rnd;
         rnd = (int) (Math.random() * area);
         if (rnd==0) {
             return randomIndex(area);
         }
         else
-            debug("rnd="+rnd);
+            debug("rnd="+rnd,1);
             return rnd;
     }
 
     public void testPlayer() throws IOException, UiObjectNotFoundException, RemoteException {
         /*测试*/
-        debug("testPlayer");
+        debug("testPlayer",1);
 
         lockPhone();
         wakePhone();
@@ -224,19 +229,20 @@ public class PlayerTest extends UiAutomatorTestCase{
     }
 
     private void waitMsg(String wait,int timeout){
-        debug(wait);
+        debug(wait,1);
         int length;
         length = timeout / 1000;
         for (int i = 0; i < length;i++){
-            debug(""+(length-i));
+            debug(""+(length-i)+" ",0);
+            /*System.out.print(""+(length-i)+" ");*/
             sleep(1000);
         }
-        debug("Next.");
+        debug("Next.",1);
     }
 
     private void homeTop() throws UiObjectNotFoundException, IOException {
         /*首页顶栏*/
-        debug("homeTop");
+        debug("homeTop",1);
 
         killPlayer();
         launchPlayer();
@@ -246,7 +252,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject top_view;
         top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
                 .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
-        /*debug("top_view="+top_view.getBounds());*/
+        /*debug("top_view="+top_view.getBounds(),1);*/
         int top_view_child_count;
         top_view_child_count = top_view.getChildCount();
         UiObject play_pause = null;
@@ -256,11 +262,11 @@ public class PlayerTest extends UiAutomatorTestCase{
                     .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
             if (i==0){
                 title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0));
-                /*debug("title="+title.getBounds());*/
+                /*debug("title="+title.getBounds(),1);*/
             }
             else if (i==1){
                 play_pause = top_view.getChild(new UiSelector().className("android.widget.ImageView").index(2));
-                /*debug("play_pause="+play_pause.getBounds());*/
+                /*debug("play_pause="+play_pause.getBounds(),1);*/
             }
         }
         if (null != play_pause) {
@@ -334,7 +340,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void homePageMenu() throws IOException, UiObjectNotFoundException {
         /*首页Menu菜单*/
-        debug("homePageMenu");
+        debug("homePageMenu",1);
 
         killPlayer();
         launchPlayer();
@@ -354,7 +360,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             device.pressMenu();
             sleep(1000);
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            debug("menu_button"+menu_button.getBounds());
+            /*debug("menu_button"+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
             switch (j){
@@ -381,7 +387,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             device.pressMenu();
             sleep(1000);
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            debug("menu_button"+menu_button.getBounds());
+            /*debug("menu_button"+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
             switch (j){
@@ -407,7 +413,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             device.pressMenu();
             sleep(1000);
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            debug("menu_button"+menu_button.getBounds());
+            /*debug("menu_button"+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
             switch (j){
@@ -436,7 +442,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             device.pressMenu();
             sleep(1000);
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            debug("menu_button"+menu_button.getBounds());
+            /*debug("menu_button"+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
             switch (j){
@@ -451,7 +457,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void songPage() throws UiObjectNotFoundException, IOException {
         /*歌曲页*/
-        debug("songPage");
+        debug("songPage",1);
 
         killPlayer();
         launchPlayer();
@@ -459,7 +465,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
         for (int i = 0;i < 1;i++){
-            /*debug("swipe=" + i);*/
+            /*debug("swipe=" + i,1);*/
             swipePhone(TOP);
         }
         sleep(1000);
@@ -467,23 +473,23 @@ public class PlayerTest extends UiAutomatorTestCase{
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        /*debug("tmp=" + tmp.getBounds());*/
+        /*debug("tmp=" + tmp.getBounds(),1);*/
         UiObject play_all;
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        /*debug("play_all=" + play_all.getBounds());*/
+        /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
         sleep(1000);
         device.pressBack();
         sleep(1000);
         int list_count;
         list_count = list_view.getChildCount() -2;
-        /*debug("list_count=" + list_count);*/
+        /*debug("list_count=" + list_count,1);*/
         int rnd;
         rnd = randomIndex(list_count)+1;
-        /*debug("rnd=" + rnd);*/
+        /*debug("rnd=" + rnd,1);*/
         UiObject song;
         song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
-        /*debug("song="+song.getBounds());*/
+        /*debug("song="+song.getBounds(),1);*/
         sleep(1000);
         song.click();
         sleep(1000);
@@ -500,24 +506,24 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject select_all = null;
         int select_buttons_count;
         select_buttons_count = select_buttons.getChildCount();
-        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
         for (int i = 0; i<select_buttons_count;i++){
             select_buttons = new UiObject(new UiSelector().className("android.view.View").index(1))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-            //debug("i>>"+i+">"+select_buttons.getChild(new UiSelector().className(android.widget.TextView.class.getName()).index(i)).getBounds());
+            //debug("i>>"+i+">"+select_buttons.getChild(new UiSelector().className(android.widget.TextView.class.getName()).index(i)).getBounds(),1);
             if (i==0)
                 cancel = select_buttons.getChild(new UiSelector().index(i));
             else if (i==2)
                 select_all = select_buttons.getChild(new UiSelector().index(i));
         }
-        /*debug("select_all=" + select_all.getBounds());*/
+        /*debug("select_all=" + select_all.getBounds(),1);*/
         for (int i = 0;i<2;i++){
             if (null != select_all) {
                 select_all.click();
             }
             sleep(2000);
         }
-        /*debug("cancel=" + cancel.getBounds());*/
+        /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
@@ -557,7 +563,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("more_menu="+more_menu.getBounds());*/
+        /*debug("more_menu="+more_menu.getBounds(),1);*/
         int more_menu_child_count;
         more_menu_child_count = more_menu.getChildCount();
         UiObject m_fav = null;
@@ -570,19 +576,19 @@ public class PlayerTest extends UiAutomatorTestCase{
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
             if (i==0) {
                 m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_fav="+m_fav.getBounds());*/
+                /*debug("m_fav="+m_fav.getBounds(),1);*/
             }
             else if (i==1){
                 m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_send=" + m_send.getBounds());*/
+                /*debug("m_send=" + m_send.getBounds(),1);*/
             }
             else if (i==2){
                 m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
             }
             else if (i==3){
                 m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_id3="+m_id3.getBounds());*/
+                /*debug("m_id3="+m_id3.getBounds(),1);*/
             }
         }
         /*喜欢*/
@@ -607,7 +613,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void singerPage() throws IOException, UiObjectNotFoundException {
         /*歌手页*/
-        debug("singerPage");
+        debug("singerPage",1);
 
         killPlayer();
         launchPlayer();
@@ -618,13 +624,13 @@ public class PlayerTest extends UiAutomatorTestCase{
 
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-        /*debug("list_view=" + page.getBounds());*/
+        /*debug("list_view=" + page.getBounds(),1);*/
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         UiObject albums;
         albums = page.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug("albums=" + albums.getBounds());*/
+        /*debug("albums=" + albums.getBounds(),1);*/
         albums.click();
         sleep(1000);
         device.pressBack();
@@ -635,7 +641,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(list_count)+1;
         UiObject singer;
         singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        /*debug("singer="+singer.getBounds());*/
+        /*debug("singer="+singer.getBounds(),1);*/
         singer.click();
         sleep(1000);
         device.pressBack();
@@ -650,7 +656,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject select_all = null;
         int select_buttons_count;
         select_buttons_count = select_buttons.getChildCount();
-        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
         for (int i = 0; i<select_buttons_count;i++){
             select_buttons = new UiObject(new UiSelector().className("android.view.View").index(1))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
@@ -659,14 +665,14 @@ public class PlayerTest extends UiAutomatorTestCase{
             else if (i==2)
                 select_all = select_buttons.getChild(new UiSelector().index(i));
         }
-        /*debug("select_all=" + select_all.getBounds());*/
+        /*debug("select_all=" + select_all.getBounds(),1);*/
         for (int i = 0;i<2;i++){
             if (null != select_all) {
                 select_all.click();
             }
             sleep(2000);
         }
-        /*debug("cancel=" + cancel.getBounds());*/
+        /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
@@ -705,7 +711,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void listPage() throws IOException, UiObjectNotFoundException {
         /*列表页*/
-        debug("listPage");
+        debug("listPage",1);
 
         killPlayer();
         launchPlayer();
@@ -715,7 +721,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         gotoPage(LIST);
 
         UiObject list_view;
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
 
         UiObject folders;
         UiObject fav_list = null;
@@ -726,46 +732,46 @@ public class PlayerTest extends UiAutomatorTestCase{
 
         for (int i = 0; i < 6;i++){
             list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
-            /*debug("list_view=" + list_view.getBounds());*/
+            /*debug("list_view=" + list_view.getBounds(),1);*/
             switch (i){
                 case 0:
                     folders = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-                    /*debug("folders=" + folders.getBounds());*/
+                    /*debug("folders=" + folders.getBounds(),1);*/
                     folders.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 1:
                     fav_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-                    /*debug("fav_list=" + fav_list.getBounds());*/
+                    /*debug("fav_list=" + fav_list.getBounds(),1);*/
                     fav_list.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 2:
                     last_played_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-                    /*debug("last_played_list=" + last_played_list.getBounds());*/
+                    /*debug("last_played_list=" + last_played_list.getBounds(),1);*/
                     last_played_list.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 3:
                     last_added_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-                    /*debug("last_added_list=" + last_added_list.getBounds());*/
+                    /*debug("last_added_list=" + last_added_list.getBounds(),1);*/
                     last_added_list.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 4:
                     most_played_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-                    /*debug("most_played_list=" + most_played_list.getBounds());*/
+                    /*debug("most_played_list=" + most_played_list.getBounds(),1);*/
                     most_played_list.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 5:
                     new_list = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("new_list=" + new_list.getBounds());*/
+                    /*debug("new_list=" + new_list.getBounds(),1);*/
                     new_list.click();
                     sleep(1000);
                     UiObject new_list_name = new UiObject(new UiSelector().className("android.widget.EditText").index(0));
@@ -774,19 +780,19 @@ public class PlayerTest extends UiAutomatorTestCase{
                     new_list_name.setText("new list"+list_num);
                     sleep(2000);
                     UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-                    /*debug("confirm_button="+confirm_button.getBounds());*/
+                    /*debug("confirm_button="+confirm_button.getBounds(),1);*/
                     confirm_button.click();
                     sleep(1000);
                     UiObject select_all;
                     select_all = new UiObject(new UiSelector().className("android.view.View").index(0))
                             .getChild(new UiSelector().className("android.widget.Button").index(2));
-                    /*debug("select_all="+select_all.getBounds());*/
+                    /*debug("select_all="+select_all.getBounds(),1);*/
                     select_all.click();
                     sleep(1000);
                     UiObject finish_button;
                     finish_button = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(0))
                             .getChild(new UiSelector().className("android.widget.Button").index(0));
-                    /*debug("finish_button="+finish_button.getBounds());*/
+                    /*debug("finish_button="+finish_button.getBounds(),1);*/
                     finish_button.click();
                     sleep(1000);
                     break;
@@ -797,14 +803,14 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject the_create_list;
         the_create_list = new UiObject(new UiSelector().className("android.widget.ListView").index(2))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(5));
-        /*debug("the_create_list="+the_create_list.getBounds());*/
+        /*debug("the_create_list="+the_create_list.getBounds(),1);*/
         the_create_list.longClick();
         UiObject long_click_list;
         int long_click_list_child_count = 0;
         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject long_click_delete_button;
         long_click_delete_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("long_click_delete_button="+long_click_delete_button.getBounds());*/
+        /*debug("long_click_delete_button="+long_click_delete_button.getBounds(),1);*/
         long_click_delete_button.click();
         sleep(1000);
 
@@ -812,7 +818,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         for (int i = 0; i < 4 ;i++){
             switch (i){
                 case 0:
-                    debug("fav_list");
+                    /*debug("fav_list",1);*/
                     fav_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -823,7 +829,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                        /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()));*/
+                        /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
                         sleep(2000);
                         device.pressBack();
@@ -831,7 +837,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     }
                     break;
                 case 1:
-                    debug("last_played_list");
+                    /*debug("last_played_list",1);*/
                     last_played_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -842,7 +848,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                        debug(String.format("list_button(%d) %s", j, list_button.getBounds()));
+                        /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
                         sleep(2000);
                         if (j != 0)
@@ -853,7 +859,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     }
                     break;
                 case 2:
-                    debug("last_added_list");
+                    /*debug("last_added_list",1);*/
                     last_added_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -864,7 +870,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                        debug(String.format("list_button(%d) %s", j, list_button.getBounds()));
+                        /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
                         sleep(2000);
                         device.pressBack();
@@ -872,7 +878,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     }
                     break;
                 case 3:
-                    debug("most_played_list");
+                    /*debug("most_played_list",1);*/
                     most_played_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -883,7 +889,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                        debug(String.format("list_button(%d) %s", j, list_button.getBounds()));
+                        /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
                         sleep(2000);
                         device.pressBack();
@@ -897,7 +903,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void onlinePage() throws IOException, UiObjectNotFoundException {
         /*在线页*/
-        debug("onlinePage");
+        debug("onlinePage",1);
 
         killPlayer();
         launchPlayer();
@@ -908,7 +914,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         UiObject recommend;
@@ -919,21 +925,21 @@ public class PlayerTest extends UiAutomatorTestCase{
             switch (i){
                 case 0:
                     recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("recommend="+recommend.getBounds());*/
+                    /*debug("recommend="+recommend.getBounds(),1);*/
                     recommend.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 1:
                     top = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("top="+top.getBounds());*/
+                    /*debug("top="+top.getBounds(),1);*/
                     top.click();
                     sleep(1000);
                     device.pressBack();
                     break;
                 case 2:
                     fm = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("fm="+fm.getBounds());*/
+                    /*debug("fm="+fm.getBounds(),1);*/
                     fm.click();
                     sleep(1000);
                     device.pressBack();
@@ -946,7 +952,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void nowplayingPage() throws IOException, UiObjectNotFoundException {
         /*正在播放页*/
-        debug("nowplayingPage");
+        debug("nowplayingPage",1);
 
         killPlayer();
         launchPlayer();
@@ -984,10 +990,10 @@ public class PlayerTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.RelativeLayout").index(1));
-        /*debug("top="+top.getBounds());*/
+        /*debug("top="+top.getBounds(),1);*/
         UiObject fav;
         fav = top.getChild(new UiSelector().className("android.widget.ImageView").index(1));
-        /*debug("fav="+fav.getBounds());*/
+        /*debug("fav="+fav.getBounds(),1);*/
         fav.click();
         sleep(1000);
         fav.click();
@@ -1000,7 +1006,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject order;
         UiObject download;
         function_buttons_list = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("function_buttons_list"+function_buttons_list.getBounds());*/
+        /*debug("function_buttons_list"+function_buttons_list.getBounds(),1);*/
         int function_buttons_list_child_count;
         function_buttons_list_child_count = function_buttons_list.getChildCount();
         for (int i = 0; i < function_buttons_list_child_count ;i++){
@@ -1009,7 +1015,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                 switch (i){
                     case 0:
                         mi_button = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("mi_button="+mi_button.getBounds());*/
+                    /*debug("mi_button="+mi_button.getBounds(),1);*/
                         mi_button.click();
                         sleep(1000);
                         device.pressBack();
@@ -1017,14 +1023,14 @@ public class PlayerTest extends UiAutomatorTestCase{
                         break;
                     case 1:
                         equalizer = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("equalizer="+equalizer.getBounds());*/
+                    /*debug("equalizer="+equalizer.getBounds(),1);*/
                         equalizer.click();
                         sleep(1000);
                         device.pressBack();
                         break;
                     case 2:
                         order = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("order="+order.getBounds());*/
+                    /*debug("order="+order.getBounds(),1);*/
                         for (int j = 0; j < 2 ;j++){
                             order.click();
                             sleep(1000);
@@ -1032,7 +1038,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         break;
                     case 3:
                         download = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("download="+download.getBounds());*/
+                    /*debug("download="+download.getBounds(),1);*/
                         download.click();
                         sleep(1000);
                         break;
@@ -1042,14 +1048,14 @@ public class PlayerTest extends UiAutomatorTestCase{
                 switch (i){
                     case 0:
                         equalizer = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("equalizer="+equalizer.getBounds());*/
+                    /*debug("equalizer="+equalizer.getBounds(),1);*/
                         equalizer.click();
                         sleep(1000);
                         device.pressBack();
                         break;
                     case 1:
                         order = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("order="+order.getBounds());*/
+                    /*debug("order="+order.getBounds(),1);*/
                         for (int j = 0; j < 2 ;j++){
                             order.click();
                             sleep(1000);
@@ -1057,7 +1063,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                         break;
                     case 2:
                         download = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("download="+download.getBounds());*/
+                    /*debug("download="+download.getBounds(),1);*/
                         download.click();
                         sleep(1000);
                         break;
@@ -1083,13 +1089,13 @@ public class PlayerTest extends UiAutomatorTestCase{
             switch (i){
                 case 0:
                     prev = control_buttons.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("prev="+prev.getBounds());*/
+                    /*debug("prev="+prev.getBounds(),1);*/
                     prev.click();
                     sleep(1000);
                     break;
                 case 1:
                     play_pause = control_buttons.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("play_pause="+play_pause.getBounds());*/
+                    /*debug("play_pause="+play_pause.getBounds(),1);*/
                     for (int j = 0; j < 2;j++){
                         play_pause.click();
                         sleep(1000);
@@ -1097,7 +1103,7 @@ public class PlayerTest extends UiAutomatorTestCase{
                     break;
                 case 2:
                     next = control_buttons.getChild(new UiSelector().className("android.widget.ImageView").index(i));
-                    /*debug("next="+next.getBounds());*/
+                    /*debug("next="+next.getBounds(),1);*/
                     next.click();
                     sleep(1000);
                     break;
@@ -1105,7 +1111,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         }
         UiObject seek_bar;
         seek_bar = new UiObject(new UiSelector().className("android.widget.SeekBar").index(1));
-        /*debug("seek_bar="+seek_bar.getBounds());*/
+        /*debug("seek_bar="+seek_bar.getBounds(),1);*/
         seek_bar.click();
         sleep(5000);
         seek_bar.click();
@@ -1126,7 +1132,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             sleep(1000);
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
-            debug("menu_button="+menu_button.getBounds());
+            /*debug("menu_button="+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
             device.pressBack();
@@ -1138,7 +1144,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void albumsPage() throws IOException, UiObjectNotFoundException {
         /*专辑页*/
-        debug("albumsPage");
+        debug("albumsPage",1);
 
         killPlayer();
         launchPlayer();
@@ -1167,12 +1173,12 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject cancel = null;
         select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug("select_buttons="+select_buttons.getBounds());*/
+        /*debug("select_buttons="+select_buttons.getBounds(),1);*/
         UiObject select_all = null;
         int select_buttons_count;
         select_buttons_count = select_buttons.getChildCount();
-        /*debug("select_buttons_count="+select_buttons_count);*/
-        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
         for (int i = 0; i<select_buttons_count;i++){
             select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
@@ -1181,14 +1187,14 @@ public class PlayerTest extends UiAutomatorTestCase{
             else if (i==2)
                 select_all = select_buttons.getChild(new UiSelector().index(i));
         }
-        /*debug("select_all=" + select_all.getBounds());*/
+        /*debug("select_all=" + select_all.getBounds(),1);*/
         for (int i = 0;i<2;i++){
             if (null != select_all) {
                 select_all.click();
             }
             sleep(2000);
         }
-        /*debug("cancel=" + cancel.getBounds());*/
+        /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
@@ -1226,7 +1232,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void folderPage() throws IOException, UiObjectNotFoundException {
         /*文件夹页*/
-        debug("folderPage");
+        debug("folderPage",1);
 
         killPlayer();
         launchPlayer();
@@ -1256,12 +1262,12 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject cancel = null;
         select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug("select_buttons="+select_buttons.getBounds());*/
+        /*debug("select_buttons="+select_buttons.getBounds(),1);*/
         UiObject select_all = null;
         int select_buttons_count;
         select_buttons_count = select_buttons.getChildCount();
-        /*debug("select_buttons_count="+select_buttons_count);*/
-        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
         for (int i = 0; i<select_buttons_count;i++){
             select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
@@ -1270,14 +1276,14 @@ public class PlayerTest extends UiAutomatorTestCase{
             else if (i==2)
                 select_all = select_buttons.getChild(new UiSelector().index(i));
         }
-        /*debug("select_all=" + select_all.getBounds());*/
+        /*debug("select_all=" + select_all.getBounds(),1);*/
         for (int i = 0;i<2;i++){
             if (null != select_all) {
                 select_all.click();
             }
             sleep(2000);
         }
-        /*debug("cancel=" + cancel.getBounds());*/
+        /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
@@ -1315,7 +1321,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void listdetailPage() throws IOException, UiObjectNotFoundException {
         /*列表详情页*/
-        debug("listdetailPage");
+        debug("listdetailPage",1);
 
         killPlayer();
         launchPlayer();
@@ -1325,12 +1331,12 @@ public class PlayerTest extends UiAutomatorTestCase{
         gotoPage(LIST);
 
         UiObject list_view;
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         UiObject fav_list;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         fav_list = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("folders=" + folders.getBounds());*/
+        /*debug("folders=" + folders.getBounds(),1);*/
         fav_list.click();
         sleep(1000);
 
@@ -1353,7 +1359,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject cancel = null;
         select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        debug("select_buttons="+select_buttons.getBounds());
+        /*debug("select_buttons="+select_buttons.getBounds(),1);*/
         UiObject select_all;
         select_all = select_buttons.getChild(new UiSelector().index(2));
         select_all.click();
@@ -1361,7 +1367,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject confirm;
         confirm = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.Button").index(0));
-        debug("confirm="+confirm.getBounds());
+        /*debug("confirm="+confirm.getBounds(),1);*/
         confirm.click();
         sleep(1000);
 
@@ -1433,7 +1439,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(3))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("more_menu="+more_menu.getBounds());*/
+        /*debug("more_menu="+more_menu.getBounds(),1);*/
         int more_menu_child_count;
         more_menu_child_count = more_menu.getChildCount();
         UiObject m_fav = null;
@@ -1446,19 +1452,19 @@ public class PlayerTest extends UiAutomatorTestCase{
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
             if (i==0) {
                 m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_fav="+m_fav.getBounds());*/
+                /*debug("m_fav="+m_fav.getBounds(),1);*/
             }
             else if (i==1){
                 m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_send=" + m_send.getBounds());*/
+                /*debug("m_send=" + m_send.getBounds(),1);*/
             }
             else if (i==2){
                 m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
             }
             else if (i==3){
                 m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_id3="+m_id3.getBounds());*/
+                /*debug("m_id3="+m_id3.getBounds(),1);*/
             }
         }
         /*喜欢*/
@@ -1482,7 +1488,7 @@ public class PlayerTest extends UiAutomatorTestCase{
 
     private void onlinedetailPage() throws IOException, UiObjectNotFoundException {
         /*在线详情页*/
-        debug("onlinedetailPage");
+        debug("onlinedetailPage",1);
 
         killPlayer();
         launchPlayer();
@@ -1493,10 +1499,10 @@ public class PlayerTest extends UiAutomatorTestCase{
 
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
-        /*debug("list_view=" + list_view.getBounds());*/
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         UiObject recommend;
         recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        /*debug("recommend="+recommend.getBounds());*/
+        /*debug("recommend="+recommend.getBounds(),1);*/
         recommend.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 10 seconds to load online data.";
@@ -1517,7 +1523,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         for (int i = 0; i< 8;i++){
             int rnd = (int) (Math.random()*length);
             search_string = search_string + tmp[rnd];
-            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string);
+            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string,1);
         }*/
         edit_text.setText(search_string);
         sleep(1000);
@@ -1566,7 +1572,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject download_online_album_song;
         download_online_album_song = online_album_song.getChild(new UiSelector().className("android.widget.ImageView").index(2));
-        /*debug("download_online_album_song=("+download_online_album_song.getBounds().centerX()+","+download_online_album_song.getBounds().centerY()+")"+download_online_album_song.getBounds());*/
+        /*debug("download_online_album_song=("+download_online_album_song.getBounds().centerX()+","+download_online_album_song.getBounds().centerY()+")"+download_online_album_song.getBounds(),1);*/
         download_online_album_song.click();
         wait = "Please wait 20 seconds for this online song downloading.";
         waitMsg(wait, 20000);
@@ -1584,24 +1590,24 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject select_all = null;
         int select_buttons_count;
         select_buttons_count = select_buttons.getChildCount();
-        /*debug("select_buttons_count="+select_buttons_count);*/
+        /*debug("select_buttons_count="+select_buttons_count,1);*/
         for (int i = 0; i<select_buttons_count;i++){
             select_buttons = new UiObject(new UiSelector().className("android.view.View").index(1))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-            //debug("i>>"+i+">"+select_buttons.getChild(new UiSelector().className(android.widget.TextView.class.getName()).index(i)).getBounds());
+            //debug("i>>"+i+">"+select_buttons.getChild(new UiSelector().className(android.widget.TextView.class.getName()).index(i)).getBounds(),1);
             if (i==0)
                 cancel = select_buttons.getChild(new UiSelector().index(i));
             else if (i==2)
                 select_all = select_buttons.getChild(new UiSelector().index(i));
         }
-        /*debug("select_all=" + select_all.getBounds());*/
+        /*debug("select_all=" + select_all.getBounds(),1);*/
         for (int i = 0;i<2;i++){
             if (null != select_all) {
                 select_all.click();
             }
             sleep(2000);
         }
-        /*debug("cancel=" + cancel.getBounds());*/
+        /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
@@ -1614,7 +1620,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug("more_menu="+more_menu.getBounds());*/
+        /*debug("more_menu="+more_menu.getBounds(),1);*/
         int more_menu_child_count;
         more_menu_child_count = more_menu.getChildCount();
         UiObject m_fav = null;
@@ -1622,7 +1628,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject m_send = null;
         UiObject m_set_ring = null;
         UiObject m_id3 = null;
-        /*debug("more_menu_child_count="+more_menu_child_count);*/
+        /*debug("more_menu_child_count="+more_menu_child_count,1);*/
         for (int i = 0; i < more_menu_child_count;i++){
             more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
@@ -1630,54 +1636,52 @@ public class PlayerTest extends UiAutomatorTestCase{
             if (more_menu_child_count == 4){
                 if (i==0) {
                     m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_fav="+m_fav.getBounds());*/
+                /*debug("m_fav="+m_fav.getBounds(),1);*/
                 }
                 else if (i==1){
                     m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    /*debug("m_send="+m_send.isEnabled());*/
-                /*debug("m_send=" + m_send.getBounds());*/
+                    /*debug("m_send="+m_send.isEnabled(),1);*/
+                /*debug("m_send=" + m_send.getBounds(),1);*/
                 }
                 else if (i==2){
                     m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    /*debug("m_set_ring="+m_set_ring.isEnabled());*/
-                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                    /*debug("m_set_ring="+m_set_ring.isEnabled(),1);*/
+                /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
                 }
                 else if (i==3){
                     m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_id3="+m_id3.getBounds());*/
+                /*debug("m_id3="+m_id3.getBounds(),1);*/
                 }
             }
             else if (more_menu_child_count == 5){
                 if (i==0) {
                     m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_fav="+m_fav.getBounds());*/
+                /*debug("m_fav="+m_fav.getBounds(),1);*/
                 }
                 else if (i==1){
                     m_down = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    /*debug("m_down="+m_down.isEnabled());*/
+                    /*debug("m_down="+m_down.isEnabled(),1);*/
                 }
                 else if (i==2){
                     m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    /*debug("m_send="+m_send.isEnabled());*/
-                /*debug("m_send=" + m_send.getBounds());*/
+                    /*debug("m_send="+m_send.isEnabled(),1);*/
+                /*debug("m_send=" + m_send.getBounds(),1);*/
                 }
                 else if (i==3){
                     m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                    /*debug("m_set_ring="+m_set_ring.isEnabled());*/
-                /*debug("m_set_ring="+m_set_ring.getBounds());*/
+                    /*debug("m_set_ring="+m_set_ring.isEnabled(),1);*/
+                /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
                 }
                 else if (i==4){
                     m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
-                /*debug("m_id3="+m_id3.getBounds());*/
+                /*debug("m_id3="+m_id3.getBounds(),1);*/
                 }
             }
         }
         /*喜欢*/
         m_fav.click();
         /*下载*/
-        /*debug("aaaaaaaaa");*/
         if (null != m_down){
-            /*debug("111111111");*/
             online_album_song.longClick();
             e_more.click();
             sleep(1000);
@@ -1693,7 +1697,6 @@ public class PlayerTest extends UiAutomatorTestCase{
         online_album_song.longClick();
         e_more.click();
         if (m_send.isEnabled()){
-            /*debug("22222222222");*/
             m_send.click();
             sleep(1000);
             device.pressBack();
@@ -1702,7 +1705,6 @@ public class PlayerTest extends UiAutomatorTestCase{
         /*用作手机铃声*/
         e_more.click();
         if (m_set_ring.isEnabled()){
-            /*debug("3333333333333");*/
             m_set_ring.click();
             sleep(1000);
         }
@@ -1784,13 +1786,13 @@ public class PlayerTest extends UiAutomatorTestCase{
             if (i==0){
                 more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                         .getChild(new UiSelector().className("android.widget.TextView").index(1));
-                debug("more_albums"+more_albums.getBounds());
+                debug("more_albums"+more_albums.getBounds(),1);
             }
-            else
+            else if (i==1)
             {
-                more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+                more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").instance(2))
                         .getChild(new UiSelector().className("android.widget.TextView").index(1));
-                debug("more_singers="+more_singers.getBounds());
+                debug("more_singers="+more_singers.getBounds(),1);
             }
         }
         more_albums.clickAndWaitForNewWindow();
@@ -1844,7 +1846,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         rnd = (int) (Math.random()*list_view_child_count);
         UiObject board;
         board = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        /*debug("board="+board.isClickable());*/
+        /*debug("board="+board.isClickable(),1);*/
         board.click();
         wait = "Please wait 10 seconds for the board loading.";
         waitMsg(wait, 10000);
@@ -1861,7 +1863,7 @@ public class PlayerTest extends UiAutomatorTestCase{
         rnd = (int) (Math.random()*list_view_child_count);
         UiObject fm;
         fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        /*debug("fm="+fm.isClickable());*/
+        /*debug("fm="+fm.isClickable(),1);*/
         fm.click();
         wait = "Please wait 10 seconds for the fm loading.";
         waitMsg(wait, 10000);

@@ -5,7 +5,7 @@
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
-    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372140472909" ignored="false" />
+    <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372145220385" ignored="false" />
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372063275994" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
@@ -82,11 +82,11 @@
       <file leaf-file-name="PlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="27" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.44220182">
+            <state line="57" column="113" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.28440368">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1372140508025" expanded="true" signature="25255:28792" placeholder="{...}" />
-                <marker date="1372140508025" expanded="true" signature="35246:36265" placeholder="{...}" />
+                <marker date="1372145761124" expanded="true" signature="25538:29093" placeholder="{...}" />
+                <marker date="1372145761124" expanded="true" signature="35599:36624" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -553,11 +553,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="27" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.44220182">
+        <state line="57" column="113" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.28440368">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1372140508025" expanded="true" signature="25255:28792" placeholder="{...}" />
-            <marker date="1372140508025" expanded="true" signature="35246:36265" placeholder="{...}" />
+            <marker date="1372145761124" expanded="true" signature="25538:29093" placeholder="{...}" />
+            <marker date="1372145761124" expanded="true" signature="35599:36624" placeholder="{...}" />
           </folding>
         </state>
       </provider>
