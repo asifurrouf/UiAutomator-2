@@ -58,6 +58,19 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             {1180,1180,1180,},
     };
 
+
+    protected void setUp() throws Exception {
+        /*setUp*/
+        debug("setUp",1);
+        super.setUp();
+        device = getUiDevice();
+        width = device.getDisplayWidth();
+        height = device.getDisplayHeight();
+        debug("width=" + width + " height=" + height,1);
+        wakePhone();
+
+    }
+
     private void debug(String msg,int wrap){
         /*打印信息*/
         if (wrap==1){
@@ -175,7 +188,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     public void launchPlayer() throws IOException {
         /*打开播放器*/
         debug("launchPlayer",1);
-        String launch = "am start -n com.miui.player/.ui.MusicBrowserActivity";
+        String launch = "am start -n com.miui.video/.HomeActivity";
         Runtime.getRuntime().exec(launch);
         sleep(3000);
     }
@@ -193,7 +206,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         return rnd;
     }
 
-    public void testOnlineVideo() throws RemoteException {
+    public void testOnlineVideo() throws RemoteException, IOException, UiObjectNotFoundException {
         /*测试*/
         debug("testOnlineVideo",1);
 
@@ -201,7 +214,40 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
+        topBanner();
 
+    }
+
+    private void topBanner() throws IOException, UiObjectNotFoundException {
+        /*首页顶栏banner*/
+        debug("topBanner",1);
+
+        killPlayer();
+        launchPlayer();
+
+        UiObject banner;
+        banner = new UiObject(new UiSelector().className("android.widget.ListView").index(0))
+                .getChild(new UiSelector().className("android.view.View").index(0));
+        int start_x;
+        int end_x;
+        int start_y;
+        int end_y;
+        start_x = width / 4;
+        end_x = width *3 / 4;
+        start_y = banner.getBounds().centerY();
+        end_y = start_y;
+        for (int i = 0; i < 2 ; i++){
+            if (i==0){
+                for (int j = 0;j<3;j++){
+                    device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
+                }
+            }
+            if (i==1){
+                for (int j = 0;j<3;j++){
+                    device.swipe(end_x,end_y,start_x,start_y,SWIPE_STEPS);
+                }
+            }
+        }
     }
 
     private void tvPage() throws IOException {
@@ -210,6 +256,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         killPlayer();
         launchPlayer();
+
 
     }
 
