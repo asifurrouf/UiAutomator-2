@@ -19,7 +19,7 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import java.io.IOException;
 
 
-public class PlayerTest extends UiAutomatorTestCase{
+public class MusicPlayerTest extends UiAutomatorTestCase{
 
     protected UiDevice device = null;
 
@@ -1780,21 +1780,18 @@ public class PlayerTest extends UiAutomatorTestCase{
         UiObject sc_view;
         UiObject more_albums = null;
         UiObject more_singers = null;
-        for (int i = 0;i<2;i++){
-            sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
-                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-            if (i==0){
-                more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
-                        .getChild(new UiSelector().className("android.widget.TextView").index(1));
-                debug("more_albums"+more_albums.getBounds(),1);
-            }
-            else if (i==1)
-            {
-                more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").instance(2))
-                        .getChild(new UiSelector().className("android.widget.TextView").index(1));
-                debug("more_singers="+more_singers.getBounds(),1);
-            }
-        }
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        debug("more_albums"+more_albums.getBounds(),1);
+
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").instance(2))
+        .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        debug("more_singers="+more_singers.getBounds(),1);
+
         more_albums.clickAndWaitForNewWindow();
         wait = "Please wait 10 seconds for the albums loading.";
         waitMsg(wait, 10000);
