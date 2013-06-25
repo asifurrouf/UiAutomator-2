@@ -13,8 +13,8 @@
 	android create uitest-project -n uiautomator -t 13 -p E:\eclipse\workspace\uiautomator
 
 3.push the jar file into the phone 
-adb push uiautomator.jar /data/local/tmp/
+adb push bin/uiautomator.jar /data/local/tmp/
 
 4.run command
-adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.PlayerTest 
+adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.MusicPlayerTest
 
