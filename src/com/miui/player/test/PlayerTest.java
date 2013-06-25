@@ -221,7 +221,6 @@ public class PlayerTest extends UiAutomatorTestCase{
         //folderPage();
         //listdetailPage();
         onlinedetailPage();
-
     }
 
     private void waitMsg(String wait,int timeout){
@@ -232,7 +231,7 @@ public class PlayerTest extends UiAutomatorTestCase{
             debug(""+(length-i));
             sleep(1000);
         }
-        sleep(timeout);
+        debug("Next.");
     }
 
     private void homeTop() throws UiObjectNotFoundException, IOException {
