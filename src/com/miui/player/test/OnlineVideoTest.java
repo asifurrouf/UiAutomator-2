@@ -169,7 +169,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(2000);
+        sleep(3000);
     }
 
     public void launchPlayer() throws IOException {
@@ -193,4 +193,68 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         return rnd;
     }
 
+    public void testOnlineVideo() throws RemoteException {
+        /*测试*/
+        debug("testOnlineVideo",1);
+
+        lockPhone();
+        wakePhone();
+        unlockPhone();
+
+
+    }
+
+    private void tvPage() throws IOException {
+        /*电视剧*/
+        debug("tvPage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
+
+    private void moviePage() throws IOException {
+        /*电影*/
+        debug("moviePage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
+
+    private void showPage() throws IOException {
+        /*综艺*/
+        debug("showPage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
+
+    private void comicPage() throws IOException {
+        /*动漫*/
+        debug("comicPage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
+
+    private void documentPage() throws IOException {
+        /*纪录片*/
+        debug("documentPage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
+
+    private void topicPage() throws IOException {
+        /*专题*/
+        debug("topicPage",1);
+
+        killPlayer();
+        launchPlayer();
+
+    }
 }

@@ -174,7 +174,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(2000);
+        sleep(3000);
     }
 
     public void launchPlayer() throws IOException {
@@ -1497,6 +1497,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         gotoPage(ONLINE);
 
+        String wait;
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
         /*debug("list_view=" + list_view.getBounds(),1);*/
@@ -1504,15 +1505,41 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("recommend="+recommend.getBounds(),1);*/
         recommend.clickAndWaitForNewWindow();
-        String wait;
         wait = "Please wait 10 seconds to load online data.";
         waitMsg(wait,10000);
+
+        /*更多*/
+        UiObject sc_view;
+        UiObject more_albums = null;
+        UiObject more_singers = null;
+
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        debug("sc_view="+sc_view.getBounds(),1);
+        more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        debug("more_albums"+more_albums.getBounds(),1);
+
+        more_albums.clickAndWaitForNewWindow();
+        wait = "Please wait 10 seconds for the albums loading.";
+        waitMsg(wait, 10000);
+        device.pressBack();
+        sleep(2000);
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
+        debug("more_singers="+more_singers.getBounds(),1);
+        more_singers.clickAndWaitForNewWindow();
+        wait = "Please wait 10 seconds for the singers loading.";
+        waitMsg(wait, 10000);
+        device.pressBack();
+        sleep(2000);
+
         UiObject to_search;
         to_search = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         to_search.click();
         sleep(1000);
-
         UiObject edit_text;
         edit_text = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
         String search_string;
@@ -1775,34 +1802,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         device.pressBack();
         sleep(1000);
-
-        /*更多*/
-        UiObject sc_view;
-        UiObject more_albums = null;
-        UiObject more_singers = null;
-        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
-                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
-                .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        debug("more_albums"+more_albums.getBounds(),1);
-
-        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
-                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").instance(2))
-        .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        debug("more_singers="+more_singers.getBounds(),1);
-
-        more_albums.clickAndWaitForNewWindow();
-        wait = "Please wait 10 seconds for the albums loading.";
-        waitMsg(wait, 10000);
-        device.pressBack();
-        sleep(2000);
-
-        more_singers.clickAndWaitForNewWindow();
-        wait = "Please wait 10 seconds for the singers loading.";
-        waitMsg(wait, 10000);
-        device.pressBack();
-        sleep(2000);
 
         /*在线歌手*/
         swipePhone(TOP);
