@@ -9,6 +9,7 @@
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372063275994" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
+    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372147165538" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +80,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1845" column="147" selection-start="75177" selection-end="75177" vertical-scroll-proportion="0.64220184">
+            <state line="56" column="8" selection-start="658" selection-end="1826" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1372146586219" expanded="true" signature="25539:29094" placeholder="{...}" />
@@ -92,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="39" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+            <state line="29" column="65" selection-start="872" selection-end="872" vertical-scroll-proportion="0.33333334">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,7 +107,7 @@
       <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="480" selection-end="899" vertical-scroll-proportion="0.0">
+            <state line="24" column="26" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -558,27 +559,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="480" selection-end="899" vertical-scroll-proportion="0.0">
+        <state line="24" column="26" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="39" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1845" column="147" selection-start="75177" selection-end="75177" vertical-scroll-proportion="0.64220184">
+        <state line="56" column="8" selection-start="658" selection-end="1826" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1372146586219" expanded="true" signature="25539:29094" placeholder="{...}" />
             <marker date="1372146586219" expanded="true" signature="35600:36625" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="65" selection-start="872" selection-end="872" vertical-scroll-proportion="0.33333334">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
