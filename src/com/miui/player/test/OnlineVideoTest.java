@@ -232,22 +232,20 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         int end_x;
         int start_y;
         int end_y;
-        start_x = width / 4;
-        end_x = width *3 / 4;
+        start_x = width*3 / 4;
+        end_x = width / 4;
         start_y = banner.getBounds().centerY();
         end_y = start_y;
-        for (int i = 0; i < 2 ; i++){
-            if (i==0){
-                for (int j = 0;j<3;j++){
-                    device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
-                }
-            }
-            if (i==1){
-                for (int j = 0;j<3;j++){
-                    device.swipe(end_x,end_y,start_x,start_y,SWIPE_STEPS);
-                }
-            }
+        for (int j = 0;j<4;j++){
+            debug("j="+j,0);
+            banner.clickAndWaitForNewWindow();
+            sleep(1000);
+            device.pressBack();
+            sleep(1000);
+            device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
+            sleep(1000);
         }
+        killPlayer();
     }
 
     private void tvPage() throws IOException {
