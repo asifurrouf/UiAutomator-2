@@ -1,5 +1,4 @@
 package com.miui.player.test;
-
 /**
  * Created with IntelliJ IDEA.
  * User: jiahuixing
@@ -7,6 +6,11 @@ package com.miui.player.test;
  * Time: 下午7:45
  * To change this template use File | Settings | File Templates.
  */
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Test {
 
     private void forTest(){
@@ -23,6 +27,16 @@ public class Test {
 
         System.out.println(msg);
 
+    }
+
+    private void dateTest(){
+
+
+        Date date=new Date();
+        String fmt = "yyyy-MM-dd-HH-mm-ss";
+        SimpleDateFormat s = new SimpleDateFormat(fmt);
+        String ss = s.format(date);
+        debug(ss);
     }
 
     private void random(){
@@ -42,7 +56,7 @@ public class Test {
     public static void main(String args[]){
 
         Test test = new Test();
-        test.random();
+        test.dateTest();
 
     }
 

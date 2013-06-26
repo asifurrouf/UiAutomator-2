@@ -6,11 +6,11 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371727747340" ignored="false" />
     <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372155582274" ignored="false" />
-    <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372063275994" ignored="false" />
+    <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372229859379" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
     <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372164561928" ignored="false" />
-    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372226616971" ignored="false" />
+    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372230400751" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +84,11 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="439" column="32" selection-start="14789" selection-end="14789" vertical-scroll-proportion="0.84587157">
+            <state line="234" column="8" selection-start="6760" selection-end="6760" vertical-scroll-proportion="0.5798165">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1372226647419" expanded="true" signature="26113:29668" placeholder="{...}" />
-                <marker date="1372226647419" expanded="true" signature="36174:37199" placeholder="{...}" />
+                <marker date="1372231094109" expanded="true" signature="26487:30042" placeholder="{...}" />
+                <marker date="1372231094109" expanded="true" signature="36548:37573" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -97,10 +97,8 @@
       <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="50" selection-start="7185" selection-end="7185" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="19" column="26" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,8 +106,10 @@
       <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="26" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="34" column="0" selection-start="570" selection-end="735" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,9 +136,9 @@
         <option value="$PROJECT_DIR$/src/com/miui/player/test/asdad.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/com/miui/player/test/Test.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
+        <option value="$PROJECT_DIR$/src/com/miui/player/test/Test.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java" />
       </list>
     </option>
@@ -399,13 +399,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-7" width="1617" height="1058" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.6526082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13674122" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15782748" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -413,7 +413,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -566,16 +566,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="26" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
+        <state line="19" column="26" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="50" selection-start="7185" selection-end="7185" vertical-scroll-proportion="0.0">
+        <state line="34" column="0" selection-start="570" selection-end="735" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -584,11 +584,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="439" column="32" selection-start="14789" selection-end="14789" vertical-scroll-proportion="0.84587157">
+        <state line="234" column="8" selection-start="6760" selection-end="6760" vertical-scroll-proportion="0.5798165">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1372226647419" expanded="true" signature="26113:29668" placeholder="{...}" />
-            <marker date="1372226647419" expanded="true" signature="36174:37199" placeholder="{...}" />
+            <marker date="1372231094109" expanded="true" signature="26487:30042" placeholder="{...}" />
+            <marker date="1372231094109" expanded="true" signature="36548:37573" placeholder="{...}" />
           </folding>
         </state>
       </provider>

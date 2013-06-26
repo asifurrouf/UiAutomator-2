@@ -16,7 +16,10 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.io.IOException;
+import java.util.Date;
 
 
 public class MusicPlayerTest extends UiAutomatorTestCase{
@@ -227,6 +230,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         folderPage();
         listdetailPage();
         onlinedetailPage();
+        getBugreport();
 
         lockPhone();
     }
@@ -397,7 +401,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             menu_list_child_count = menu_list.getChildCount();
             for (int j = 0; j < menu_list_child_count;j++){
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                if (j==1|j==2){
+                if (j==1){
+                    menu_button.click();
+                    sleep(1000);
+                    device.pressBack();
+                    sleep(1000);
+                }
+                else if (j==2){
+                    device.pressMenu();
+                    sleep(1000);
                     menu_button.click();
                     sleep(1000);
                 }
@@ -1077,13 +1089,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject play_pause;
         UiObject next;
         control_buttons = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(0))
-                .getChild(new UiSelector().className("android.widget.LinearLayout").index(6))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(7))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
         int control_buttons_child_count;
         control_buttons_child_count = control_buttons.getChildCount();
         for (int i = 0; i<control_buttons_child_count;i++){
             control_buttons = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(0))
-                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(6))
+                    .getChild(new UiSelector().className("android.widget.LinearLayout").index(7))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
             switch (i){
                 case 0:
@@ -1876,6 +1888,22 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
 
         killPlayer();
+    }
+
+    private void getBugreport() throws IOException {
+        /*抓log*/
+        String log_name;
+        Date date=new Date();
+        String fmt = "yyyy-MM-dd-HH-mm-ss";
+        SimpleDateFormat s = new SimpleDateFormat(fmt);
+        log_name = s.format(date);
+        log_name += ".txt";
+        debug("getBugreport="+log_name,1);
+        String bugreport;
+        bugreport = "bugreport > " + log_name;
+        Runtime rc;
+        rc = Runtime.getRuntime();
+        rc.exec(bugreport);
     }
 
 }
