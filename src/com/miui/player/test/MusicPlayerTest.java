@@ -249,7 +249,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void homeTop() throws UiObjectNotFoundException, IOException {
         /*首页顶栏*/
-        debug("homeTop",1);
+        debug("--------homeTop--------",1);
 
         killPlayer();
         launchPlayer();
@@ -462,7 +462,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void songPage() throws UiObjectNotFoundException, IOException {
         /*歌曲页*/
-        debug("songPage",1);
+        debug("--------songPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -622,7 +622,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void singerPage() throws IOException, UiObjectNotFoundException {
         /*歌手页*/
-        debug("singerPage",1);
+        debug("--------singerPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -722,7 +722,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void listPage() throws IOException, UiObjectNotFoundException {
         /*列表页*/
-        debug("listPage",1);
+        debug("--------listPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -915,7 +915,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void onlinePage() throws IOException, UiObjectNotFoundException {
         /*在线页*/
-        debug("onlinePage",1);
+        debug("--------onlinePage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -964,7 +964,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void nowplayingPage() throws IOException, UiObjectNotFoundException {
         /*正在播放页*/
-        debug("nowplayingPage",1);
+        debug("--------nowplayingPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1156,7 +1156,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void albumsPage() throws IOException, UiObjectNotFoundException {
         /*专辑页*/
-        debug("albumsPage",1);
+        debug("--------albumsPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1246,7 +1246,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void folderPage() throws IOException, UiObjectNotFoundException {
         /*文件夹页*/
-        debug("folderPage",1);
+        debug("--------folderPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1337,7 +1337,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void listdetailPage() throws IOException, UiObjectNotFoundException {
         /*列表详情页*/
-        debug("listdetailPage",1);
+        debug("--------listdetailPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1539,7 +1539,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void onlinedetailPage() throws IOException, UiObjectNotFoundException {
         /*在线详情页*/
-        debug("onlinedetailPage",1);
+        debug("--------onlinedetailPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1934,7 +1934,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         SimpleDateFormat s = new SimpleDateFormat(fmt);
         log_name = s.format(date);
         log_name += ".txt";
-        debug("getBugreport="+log_name,1);
+        debug("--------getBugreport="+log_name+"--------",1);
         String bugreport;
         bugreport = "bugreport > " + log_name;
         Runtime rc;
