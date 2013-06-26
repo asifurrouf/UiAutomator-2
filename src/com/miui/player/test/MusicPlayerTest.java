@@ -217,16 +217,18 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
-        //songPage();
-        //homeTop();
-        //singerPage();
-        //listPage();
-        //onlinePage();
-        //nowplayingPage();
-        //albumsPage();
-        //folderPage();
-        //listdetailPage();
+        homeTop();
+        songPage();
+        singerPage();
+        listPage();
+        onlinePage();
+        nowplayingPage();
+        albumsPage();
+        folderPage();
+        listdetailPage();
         onlinedetailPage();
+
+        lockPhone();
     }
 
     private void waitMsg(String wait,int timeout){
@@ -351,62 +353,46 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         if (page == SONG){
             /*歌曲页Menu*/
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-            menu_list_child_count = menu_list.getChildCount();
+            /*menu_list_child_count = menu_list.getChildCount();*/
             device.pressBack();
             sleep(1000);
-            for (int j = 0; j < menu_list_child_count;j++){
+            for (int j = 0; j < 1;j++){
                 device.pressMenu();
                 sleep(1000);
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                 /*debug("menu_button"+menu_button.getBounds(),1);*/
                 menu_button.click();
                 sleep(1000);
-                switch (j){
-                    case 0:
-                        break;
-                    case 1:
-                        device.pressBack();
-                        sleep(1000);
-                        break;
-                }
             }
         }
         else if (page == SINGER){
             /*歌手页Menu*/
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-            menu_list_child_count = menu_list.getChildCount();
+            /*menu_list_child_count = menu_list.getChildCount();*/
             device.pressBack();
             sleep(1000);
-            for (int j = 0; j < menu_list_child_count;j++){
+            for (int j = 0; j < 1;j++){
                 device.pressMenu();
                 sleep(1000);
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                 /*debug("menu_button"+menu_button.getBounds(),1);*/
                 menu_button.click();
                 sleep(1000);
-                switch (j){
-                    case 0:
-                        break;
-                }
             }
         }
         else if (page == ALBUMS){
             /*专辑页Menu*/
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-            menu_list_child_count = menu_list.getChildCount();
+            /*menu_list_child_count = menu_list.getChildCount();*/
             device.pressBack();
             sleep(1000);
-            for (int j = 0; j < menu_list_child_count;j++){
+            for (int j = 0; j < 1;j++){
                 device.pressMenu();
                 sleep(1000);
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                 /*debug("menu_button"+menu_button.getBounds(),1);*/
                 menu_button.click();
                 sleep(1000);
-                switch (j){
-                    case 0:
-                        break;
-                }
             }
         }
         else if (page == COMMON){
@@ -426,11 +412,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 }
                 else if (j==3){
                     menu_button.click();
-                    sleep(1000);
-                    String search = "1";
-                    UiObject search_txt;
-                    search_txt = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
-                    search_txt.setText(search);
+                    sleep(2000);
+                    String text = "12";
+                    UiObject search;
+                    search = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
+/*                    debug("search="+search.getBounds(),1);*/
+                    search.setText(text);
                     sleep(1000);
                     device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
                     sleep(3000);
