@@ -788,7 +788,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     UiObject new_list_name = new UiObject(new UiSelector().className("android.widget.EditText").index(0));
                     int list_num;
                     list_num = randomIndex(99999);
-                    new_list.clearTextField();
+                    new_list_name.clearTextField();
                     new_list_name.setText("new list"+list_num);
                     sleep(2000);
                     UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
@@ -1028,10 +1028,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     case 0:
                         mi_button = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
                     /*debug("mi_button="+mi_button.getBounds(),1);*/
-                        mi_button.click();
-                        sleep(1000);
-                        device.pressBack();
-                        sleep(1000);
+                        if (mi_button.isEnabled()){
+                            mi_button.click();
+                            sleep(1000);
+                            device.pressBack();
+                            sleep(1000);
+                        }
                         break;
                     case 1:
                         equalizer = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
@@ -1051,8 +1053,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     case 3:
                         download = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
                     /*debug("download="+download.getBounds(),1);*/
-                        download.click();
-                        sleep(1000);
+                        if (download.isEnabled()){
+                            download.click();
+                            sleep(1000);
+                        }
                         break;
                 }
             }
@@ -1076,8 +1080,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     case 2:
                         download = function_buttons_list.getChild(new UiSelector().className("android.widget.ImageView").index(i));
                     /*debug("download="+download.getBounds(),1);*/
-                        download.click();
-                        sleep(1000);
+                        if (download.isEnabled()){
+                            download.click();
+                            sleep(1000);
+                        }
                         break;
                 }
             }
