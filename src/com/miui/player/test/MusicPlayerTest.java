@@ -348,16 +348,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject menu_list;
         int menu_list_child_count;
         UiObject menu_button;
-        device.pressMenu();
-        sleep(1000);
         if (page == SONG){
             /*歌曲页Menu*/
+            device.pressMenu();
+            sleep(1000);
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             /*menu_list_child_count = menu_list.getChildCount();*/
-            device.pressBack();
             sleep(1000);
             for (int j = 0; j < 1;j++){
-                device.pressMenu();
                 sleep(1000);
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                 /*debug("menu_button"+menu_button.getBounds(),1);*/
@@ -369,8 +367,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             /*歌手页Menu*/
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             /*menu_list_child_count = menu_list.getChildCount();*/
-            device.pressBack();
-            sleep(1000);
             for (int j = 0; j < 1;j++){
                 device.pressMenu();
                 sleep(1000);
@@ -384,7 +380,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             /*专辑页Menu*/
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             /*menu_list_child_count = menu_list.getChildCount();*/
-            device.pressBack();
             sleep(1000);
             for (int j = 0; j < 1;j++){
                 device.pressMenu();
@@ -396,21 +391,19 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             }
         }
         else if (page == COMMON){
+            device.pressMenu();
+            sleep(1000);
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             menu_list_child_count = menu_list.getChildCount();
-            device.pressBack();
-            sleep(1000);
             for (int j = 0; j < menu_list_child_count;j++){
-                device.pressMenu();
-                sleep(1000);
                 menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                if (j==1){
+                if (j==1|j==2){
                     menu_button.click();
-                    sleep(1000);
-                    device.pressBack();
                     sleep(1000);
                 }
                 else if (j==3){
+                    device.pressMenu();
+                    sleep(1000);
                     menu_button.click();
                     sleep(2000);
                     String text = "12";
@@ -424,6 +417,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     device.pressBack();
                 }
                 else if (j==4){
+                    device.pressMenu();
+                    sleep(1000);
                     menu_button.click();
                     sleep(1000);
                     UiObject seek_bar;
@@ -441,6 +436,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                 }
                 else if (j==5){
+                    device.pressMenu();
+                    sleep(1000);
                     menu_button.click();
                     sleep(1000);
                     sleep(2000);
