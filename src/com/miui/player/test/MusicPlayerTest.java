@@ -611,7 +611,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         e_more.click();
         m_set_ring.click();
         /*修改歌曲信息*/
-        song.longClick();
+        /*song.longClick();*/
         e_more.click();
         m_id3.click();
         device.pressBack();
@@ -788,6 +788,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     UiObject new_list_name = new UiObject(new UiSelector().className("android.widget.EditText").index(0));
                     int list_num;
                     list_num = randomIndex(99999);
+                    new_list.clearTextField();
                     new_list_name.setText("new list"+list_num);
                     sleep(2000);
                     UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
@@ -1458,6 +1459,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int more_menu_child_count;
         more_menu_child_count = more_menu.getChildCount();
         UiObject m_fav = null;
+        UiObject m_down = null;
         UiObject m_send = null;
         UiObject m_set_ring = null;
         UiObject m_id3 = null;
@@ -1465,26 +1467,60 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             more_menu = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(3))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                     .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-            if (i==0) {
-                m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+
+            if (more_menu_child_count>4){
+                if (i==0) {
+                    m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_fav="+m_fav.getBounds(),1);*/
-            }
-            else if (i==1){
-                m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                }
+                if (i==1){
+                    m_down = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                    /*debug("m_down="+m_down.getBounds(),1);*/
+                }
+                else if (i==2){
+                    m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_send=" + m_send.getBounds(),1);*/
-            }
-            else if (i==2){
-                m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                }
+                else if (i==3){
+                    m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
-            }
-            else if (i==3){
-                m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                }
+                else if (i==4){
+                    m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
                 /*debug("m_id3="+m_id3.getBounds(),1);*/
+                }
             }
+            else if (more_menu_child_count == 4){
+                if (i==0) {
+                    m_fav = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_fav="+m_fav.getBounds(),1);*/
+                }
+                else if (i==1){
+                    m_send = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_send=" + m_send.getBounds(),1);*/
+                }
+                else if (i==2){
+                    m_set_ring = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_set_ring="+m_set_ring.getBounds(),1);*/
+                }
+                else if (i==3){
+                    m_id3 = more_menu.getChild(new UiSelector().className("android.widget.TextView").index(i));
+                /*debug("m_id3="+m_id3.getBounds(),1);*/
+                }
+            }
+
         }
         /*喜欢*/
         m_fav.click();
         /*发送*/
+        song.longClick();
+        e_more.click();
+        if (m_down!=null){
+            m_down.click();
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+            sleep(1000);
+        }
         song.longClick();
         e_more.click();
         m_send.click();
