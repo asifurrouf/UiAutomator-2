@@ -10,7 +10,7 @@
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
     <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372164561928" ignored="false" />
-    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372216733509" ignored="false" />
+    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372221657305" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +84,11 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1532" column="90" selection-start="61112" selection-end="61112" vertical-scroll-proportion="0.6954128">
+            <state line="411" column="31" selection-start="13249" selection-end="13249" vertical-scroll-proportion="0.5647969">
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1372218247216" expanded="true" signature="25539:29094" placeholder="{...}" />
-                <marker date="1372218247216" expanded="true" signature="35600:36625" placeholder="{...}" />
+                <marker date="1372221675857" expanded="true" signature="26548:30103" placeholder="{...}" />
+                <marker date="1372221675857" expanded="true" signature="36609:37634" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -584,11 +584,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1532" column="90" selection-start="61112" selection-end="61112" vertical-scroll-proportion="0.6954128">
+        <state line="411" column="31" selection-start="13249" selection-end="13249" vertical-scroll-proportion="0.5647969">
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1372218247216" expanded="true" signature="25539:29094" placeholder="{...}" />
-            <marker date="1372218247216" expanded="true" signature="35600:36625" placeholder="{...}" />
+            <marker date="1372221675857" expanded="true" signature="26548:30103" placeholder="{...}" />
+            <marker date="1372221675857" expanded="true" signature="36609:37634" placeholder="{...}" />
           </folding>
         </state>
       </provider>

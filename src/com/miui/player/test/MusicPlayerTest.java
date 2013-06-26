@@ -46,6 +46,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     private static final String ONLINE = "online";
     private static final String ALBUMS = "albums";
     private static final String FOLDER = "folder";
+    private static final String COMMON = "common";
 
     private static final int[][] unlock_start_point= {
             {240,360,540,},
@@ -338,121 +339,129 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
     }
 
-    private void homePageMenu() throws IOException, UiObjectNotFoundException {
+    private void pageMenu(String page) throws IOException, UiObjectNotFoundException {
         /*首页Menu菜单*/
-        debug("homePageMenu",1);
-
-        killPlayer();
-        launchPlayer();
-        sleep(1000);
+        debug("pageMenu:"+page,1);
 
         UiObject menu_list;
         int menu_list_child_count;
         UiObject menu_button;
-        /*歌曲页Menu*/
         device.pressMenu();
         sleep(1000);
-        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        menu_list_child_count = menu_list.getChildCount();
-        device.pressBack();
-        sleep(1000);
-        for (int j = 0; j < menu_list_child_count;j++){
-            device.pressMenu();
+        if (page == SONG){
+            /*歌曲页Menu*/
+            menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+            menu_list_child_count = menu_list.getChildCount();
+            device.pressBack();
             sleep(1000);
-            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            /*debug("menu_button"+menu_button.getBounds(),1);*/
-            menu_button.click();
+            for (int j = 0; j < menu_list_child_count;j++){
+                device.pressMenu();
+                sleep(1000);
+                menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+                /*debug("menu_button"+menu_button.getBounds(),1);*/
+                menu_button.click();
+                sleep(1000);
+                switch (j){
+                    case 0:
+                        break;
+                    case 1:
+                        device.pressBack();
+                        sleep(1000);
+                        break;
+                }
+            }
+        }
+        else if (page == SINGER){
+            /*歌手页Menu*/
+            menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+            menu_list_child_count = menu_list.getChildCount();
+            device.pressBack();
             sleep(1000);
-            switch (j){
-                case 0:
-                    break;
-                case 1:
+            for (int j = 0; j < menu_list_child_count;j++){
+                device.pressMenu();
+                sleep(1000);
+                menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+                /*debug("menu_button"+menu_button.getBounds(),1);*/
+                menu_button.click();
+                sleep(1000);
+                switch (j){
+                    case 0:
+                        break;
+                }
+            }
+        }
+        else if (page == ALBUMS){
+            /*专辑页Menu*/
+            menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+            menu_list_child_count = menu_list.getChildCount();
+            device.pressBack();
+            sleep(1000);
+            for (int j = 0; j < menu_list_child_count;j++){
+                device.pressMenu();
+                sleep(1000);
+                menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+                /*debug("menu_button"+menu_button.getBounds(),1);*/
+                menu_button.click();
+                sleep(1000);
+                switch (j){
+                    case 0:
+                        break;
+                }
+            }
+        }
+        else if (page == COMMON){
+            menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+            menu_list_child_count = menu_list.getChildCount();
+            device.pressBack();
+            sleep(1000);
+            for (int j = 0; j < menu_list_child_count;j++){
+                device.pressMenu();
+                sleep(1000);
+                menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+                if (j==1){
+                    menu_button.click();
+                    sleep(1000);
                     device.pressBack();
                     sleep(1000);
-                    break;
+                }
+                else if (j==3){
+                    menu_button.click();
+                    sleep(1000);
+                    String search = "1";
+                    UiObject search_txt;
+                    search_txt = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
+                    search_txt.setText(search);
+                    sleep(1000);
+                    device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+                    sleep(3000);
+                    device.pressBack();
+                }
+                else if (j==4){
+                    menu_button.click();
+                    sleep(1000);
+                    UiObject seek_bar;
+                    UiObject confirm;
+                    seek_bar = new UiObject(new UiSelector().className("android.widget.SeekBar").index(1));
+                    confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                    int start_x,start_y,end_x,end_y;
+                    start_y = seek_bar.getBounds().centerY();
+                    end_y = start_y;
+                    start_x = width / 4;
+                    end_x = width*3 / 4;
+                    device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
+                    sleep(1000);
+                    confirm.click();
+                    sleep(1000);
+                }
+                else if (j==5){
+                    menu_button.click();
+                    sleep(1000);
+                    sleep(2000);
+                    device.pressBack();
+                    sleep(1000);
+                }
             }
         }
-        /*歌手页Menu*/
-        sleep(1000);
-        swipePhone(LEFT);
-        sleep(1000);
-
-        device.pressMenu();
-        sleep(1000);
-        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        menu_list_child_count = menu_list.getChildCount();
-        device.pressBack();
-        sleep(1000);
-        for (int j = 0; j < menu_list_child_count;j++){
-            device.pressMenu();
-            sleep(1000);
-            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            /*debug("menu_button"+menu_button.getBounds(),1);*/
-            menu_button.click();
-            sleep(1000);
-            switch (j){
-                case 0:
-                    break;
-            }
-        }
-        /*专辑页Menu*/
-        UiObject list_view;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-        UiObject albums;
-        albums = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        albums.clickAndWaitForNewWindow();
-        sleep(1000);
-
-        device.pressMenu();
-        sleep(1000);
-        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        menu_list_child_count = menu_list.getChildCount();
-        device.pressBack();
-        sleep(1000);
-        for (int j = 0; j < menu_list_child_count;j++){
-            device.pressMenu();
-            sleep(1000);
-            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            /*debug("menu_button"+menu_button.getBounds(),1);*/
-            menu_button.click();
-            sleep(1000);
-            switch (j){
-                case 0:
-                    break;
-            }
-        }
-        /*列表页Menu*/
-        /*文件夹页Menu*/
-        sleep(1000);
-        swipePhone(LEFT);
-        sleep(1000);
-        UiObject folders;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
-        folders = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-        folders.clickAndWaitForNewWindow();
-        sleep(1000);
-
-        device.pressMenu();
-        sleep(1000);
-        menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        menu_list_child_count = menu_list.getChildCount();
-        device.pressBack();
-        sleep(1000);
-        for (int j = 0; j < menu_list_child_count;j++){
-            device.pressMenu();
-            sleep(1000);
-            menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-            /*debug("menu_button"+menu_button.getBounds(),1);*/
-            menu_button.click();
-            sleep(1000);
-            switch (j){
-                case 0:
-                    break;
-            }
-            break;
-        }
-        /*在线页Menu*/
-
     }
 
     private void songPage() throws UiObjectNotFoundException, IOException {
