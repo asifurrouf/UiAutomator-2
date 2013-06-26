@@ -470,7 +470,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
         for (int i = 0;i < 1;i++){
-            /*debug("swipe=" + i,1);*/
             swipePhone(TOP);
         }
         sleep(1000);
@@ -788,7 +787,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     UiObject new_list_name = new UiObject(new UiSelector().className("android.widget.EditText").index(0));
                     int list_num;
                     list_num = randomIndex(99999);
-                    new_list_name.clearTextField();
+                    /*new_list_name.clearTextField();*/
                     new_list_name.setText("new list"+list_num);
                     sleep(2000);
                     UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
@@ -820,6 +819,19 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject long_click_list;
         int long_click_list_child_count = 0;
         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject long_click_rename_button;
+        long_click_rename_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
+        long_click_rename_button.click();
+        sleep(1000);
+        device.pressBack();
+        the_create_list.longClick();
+        UiObject long_click_add_song_button;
+        long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        long_click_add_song_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(3));
+        long_click_add_song_button.click();
+        sleep(1000);
+        device.pressBack();
+        the_create_list.longClick();
         UiObject long_click_delete_button;
         long_click_delete_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
         /*debug("long_click_delete_button="+long_click_delete_button.getBounds(),1);*/
@@ -1521,26 +1533,42 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*发送*/
         song.longClick();
         e_more.click();
-        if (m_down!=null){
+        if (null != m_down){
             m_down.click();
             confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
             confirm.click();
             sleep(1000);
+            song.longClick();
+            e_more.click();
+            if (m_send.isEnabled()) {
+                m_send.click();
+                sleep(1000);
+                device.pressBack();
+            }
+            e_more.click();
+            if (m_set_ring.isEnabled()){
+                m_set_ring.click();
+                sleep(1000);
+            }
+            /*修改歌曲信息*/
+            e_more.click();
+            m_id3.click();
+            sleep(1000);
         }
-        song.longClick();
-        e_more.click();
-        m_send.click();
-        device.pressBack();
-        /*用作手机铃声*/
-        e_more.click();
-        m_set_ring.click();
-        /*修改歌曲信息*/
-        e_more.click();
-        m_id3.click();
+        else {
+            m_send.click();
+            sleep(1000);
+            device.pressBack();
+            e_more.click();
+            m_set_ring.click();
+            sleep(1000);
+            e_more.click();
+            m_id3.click();
+            sleep(1000);
+        }
         device.pressBack();
         device.pressBack();
         killPlayer();
-        sleep(1000);
     }
 
     private void onlinedetailPage() throws IOException, UiObjectNotFoundException {
