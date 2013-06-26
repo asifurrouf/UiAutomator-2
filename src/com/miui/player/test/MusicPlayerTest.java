@@ -1949,8 +1949,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("fm="+fm.isClickable(),1);*/
         fm.click();
-        wait = "Please wait 10 seconds for the fm loading.";
-        waitMsg(wait, 10000);
+        wait = "Please wait 15 seconds for the fm loading.";
+        waitMsg(wait, 15000);
         device.pressBack();
         swipePhone(TOP);
         sleep(1000);
