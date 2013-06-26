@@ -478,6 +478,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             swipePhone(TOP);
         }
         sleep(1000);
+
+        pageMenu(SONG);
+        pageMenu(COMMON);
+
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject list_view;
@@ -630,6 +634,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
         gotoPage(SINGER);
+
+        pageMenu(SINGER);
 
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
@@ -1162,6 +1168,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         gotoPage(ALBUMS);
 
+        pageMenu(ALBUMS);
+
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         int list_view_child_count;
@@ -1249,6 +1257,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
         gotoPage(FOLDER);
+
+        pageMenu(FOLDER);
 
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
