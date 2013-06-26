@@ -1513,8 +1513,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject more_albums = null;
         UiObject more_singers = null;
 
-        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
-                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView"))
+                .getChild(new UiSelector().className("android.widget.LinearLayout"));
         debug("sc_view="+sc_view.getBounds(),1);
         more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
@@ -1525,9 +1525,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         waitMsg(wait, 10000);
         device.pressBack();
         sleep(2000);
-        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
-                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
+
+        sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView"))
+                .getChild(new UiSelector().className("android.widget.LinearLayout"));
+        more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
         debug("more_singers="+more_singers.getBounds(),1);
         more_singers.clickAndWaitForNewWindow();
         wait = "Please wait 10 seconds for the singers loading.";
