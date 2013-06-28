@@ -20,6 +20,8 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import java.util.Calendar;
 import java.io.IOException;
 
+import static java.lang.String.format;
+
 
 public class OnlineVideoTest extends UiAutomatorTestCase{
 
@@ -192,18 +194,22 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         int rnd;
         rnd = (int) (Math.random() * area);
         if (type != 0){
-            debug("randomIndex:"+rnd,1);
+            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
             if (rnd==0) {
                 debug("ReRandom>>>",0);
                 randomIndex(area, type);
             }
+            else {
+                return rnd;
+            }
         }else {
-            debug("randomIndex:"+rnd,1);
+            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
         }
         return rnd;
     }
 
     private void waitMsg(String wait,int timeout){
+        /*打印等待信息*/
         debug(wait,1);
         int length;
         length = timeout / 1000;
@@ -223,8 +229,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
-        for (int j = 0;j < TEST_TIMES;j++){
-            debug("--------Test:"+j+"--------",1);
+/*        for (int j = 0;j < TEST_TIMES;j++){
+            debug("--------Test:"+(j+1)+"--------",1);
             onlineSearch();
             topBanner();
             tvPage();
@@ -233,7 +239,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             comicPage();
             documentPage();
             topicPage();
-        }
+        }*/
+        topicPage();
 
         lockPhone();
 

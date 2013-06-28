@@ -219,6 +219,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         unlockPhone();
 
         for (int i = 0;i < TEST_TIMES;i++){
+            debug("--------Test:"+(i+1)+"--------",1);
             homeTop();
             songPage();
             singerPage();
