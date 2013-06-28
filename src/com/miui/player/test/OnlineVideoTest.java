@@ -36,18 +36,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     private static final int P_720 = 1;
     private static final int P_1080 = 2;
 
-    private static final int TOP = 0;
-    private static final int BOTTOM = 1;
-    private static final int LEFT = 2;
-    private static final int RIGHT = 3;
-    private static final int CENTRAL = 4;
-
-    private static final String SONG = "song";
-    private static final String SINGER = "singer";
-    private static final String LIST = "list";
-    private static final String ONLINE = "online";
-    private static final String ALBUMS = "albums";
-    private static final String FOLDER = "folder";
+    private static final String TOP = "Top";
+    private static final String BOTTOM = "Bottom";
+    private static final String LEFT = "Left";
+    private static final String RIGHT = "Right";
+    private static final String CENTRAL = "Central";
 
     private static final int[][] unlock_start_point= {
             {240,360,540,},
@@ -131,44 +124,42 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         return phone_type;
     }
 
-    public void swipePhone(int type){
+    public void swipePhone(String type){
         /*滑动手机屏幕*/
         debug("swipePhone+"+type,1);
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
         int end_y = 0;
-        switch (type){
-            case TOP:
-                start_x = width / 2;
-                start_y = height*2 / 3;
-                end_x = width / 3;
-                end_y = height / 4;
-                break;
-            case BOTTOM:
-                start_x = width / 2;
-                start_y = height / 2;
-                end_x = width / 2;
-                end_y = height*3 / 4;
-                break;
-            case LEFT:
-                start_x = width*5 / 6;
-                start_y = height / 2;
-                end_x = width / 6;
-                end_y = height / 2;
-                break;
-            case RIGHT:
-                start_x = width / 3;
-                start_y = height*2 / 3;
-                end_x = width*2 / 3;
-                end_y = height*2 / 3;
-                break;
-            case CENTRAL:
-                start_x = width / 2;
-                start_y = height / 2;
-                end_x = width / 2;
-                end_y = height / 2;
-                break;
+        if (type.equals(TOP)) {
+            start_x = width / 2;
+            start_y = height*2 / 3;
+            end_x = width / 3;
+            end_y = height / 4;
+        }
+        else if (type.equals(BOTTOM)) {
+            start_x = width / 2;
+            start_y = height / 2;
+            end_x = width / 2;
+            end_y = height*3 / 4;
+        }
+        else if (type.equals(LEFT)) {
+            start_x = width*5 / 6;
+            start_y = height / 2;
+            end_x = width / 6;
+            end_y = height / 2;
+        }
+        else if (type.equals(RIGHT)) {
+            start_x = width / 3;
+            start_y = height*2 / 3;
+            end_x = width*2 / 3;
+            end_y = height*2 / 3;
+        }
+        else if (type.equals(CENTRAL)) {
+            start_x = width / 2;
+            start_y = height / 2;
+            end_x = width / 2;
+            end_y = height / 2;
         }
         /*debug("point="+start_x+","+start_y+","+end_x+","+end_y,1);*/
         device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
