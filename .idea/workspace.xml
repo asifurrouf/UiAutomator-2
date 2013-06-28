@@ -9,7 +9,7 @@
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372418180814" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
-    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372422060279" ignored="false" />
+    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372435533094" ignored="false" />
     <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372408401622" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +20,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
     <leftPanel />
-    <rightPanel />
+    <rightPanel class="com.miui.player.test.OnlineVideoTest" />
     <splitter proportion="0.5" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -84,7 +84,7 @@
       <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="218" column="19" selection-start="6434" selection-end="6434" vertical-scroll-proportion="0.5584906">
+            <state line="1106" column="16" selection-start="43231" selection-end="43231" vertical-scroll-proportion="0.43548387">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -591,7 +591,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="19" selection-start="6434" selection-end="6434" vertical-scroll-proportion="0.5584906">
+        <state line="1106" column="16" selection-start="43231" selection-end="43231" vertical-scroll-proportion="0.43548387">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
