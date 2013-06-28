@@ -126,7 +126,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     public void swipePhone(String type){
         /*滑动手机屏幕*/
-        debug("swipePhone+"+type,1);
+        debug("swipePhone:"+type,1);
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
