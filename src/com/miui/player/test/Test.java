@@ -66,11 +66,29 @@ public class Test {
         return rnd;
     }
 
+    public int randomIndex(int area,int type){
+        /*获取随机数*/
+        debug("randomIndex",1);
+        int rnd;
+        if (type == 0){
+            rnd = (int) (Math.random() * area);
+        }
+        else {
+            rnd = (int) (Math.random() * area);
+            if (rnd==0) {
+                randomIndex(area, type);
+            }
+        }
+        debug("rnd="+rnd,1);
+        return rnd;
+    }
+
     public static void main(String args[]){
 
         Test test = new Test();
-        for (int j = 0;j<100;j++) {
-            test.randomIndex(3);
+        for (int j = 0; j < 10;j++){
+            test.debug("j=="+j,1);
+            test.randomIndex(10,1);
         }
 
     }

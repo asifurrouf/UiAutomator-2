@@ -190,14 +190,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     public int randomIndex(int area,int type){
         /*获取随机数*/
         debug("randomIndex",1);
-        int rnd = 0;
+        int rnd;
         if (type == 0){
             rnd = (int) (Math.random() * area);
         }
         else {
-             randomIndex(area, type);
+            rnd = (int) (Math.random() * area);
+            if (rnd==0) {
+                randomIndex(area, type);
+            }
         }
-
         debug("rnd="+rnd,1);
         return rnd;
     }
