@@ -189,21 +189,19 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     public int randomIndex(int area,int type){
         /*获取随机数*/
-        debug("randomIndex",1);
         int rnd;
-        if (type == 0){
-            rnd = (int) (Math.random() * area);
-        }
-        else {
-            rnd = (int) (Math.random() * area);
+        rnd = (int) (Math.random() * area);
+        if (type != 0){
+            debug("randomIndex:"+rnd,1);
             if (rnd==0) {
+                debug("ReRandom>>>",0);
                 randomIndex(area, type);
             }
+        }else {
+            debug("randomIndex:"+rnd,1);
         }
-        debug("rnd="+rnd,1);
         return rnd;
     }
-
 
     private void waitMsg(String wait,int timeout){
         debug(wait,1);
@@ -224,7 +222,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         lockPhone();
         wakePhone();
         unlockPhone();
-        for (int j = 0;j<50;j++){
+
+        for (int j = 0;j < TEST_TIMES;j++){
             debug("--------Test:"+j+"--------",1);
             onlineSearch();
             topBanner();
@@ -235,7 +234,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             documentPage();
             topicPage();
         }
-
 
         lockPhone();
 

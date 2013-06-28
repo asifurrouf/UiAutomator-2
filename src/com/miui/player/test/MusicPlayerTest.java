@@ -218,17 +218,19 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
-        homeTop();
-        songPage();
-        singerPage();
-        listPage();
-        onlinePage();
-        nowplayingPage();
-        albumsPage();
-        folderPage();
-        listdetailPage();
-        onlinedetailPage();
-        getBugreport();
+        for (int i = 0;i < TEST_TIMES;i++){
+            homeTop();
+            songPage();
+            singerPage();
+            listPage();
+            onlinePage();
+            nowplayingPage();
+            albumsPage();
+            folderPage();
+            listdetailPage();
+            onlinedetailPage();
+            getBugreport();
+        }
 
         lockPhone();
     }
