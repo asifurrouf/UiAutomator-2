@@ -245,6 +245,31 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     }
 
+    private void onlineSearch() throws IOException, UiObjectNotFoundException {
+        /*搜索*/
+        debug("--------onlineSearch--------",1);
+
+        killPlayer();
+        launchPlayer();
+
+        UiObject search;
+        search = new UiObject(new UiSelector().className("android.view.View")).getChild(new UiSelector().className("android.widget.ImageView"));
+        /*debug("search="+search.getBounds(),1);*/
+        search.click();
+        UiObject edit;
+        String txt;
+        txt = "123";
+        edit = new UiObject(new UiSelector().className("android.widget.EditText"));
+        edit.setText(txt);
+        sleep(1000);
+        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+        String wait;
+        wait = "Please wait 5 seconds for the searching.";
+        waitMsg(wait,5000);
+
+        killPlayer();
+    }
+
     private void topBanner() throws IOException, UiObjectNotFoundException {
         /*首页顶栏banner*/
         debug("--------topBanner--------",1);
@@ -349,7 +374,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -494,7 +519,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -662,7 +687,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -820,7 +845,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -981,7 +1006,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -1087,7 +1112,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count < 2) {
+        if (list_view_child_count > 1) {
             rnd = randomIndex(list_view_child_count, NOT_ZERO);
         } else {
             rnd = 0;
@@ -1105,31 +1130,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         killPlayer();
 
-    }
-
-    private void onlineSearch() throws IOException, UiObjectNotFoundException {
-        /*搜索*/
-        debug("--------onlineSearch--------",1);
-
-        killPlayer();
-        launchPlayer();
-
-        UiObject search;
-        search = new UiObject(new UiSelector().className("android.view.View")).getChild(new UiSelector().className("android.widget.ImageView"));
-        /*debug("search="+search.getBounds(),1);*/
-        search.click();
-        UiObject edit;
-        String txt;
-        txt = "123";
-        edit = new UiObject(new UiSelector().className("android.widget.EditText"));
-        edit.setText(txt);
-        sleep(1000);
-        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-        String wait;
-        wait = "Please wait 5 seconds for the searching.";
-        waitMsg(wait,5000);
-
-        killPlayer();
     }
 
 }
