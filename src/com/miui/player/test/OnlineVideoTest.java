@@ -141,8 +141,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         switch (type){
             case TOP:
                 start_x = width / 2;
-                start_y = height*3 / 4;
-                end_x = width / 2;
+                start_y = height*2 / 3;
+                end_x = width / 3;
                 end_y = height / 4;
                 break;
             case BOTTOM:
@@ -198,11 +198,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("randomIndex",1);
         int rnd;
         rnd = (int) (Math.random() * area);
-        if (rnd==0) {
-            return randomIndex(area);
-        }
-        else
-            debug("rnd="+rnd,1);
+        debug("rnd="+rnd,1);
         return rnd;
     }
 
@@ -226,11 +222,20 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         lockPhone();
         wakePhone();
         unlockPhone();
+        for (int j = 0;j<50;j++){
+            debug("--------Test:"+j+"--------",1);
+            onlineSearch();
+            topBanner();
+            tvPage();
+            moviePage();
+            showPage();
+            comicPage();
+            documentPage();
+            topicPage();
+        }
 
-        //topBanner();
-        //tvPage();
-        //moviePage();
-        showPage();
+
+        lockPhone();
 
     }
 
@@ -253,8 +258,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         start_y = banner.getBounds().centerY();
         end_y = start_y;
         for (int j = 0;j<4;j++){
-            debug("j="+j,0);
+            /*debug("j="+j,0);*/
             banner.clickAndWaitForNewWindow();
+            sleep(1000);
+            swipePhone(TOP);
             sleep(1000);
             device.pressBack();
             sleep(1000);
@@ -288,15 +295,19 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject banner;
         banner = list_view.getChild(new UiSelector().className("android.widget.ImageView").index(0));
-        debug("banner="+banner.getBounds(),1);
+        /*debug("banner="+banner.getBounds(),1);*/
         banner.clickAndWaitForNewWindow();
         sleep(2000);
         swipePhone(TOP);
         sleep(1000);
         device.pressBack();
         sleep(1000);
-        swipePhone(TOP);
-        sleep(2000);
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+            sleep(2000);
 
         UiObject rank;
         rank = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -312,28 +323,53 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*排行*/
         rank.click();
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         more_tv = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
-        debug("more_tv"+more_tv.getBounds(),1);
+        debug("more_tv="+more_tv.getBounds(),1);
         more_tv.clickAndWaitForNewWindow();
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(1000);
-        swipePhone(TOP);
-        swipePhone(LEFT);
+        device.pressBack();
         sleep(1000);
 
         /*最新*/
         new_tvs.click();
         waitMsg(wait,5000);
-        swipePhone(TOP);
-        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
         UiObject filter;
         filter = new UiObject(new UiSelector().className("android.widget.Button").index(0));
         debug("filter="+filter.getBounds(),1);
         filter.clickAndWaitForNewWindow();
+
         int start_x,start_y,end_x,end_y;
         int picker_top,picker_bottom;
         UiObject picker_area;
@@ -345,10 +381,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
+        sleep(1000);
         UiObject picker_kind;
         picker_kind = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(1));
         picker_top = picker_kind.getBounds().top;
@@ -358,7 +395,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -372,7 +409,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
         }
@@ -405,7 +442,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String wait;
         wait = "Please wait 5 seconds for the movie content loading.";
         waitMsg(wait,5000);
-        swipePhone(TOP);
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
         sleep(1000);
 
         /*精选*/
@@ -423,40 +464,64 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*排行*/
         rank.click();
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         more_movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
-        debug("more_movie"+more_movie.getBounds(),1);
+        debug("more_movie="+more_movie.getBounds(),1);
         more_movie.clickAndWaitForNewWindow();
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(1000);
-        swipePhone(TOP);
-        swipePhone(LEFT);
+        device.pressBack();
         sleep(1000);
 
         /*最新*/
         new_movies.click();
         waitMsg(wait,5000);
-        swipePhone(TOP);
-        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
         UiObject filter;
         filter = new UiObject(new UiSelector().className("android.widget.Button").index(0));
         debug("filter="+filter.getBounds(),1);
         filter.clickAndWaitForNewWindow();
+
         int start_x,start_y,end_x,end_y;
         int picker_top,picker_bottom;
-        UiObject picker_area;
-        picker_area = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
-        picker_top = picker_area.getBounds().top;
-        picker_bottom = picker_area.getBounds().bottom;
-        start_x = picker_area.getBounds().centerX();
+        UiObject picker_lang;
+        picker_lang = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
+        picker_top = picker_lang.getBounds().top;
+        picker_bottom = picker_lang.getBounds().bottom;
+        start_x = picker_lang.getBounds().centerX();
         start_y = picker_bottom-100;
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -469,7 +534,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -483,7 +548,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -503,6 +568,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         killPlayer();
         launchPlayer();
+
         int start_x,start_y,end_x,end_y;
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
@@ -516,9 +582,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
         device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        sleep(2000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-        debug("list_view"+list_view.getBounds(),1);
+        debug("list_view="+list_view.getBounds(),1);
         UiObject more_show;
         more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
@@ -540,7 +607,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         device.pressBack();
         sleep(1000);
-        swipePhone(TOP);
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
         sleep(1000);
 
         UiObject rank;
@@ -548,37 +619,61 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         debug("rank="+rank.getBounds(),1);
-        UiObject new_movies;
-        new_movies = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+        UiObject new_shows;
+        new_shows = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.TextView").index(2));
-        debug("new_movies="+new_movies.getBounds(),1);
+        debug("new_shows="+new_shows.getBounds(),1);
 
         /*排行*/
         rank.click();
+        sleep(1000);
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
-        debug("more_show"+more_show.getBounds(),1);
+        debug("more_show="+more_show.getBounds(),1);
         more_show.clickAndWaitForNewWindow();
         waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(1000);
-        swipePhone(TOP);
-        swipePhone(LEFT);
+        device.pressBack();
         sleep(1000);
 
         /*最新*/
-        new_movies.click();
+        new_shows.click();
         waitMsg(wait,5000);
-        swipePhone(TOP);
-        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
         UiObject filter;
         filter = new UiObject(new UiSelector().className("android.widget.Button").index(0));
         debug("filter="+filter.getBounds(),1);
         filter.clickAndWaitForNewWindow();
+
         int picker_top,picker_bottom;
         UiObject picker_area;
         picker_area = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
@@ -589,7 +684,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -602,21 +697,21 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
         sleep(1000);
-        UiObject picker_year;
-        picker_year = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(2));
-        picker_top = picker_year.getBounds().top;
-        picker_bottom = picker_year.getBounds().bottom;
-        start_x = picker_year.getBounds().centerX();
+        UiObject picker_tv;
+        picker_tv = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(2));
+        picker_top = picker_tv.getBounds().top;
+        picker_bottom = picker_tv.getBounds().bottom;
+        start_x = picker_tv.getBounds().centerX();
         start_y = picker_bottom-100;
         end_x = start_x;
         end_y = picker_top+100;
         debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
-        rnd = randomIndex(5);
+        rnd = randomIndex(3);
         for (int j = 0; j < rnd ;j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
@@ -630,30 +725,383 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void comicPage() throws IOException {
+    private void comicPage() throws IOException, UiObjectNotFoundException {
         /*动漫*/
         debug("--------comicPage--------",1);
 
         killPlayer();
         launchPlayer();
 
+        int start_x,start_y,end_x,end_y;
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject tmp;
+        tmp = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        /*debug(String.format("%s",tmp.getBounds()),1);*/
+        start_x = width / 2;
+        end_x = start_x;
+        start_y = tmp.getBounds().centerY();
+        end_y = height / 3;
+        /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
+        device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        sleep(2000);
+
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        debug("list_view="+list_view.getBounds(),1);
+        UiObject more_comic;
+        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        debug("more_comic="+more_comic.getBounds(),1);
+        more_comic.clickAndWaitForNewWindow();
+        String wait;
+        wait = "Please wait 5 seconds for the comic content loading.";
+        waitMsg(wait,5000);
+
+        /*精选*/
+        sleep(2000);
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+
+        UiObject rank;
+        rank = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        debug("rank="+rank.getBounds(),1);
+        UiObject new_comics;
+        new_comics = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(2));
+        debug("new_comics="+new_comics.getBounds(),1);
+
+        /*排行*/
+        rank.click();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        debug("more_comic="+more_comic.getBounds(),1);
+        more_comic.clickAndWaitForNewWindow();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        debug("play="+play.getBounds(),1);
+        play.clickAndWaitForNewWindow();
+        device.pressBack();
+        sleep(1000);
+        device.pressBack();
+        sleep(1000);
+
+        /*最新*/
+        new_comics.click();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        UiObject filter;
+        filter = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        debug("filter="+filter.getBounds(),1);
+        filter.clickAndWaitForNewWindow();
+
+        int picker_top,picker_bottom;
+        UiObject picker_area;
+        picker_area = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
+        picker_top = picker_area.getBounds().top;
+        picker_bottom = picker_area.getBounds().bottom;
+        start_x = picker_area.getBounds().centerX();
+        start_y = picker_bottom-100;
+        end_x = start_x;
+        end_y = picker_top+100;
+        debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
+        rnd = randomIndex(3);
+        for (int j = 0; j < rnd ;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        UiObject picker_kind;
+        picker_kind = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(1));
+        picker_top = picker_kind.getBounds().top;
+        picker_bottom = picker_kind.getBounds().bottom;
+        start_x = picker_kind.getBounds().centerX();
+        start_y = picker_bottom-100;
+        end_x = start_x;
+        end_y = picker_top+100;
+        debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
+        rnd = randomIndex(3);
+        for (int j = 0; j < rnd ;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(1000);
+        UiObject picker_age;
+        picker_age = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(2));
+        picker_top = picker_age.getBounds().top;
+        picker_bottom = picker_age.getBounds().bottom;
+        start_x = picker_age.getBounds().centerX();
+        start_y = picker_bottom-100;
+        end_x = start_x;
+        end_y = picker_top+100;
+        debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
+        rnd = randomIndex(3);
+        for (int j = 0; j < rnd ;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(1000);
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button").index(1));
+        confirm.click();
+        wait = "Wait 5 second to filter.";
+        waitMsg(wait,5000);
+        killPlayer();
     }
 
-    private void documentPage() throws IOException {
+    private void documentPage() throws IOException, UiObjectNotFoundException {
         /*纪录片*/
         debug("--------documentPage--------",1);
 
         killPlayer();
         launchPlayer();
 
+        int start_x,start_y,end_x,end_y;
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject tmp;
+        tmp = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        /*debug(String.format("%s",tmp.getBounds()),1);*/
+        start_x = width / 2;
+        end_x = start_x;
+        start_y = tmp.getBounds().centerY();
+        end_y = height / 3;
+        /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
+        for (int j = 0;j<2;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(2000);
+
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        debug("list_view="+list_view.getBounds(),1);
+        UiObject more_doc;
+        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        debug("more_comic="+more_doc.getBounds(),1);
+        more_doc.clickAndWaitForNewWindow();
+        String wait;
+        wait = "Please wait 5 seconds for the document content loading.";
+        waitMsg(wait,5000);
+
+        /*精选*/
+        sleep(2000);
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+
+        UiObject rank;
+        rank = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        debug("rank="+rank.getBounds(),1);
+        UiObject new_docs;
+        new_docs = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(2));
+        debug("new_docs="+new_docs.getBounds(),1);
+
+        /*排行*/
+        rank.click();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        debug("more_doc="+more_doc.getBounds(),1);
+        more_doc.clickAndWaitForNewWindow();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        play.clickAndWaitForNewWindow();
+        device.pressBack();
+        sleep(1000);
+        device.pressBack();
+        sleep(1000);
+
+        /*最新*/
+        new_docs.click();
+        waitMsg(wait,5000);
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        UiObject filter;
+        filter = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        debug("filter="+filter.getBounds(),1);
+        filter.clickAndWaitForNewWindow();
+
+        int picker_top,picker_bottom;
+        UiObject picker_kind;
+        picker_kind = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
+        picker_top = picker_kind.getBounds().top;
+        picker_bottom = picker_kind.getBounds().bottom;
+        start_x = picker_kind.getBounds().centerX();
+        start_y = picker_bottom-100;
+        end_x = start_x;
+        end_y = picker_top+100;
+        debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);
+        rnd = randomIndex(3);
+        for (int j = 0; j < rnd ;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(1000);
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button").index(1));
+        confirm.click();
+        wait = "Wait 5 second to filter.";
+        waitMsg(wait,5000);
+        killPlayer();
     }
 
-    private void topicPage() throws IOException {
+    private void topicPage() throws IOException, UiObjectNotFoundException {
         /*专题*/
         debug("--------topicPage--------",1);
 
         killPlayer();
         launchPlayer();
 
+        swipePhone(TOP);
+
+        int start_x,start_y,end_x,end_y;
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject tmp;
+        tmp = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        /*debug(String.format("%s",tmp.getBounds()),1);*/
+        start_x = width / 2;
+        end_x = start_x;
+        start_y = tmp.getBounds().centerY();
+        end_y = height / 3;
+        /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
+        for (int j = 0;j<3;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(2000);
+
+        UiObject topic;
+        topic = new UiObject(new UiSelector().className("android.widget.Button"));
+        debug("topic="+topic.getBounds(),1);
+        topic.clickAndWaitForNewWindow();
+        String wait;
+        wait = "Please wait 5 seconds for the topic content loading.";
+        waitMsg(wait,5000);
+
+        int rnd;
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        /*debug("list_view_child_count="+list_view_child_count,1);*/
+        rnd = randomIndex(list_view_child_count);
+        topic = list_view.getChild(new UiSelector().index(rnd));
+        topic.clickAndWaitForNewWindow();
+        rnd = randomIndex(3);
+        for (int j = 0;j<rnd;j++) {
+            swipePhone(TOP);
+        }
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count);
+        UiObject f_lay;
+        f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
+        int f_lay_child_count;
+        f_lay_child_count = f_lay.getChildCount();
+        rnd = randomIndex(f_lay_child_count);
+        UiObject play;
+        play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        play.clickAndWaitForNewWindow();
+        sleep(1000);
+        swipePhone(TOP);
+        sleep(1000);
+        killPlayer();
+
     }
+
+    private void onlineSearch() throws IOException, UiObjectNotFoundException {
+        /*搜索*/
+        debug("--------onlineSearch--------",1);
+
+        killPlayer();
+        launchPlayer();
+
+        UiObject search;
+        search = new UiObject(new UiSelector().className("android.view.View")).getChild(new UiSelector().className("android.widget.ImageView"));
+        debug("search="+search.getBounds(),1);
+        search.click();
+        UiObject edit;
+        String txt;
+        txt = "123";
+        edit = new UiObject(new UiSelector().className("android.widget.EditText"));
+        edit.setText(txt);
+        sleep(1000);
+        device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
+        String wait;
+        wait = "Please wait 5 seconds for the searching.";
+        waitMsg(wait,5000);
+
+        killPlayer();
+    }
+
 }

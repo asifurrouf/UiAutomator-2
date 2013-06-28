@@ -15,7 +15,7 @@ public class Test {
 
     private void forTest(){
         for (int i = 0;i<10;i++){
-            debug(""+i);
+            debug(""+i,0);
             if (i==4){
                 return;
             }
@@ -23,9 +23,14 @@ public class Test {
 
     }
 
-    private void debug(String msg){
+    private void debug(String msg,int wrap){
+        if (wrap==1) {
+            System.out.println(" <"+msg+"> ");
+        }
+        else{
+            System.out.print(" <"+msg+"> ");
+        }
 
-        System.out.println(msg);
 
     }
 
@@ -36,7 +41,7 @@ public class Test {
         String fmt = "yyyy-MM-dd-HH-mm-ss";
         SimpleDateFormat s = new SimpleDateFormat(fmt);
         String ss = s.format(date);
-        debug(ss);
+        debug(ss,1);
     }
 
     private void random(){
@@ -48,15 +53,25 @@ public class Test {
         for (int i = 0; i< 8;i++){
             int rnd = (int) (Math.random()*length);
             search_string = search_string + tmp[rnd];
-            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string);
+            debug("i="+ i + ",rnd=" + rnd + ",search_string="+search_string,1);
         }
     }
 
+    public int randomIndex(int area){
+        /*获取随机数*/
+        debug("randomIndex",1);
+        int rnd;
+        rnd = (int) (Math.random() * area);
+        debug("rnd="+rnd,1);
+        return rnd;
+    }
 
     public static void main(String args[]){
 
         Test test = new Test();
-        test.dateTest();
+        for (int j = 0;j<100;j++) {
+            test.randomIndex(3);
+        }
 
     }
 
