@@ -216,7 +216,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         for (int i = 0; i < length;i++){
             debug(""+(length-i),0);
             /*System.out.print(""+(length-i)+" ");*/
-            sleep(2000);
+            sleep(1000);
         }
         debug("Next.",1);
     }
