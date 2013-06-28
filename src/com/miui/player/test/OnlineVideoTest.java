@@ -44,8 +44,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     private static final String RIGHT = "Right";
     private static final String CENTRAL = "Central";
 
-    private static final int ZERO = 0;
-    private static final int NOT_ZERO = 1;
+    private static final String ZERO = "Zero";
+    private static final String NOT_ZERO = "Not_Zero";
 
     private static final int[][] unlock_start_point= {
             {240,360,540,},
@@ -189,20 +189,20 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(3000);
     }
 
-    public int randomIndex(int area,int type){
+    public int randomIndex(int area,String type){
         /*获取随机数*/
         int rnd;
         rnd = (int) (Math.random() * area);
-        if (type != 0){
+        if (type.equals(NOT_ZERO)){
             debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
             if (rnd==0) {
                 debug("ReRandom>>>",0);
-                randomIndex(area, type);
+                return randomIndex(area, type);
             }
             else {
                 return rnd;
             }
-        }else {
+        }else if (type.equals(ZERO)){
             debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
         }
         return rnd;
@@ -229,7 +229,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
-/*        for (int j = 0;j < TEST_TIMES;j++){
+        for (int j = 0;j < TEST_TIMES;j++){
             debug("--------Test:"+(j+1)+"--------",1);
             onlineSearch();
             topBanner();
@@ -239,8 +239,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             comicPage();
             documentPage();
             topicPage();
-        }*/
-        topicPage();
+        }
 
         lockPhone();
 
@@ -1022,8 +1021,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         killPlayer();
         launchPlayer();
-
-        swipePhone(TOP);
 
         int start_x,start_y,end_x,end_y;
         UiObject list_view;

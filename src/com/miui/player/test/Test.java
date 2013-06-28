@@ -13,6 +13,9 @@ import java.util.Date;
 
 public class Test {
 
+    private static final String ZERO = "Zero";
+    private static final String NOT_ZERO = "Not_Zero";
+
     private void forTest(){
         for (int i = 0;i<10;i++){
             debug(""+i,0);
@@ -66,20 +69,22 @@ public class Test {
         return rnd;
     }
 
-    public int randomIndex(int area,int type){
+    public int randomIndex(int area,String type){
         /*获取随机数*/
-        debug("randomIndex",1);
         int rnd;
-        if (type == 0){
-            rnd = (int) (Math.random() * area);
-        }
-        else {
-            rnd = (int) (Math.random() * area);
+        rnd = (int) (Math.random() * area);
+        if (type.equals(NOT_ZERO)){
+            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
             if (rnd==0) {
+                debug("ReRandom>>>",0);
                 randomIndex(area, type);
             }
+            else {
+                return rnd;
+            }
+        }else if (type.equals(ZERO)){
+            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
         }
-        debug("rnd="+rnd,1);
         return rnd;
     }
 
@@ -88,7 +93,7 @@ public class Test {
         Test test = new Test();
         for (int j = 0; j < 10;j++){
             test.debug("j=="+j,1);
-            test.randomIndex(10,1);
+            test.randomIndex(10,NOT_ZERO);
         }
 
     }
