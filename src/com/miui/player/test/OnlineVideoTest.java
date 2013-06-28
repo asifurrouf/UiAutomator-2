@@ -349,7 +349,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -490,7 +494,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -654,7 +662,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -808,7 +820,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -965,7 +981,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -1067,7 +1087,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,NOT_ZERO);
+        if (list_view_child_count < 2) {
+            rnd = randomIndex(list_view_child_count, NOT_ZERO);
+        } else {
+            rnd = 0;
+        }
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
