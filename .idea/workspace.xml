@@ -9,7 +9,7 @@
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372418180814" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
-    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372657238323" ignored="false" />
+    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372661299216" ignored="false" />
     <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372408401622" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +84,7 @@
       <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="46" selection-start="3854" selection-end="3854" vertical-scroll-proportion="0.38867924">
+            <state line="1174" column="42" selection-start="45968" selection-end="45968" vertical-scroll-proportion="0.72759855">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -595,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="46" selection-start="3854" selection-end="3854" vertical-scroll-proportion="0.38867924">
+        <state line="1174" column="42" selection-start="45968" selection-end="45968" vertical-scroll-proportion="0.72759855">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

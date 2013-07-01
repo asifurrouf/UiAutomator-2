@@ -234,7 +234,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         for (int j = 0;j < TEST_TIMES;j++){
             debug(String.format("--------Test:%d--------", j + 1),1);
             onlineVideo();
+            onlineVideoMenu();
             myVideo();
+            //myVideoMenu();
         }
 
         lockPhone();
@@ -244,6 +246,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     private void onlineVideo() throws IOException, UiObjectNotFoundException {
          /*在线视频*/
         debug("--------onlineVideo--------",1);
+
         onlineSearch();
         topBanner();
         tvPage();
@@ -252,6 +255,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         comicPage();
         documentPage();
         topicPage();
+
         debug("--------onlineVideo Done--------",1);
     }
 
@@ -260,6 +264,62 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("--------myVideo--------",1);
 
         debug("--------myVideo Done--------",1);
+    }
+
+    private void onlineVideoMenu() throws IOException, UiObjectNotFoundException {
+        /*在线Menu*/
+        debug("--------onlineVideoMenu--------",1);
+
+        killVideo();
+        launchVideo();
+
+        device.pressMenu();
+        sleep(1000);
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject menu;
+        menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        menu.click();
+        sleep(1000);
+
+        device.pressBack();
+        killVideo();
+    }
+
+    private void myVideoMenu() throws IOException, UiObjectNotFoundException {
+        /*我的视频Menu*/
+        debug("--------myVideoMenu--------",1);
+
+        killVideo();
+        launchVideo();
+
+        device.pressMenu();
+        sleep(1000);
+
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        device.pressBack();
+        UiObject menu;
+        if (list_view_child_count == 1){
+            device.pressMenu();
+            menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+            menu.click();
+            sleep(1000);
+        }
+        else if (list_view_child_count == 2){
+            for (int j = 0; j < list_view_child_count ; j++){
+                device.pressMenu();
+                list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+                menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
+                menu.click();
+                sleep(1000);
+            }
+        }
+
+        device.pressBack();
+        killVideo();
     }
 
     private void onlineSearch() throws IOException, UiObjectNotFoundException {
@@ -1111,11 +1171,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(2000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count, NOT_ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
