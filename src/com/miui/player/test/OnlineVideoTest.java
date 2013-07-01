@@ -131,7 +131,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     public void swipePhone(String type,int times){
         /*滑动手机屏幕*/
-        debug(String.format("swipePhone:%s Times:%d", type, times),1);
+        debug(String.format("swipePhone:%s----Times:%d", type, times),1);
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
@@ -816,7 +816,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         waitMsg(wait,5000);
 
         /*精选*/
-        sleep(2000);
         int rnd;
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
@@ -830,6 +829,17 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
         waitMsg(wait,5000);
+        rnd = randomIndex(3,ZERO);
+        swipePhone(TOP,rnd);
+        sleep(2000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        /*debug("more_comic="+more_comic.getBounds(),1);*/
+        more_comic.clickAndWaitForNewWindow();
+        waitMsg(wait,5000);
+
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
@@ -850,17 +860,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(2000);
-
-        rnd = randomIndex(3,ZERO);
-        swipePhone(TOP,rnd);
-        sleep(2000);
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
-                .getChild(new UiSelector().className("android.widget.Button"));
-        /*debug("more_comic="+more_comic.getBounds(),1);*/
-        more_comic.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         sleep(2000);
@@ -1139,7 +1138,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         device.pressBack();
         device.pressBack();
         killVideo();
-
     }
 
 }
