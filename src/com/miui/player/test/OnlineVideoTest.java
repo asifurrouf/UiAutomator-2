@@ -180,7 +180,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(3000);
+        sleep(2000);
     }
 
     public void launchVideo() throws IOException {
@@ -188,7 +188,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("launchVideo",1);
         String launch = "am start -n com.miui.video/.HomeActivity";
         Runtime.getRuntime().exec(launch);
-        sleep(3000);
+        sleep(2000);
     }
 
     public int randomIndex(int area,String type){
@@ -317,6 +317,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             sleep(1000);
         }
 
+        device.pressBack();
         killVideo();
     }
 
@@ -467,6 +468,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait = "Wait 5 second to filter.";
         waitMsg(wait,5000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
     }
 
@@ -529,7 +532,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         rnd = randomIndex(f_lay_child_count,ZERO);
         UiObject play;
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));;
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(2000);
@@ -607,6 +610,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait = "Wait 5 second to filter.";
         waitMsg(wait,5000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
     }
 
@@ -694,7 +699,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         rnd = randomIndex(f_lay_child_count,ZERO);
         UiObject play;
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));;
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(2000);
@@ -771,6 +776,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait = "Wait 5 second to filter.";
         waitMsg(wait,5000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
     }
 
@@ -838,7 +845,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         rnd = randomIndex(f_lay_child_count,ZERO);
         UiObject play;
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));;
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         /*debug("play="+play.getBounds(),1);*/
         play.clickAndWaitForNewWindow();
         device.pressBack();
@@ -926,6 +933,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait = "Wait 5 second to filter.";
         waitMsg(wait,5000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
     }
 
@@ -1005,7 +1014,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         rnd = randomIndex(f_lay_child_count,ZERO);
         UiObject play;
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));;
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         play.clickAndWaitForNewWindow();
         device.pressBack();
         sleep(2000);
@@ -1054,6 +1063,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait = "Wait 5 second to filter.";
         waitMsg(wait,5000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
     }
 
@@ -1113,7 +1124,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         rnd = randomIndex(f_lay_child_count,ZERO);
         UiObject play;
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
-                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));;
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         play.clickAndWaitForNewWindow();
         sleep(2000);
         swipePhone(TOP,1);
@@ -1125,6 +1136,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         swipePhone(TOP,rnd);
         sleep(2000);
 
+        device.pressBack();
+        device.pressBack();
         killVideo();
 
     }
