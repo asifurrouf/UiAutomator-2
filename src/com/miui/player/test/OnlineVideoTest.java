@@ -17,6 +17,8 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
+import sun.swing.plaf.synth.SynthFileChooserUIImpl;
+
 import java.util.Calendar;
 import java.io.IOException;
 
@@ -343,6 +345,43 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String wait;
         wait = "Please wait 5 seconds for the searching.";
         waitMsg(wait,5000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar != null) {
+        } else {
+            waitMsg(wait,5000);
+        }
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+/*        debug(String.format("%s %s","list_view=",list_view.getBounds()),1);*/
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        UiObject search_result;
+        int rnd;
+        rnd = randomIndex(list_view_child_count,ZERO);
+        search_result = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        search_result.clickAndWaitForNewWindow();
+        sleep(2000);
+        device.pressBack();
+        device.pressBack();
+        search.click();
+        sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        /*debug(String.format("%s %s","list_view=",list_view.getBounds()),1);*/
+        UiObject search_history;
+        search_history = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        search_history.click();
+        waitMsg(wait,5000);
+        device.pressBack();
+        search.click();
+        sleep(2000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        list_view_child_count = list_view.getChildCount();
+        UiObject clear_history;
+        clear_history = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(list_view_child_count-1));
+        clear_history.click();
+        device.pressBack();
+        device.pressBack();
 
         killVideo();
     }
