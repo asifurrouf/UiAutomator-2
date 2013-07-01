@@ -250,11 +250,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         comicPage();
         documentPage();
         topicPage();
+        debug("--------onlineVideo Done--------",1);
     }
 
     private void myVideo(){
         /*我的视频*/
         debug("--------myVideo--------",1);
+
+        debug("--------myVideo Done--------",1);
     }
 
     private void onlineSearch() throws IOException, UiObjectNotFoundException {
