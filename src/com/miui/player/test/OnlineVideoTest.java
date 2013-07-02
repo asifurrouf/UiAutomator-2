@@ -260,9 +260,17 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("--------onlineVideo Done--------",1);
     }
 
-    private void myVideo(){
+    private void myVideo() throws IOException {
         /*我的视频*/
         debug("--------myVideo--------",1);
+
+        killVideo();
+        launchVideo();
+
+        swipePhone(LEFT,1);
+        sleep(1000);
+
+        killVideo();
 
         debug("--------myVideo Done--------",1);
     }
@@ -294,6 +302,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
+        swipePhone(LEFT,1);
+        sleep(1000);
         device.pressMenu();
         sleep(1000);
 

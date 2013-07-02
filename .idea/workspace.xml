@@ -9,7 +9,7 @@
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372418180814" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
-    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372683164240" ignored="false" />
+    <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372750569199" ignored="false" />
     <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372408401622" ignored="false" />
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
@@ -21,7 +21,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
-    <leftPanel />
+    <leftPanel class="com.miui.player.test.OnlineVideoTest" />
     <rightPanel />
     <splitter proportion="0.5" />
   </component>
@@ -113,7 +113,7 @@
       <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="307" column="30" selection-start="8825" selection-end="8825" vertical-scroll-proportion="0.45698926">
+            <state line="270" column="18" selection-start="7679" selection-end="7679" vertical-scroll-proportion="0.516129">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -639,7 +639,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="307" column="30" selection-start="8825" selection-end="8825" vertical-scroll-proportion="0.45698926">
+        <state line="270" column="18" selection-start="7679" selection-end="7679" vertical-scroll-proportion="0.516129">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
