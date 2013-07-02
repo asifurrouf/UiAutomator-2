@@ -1543,6 +1543,40 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         collect_fav.clickAndWaitForNewWindow();
         sleep(1000);
 
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        debug(String.format("list_view_child_count=%d", list_view_child_count),1);
+        if (list_view_child_count != 0){
+            int rnd;
+            rnd = randomIndex(list_view_child_count,ZERO);
+            UiObject my_collect;
+            my_collect = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+            debug(String.format("my_collect=%s", my_collect.getBounds()),1);
+            my_collect.clickAndWaitForNewWindow();
+            sleep(1000);
+            device.pressBack();
+            my_collect.longClick();
+            sleep(1000);
+            UiObject view;
+            view = new UiObject(new UiSelector().className("android.view.View").index(0));
+            UiObject select_all;
+            select_all = view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                    .getChild(new UiSelector().className("android.widget.TextView").index(2));
+            if (list_view_child_count > 1){
+                select_all.click();
+                sleep(1000);
+            }
+            UiObject dis_fav;
+            dis_fav = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+            dis_fav.click();
+            sleep(1000);
+            device.pressBack();
+        }
+        else {
+            device.pressBack();
+        }
+
         killVideo();
     }
 
