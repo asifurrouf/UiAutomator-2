@@ -1216,6 +1216,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
         waitMsg(wait,5000);
+        rnd = randomIndex(3,ZERO);
+        swipePhone(TOP,rnd);
+        sleep(2000);
+
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
@@ -1223,9 +1227,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug("more_doc="+more_doc.getBounds(),1);*/
         more_doc.clickAndWaitForNewWindow();
         waitMsg(wait,5000);
-        rnd = randomIndex(3,ZERO);
-        swipePhone(TOP,rnd);
-        sleep(2000);
+
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
