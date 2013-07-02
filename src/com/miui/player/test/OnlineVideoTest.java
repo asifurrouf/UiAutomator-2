@@ -529,6 +529,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             if (full_screen.isEnabled()){
                 debug("isEnabled",0);
                 full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
                 device.pressBack();
                 device.pressBack();
                 break;
@@ -693,6 +694,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             if (full_screen.isEnabled()){
                 debug("isEnabled",0);
                 full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
                 device.pressBack();
                 device.pressBack();
                 break;
@@ -887,6 +889,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             if (full_screen.isEnabled()){
                 debug("isEnabled",0);
                 full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
                 device.pressBack();
                 device.pressBack();
                 break;
@@ -1071,6 +1074,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             if (full_screen.isEnabled()){
                 debug("isEnabled",0);
                 full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
                 device.pressBack();
                 device.pressBack();
                 break;
@@ -1256,6 +1260,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             if (full_screen.isEnabled()){
                 debug("isEnabled",0);
                 full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
                 device.pressBack();
                 device.pressBack();
                 break;
