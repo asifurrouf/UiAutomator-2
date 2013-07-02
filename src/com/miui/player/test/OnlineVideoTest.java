@@ -514,22 +514,34 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
 
         sleep(1000);
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("go_play=%s", go_play.getBounds()),1);
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        debug("f_layout="+f_layout.getBounds(),1);
+        /*debug("f_layout="+f_layout.getBounds(),1);*/
         UiObject full_screen;
         full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button"));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
-                debug("isEnabled",0);
+                /*debug("isEnabled",0);*/
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
                 device.pressBack();
@@ -537,7 +549,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                debug("isDisable",0);
+                /*debug("isDisable",0);*/
                 sleep(1000);
             }
         }
@@ -681,22 +693,34 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
 
         sleep(1000);
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("go_play=%s", go_play.getBounds()),1);
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        debug("f_layout="+f_layout.getBounds(),1);
+        /*debug("f_layout="+f_layout.getBounds(),1);*/
         UiObject full_screen;
         full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button"));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
-                debug("isEnabled",0);
+                /*debug("isEnabled",0);*/
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
                 device.pressBack();
@@ -704,7 +728,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                debug("isDisable",0);
+                /*debug("isDisable",0);*/
                 sleep(1000);
             }
         }
@@ -878,22 +902,34 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
 
         sleep(1000);
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("go_play=%s", go_play.getBounds()),1);
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        debug("f_layout="+f_layout.getBounds(),1);
+        /*debug("f_layout="+f_layout.getBounds(),1);*/
         UiObject full_screen;
         full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button"));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
-                debug("isEnabled",0);
+                /*debug("isEnabled",0);*/
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
                 device.pressBack();
@@ -901,7 +937,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                debug("isDisable",0);
+                /*debug("isDisable",0);*/
                 sleep(1000);
             }
         }
@@ -1065,22 +1101,34 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
 
         sleep(1000);
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("go_play=%s", go_play.getBounds()),1);
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        debug("f_layout="+f_layout.getBounds(),1);
+        /*debug("f_layout="+f_layout.getBounds(),1);*/
         UiObject full_screen;
         full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button"));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
-                debug("isEnabled",0);
+                /*debug("isEnabled",0);*/
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
                 device.pressBack();
@@ -1088,7 +1136,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                debug("isDisable",0);
+                /*debug("isDisable",0);*/
                 sleep(1000);
             }
         }
@@ -1255,22 +1303,34 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play.clickAndWaitForNewWindow();
 
         sleep(1000);
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("go_play=%s", go_play.getBounds()),1);
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        debug("f_layout="+f_layout.getBounds(),1);
+        /*debug("f_layout="+f_layout.getBounds(),1);*/
         UiObject full_screen;
         full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button"));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
-                debug("isEnabled",0);
+                /*debug("isEnabled",0);*/
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
                 device.pressBack();
@@ -1278,7 +1338,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                debug("isDisable",0);
+                /*debug("isDisable",0);*/
                 sleep(1000);
             }
         }
