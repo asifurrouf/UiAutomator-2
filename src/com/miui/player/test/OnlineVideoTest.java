@@ -518,7 +518,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
-        sleep(2000);
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
         debug("f_layout="+f_layout.getBounds(),1);
@@ -683,7 +685,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
-        sleep(2000);
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
         debug("f_layout="+f_layout.getBounds(),1);
@@ -878,7 +882,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
-        sleep(2000);
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
         debug("f_layout="+f_layout.getBounds(),1);
@@ -1063,7 +1069,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
-        sleep(2000);
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
         debug("f_layout="+f_layout.getBounds(),1);
@@ -1251,7 +1259,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
-        sleep(2000);
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
         UiObject f_layout;
         f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
         debug("f_layout="+f_layout.getBounds(),1);
