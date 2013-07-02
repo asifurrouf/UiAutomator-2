@@ -234,8 +234,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         for (int j = 0;j < TEST_TIMES;j++){
             debug(String.format("--------Test:%d--------", j + 1),1);
-            //onlineVideo();
-            //onlineVideoMenu();
+            onlineVideo();
+            onlineVideoMenu();
             myVideo();
             myVideoMenu();
         }
@@ -516,10 +516,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play),1);
+        debug(format("%s--%s","go_play",go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
-        full_screen = new UiObject(new UiSelector().className("android.widget.Button"));
+        full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button"));
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 full_screen.clickAndWaitForNewWindow();
@@ -672,10 +673,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play),1);
+        debug(format("%s--%s","go_play",go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
-        full_screen = new UiObject(new UiSelector().className("android.widget.Button"));
+        full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button"));
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 full_screen.clickAndWaitForNewWindow();
@@ -858,10 +860,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play),1);
+        debug(format("%s--%s","go_play",go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
-        full_screen = new UiObject(new UiSelector().className("android.widget.Button"));
+        full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button"));
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 full_screen.clickAndWaitForNewWindow();
@@ -1034,10 +1037,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play),1);
+        debug(format("%s--%s", "go_play", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
-        full_screen = new UiObject(new UiSelector().className("android.widget.Button"));
+        full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button"));
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 full_screen.clickAndWaitForNewWindow();
@@ -1211,10 +1215,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play),1);
+        debug(format("%s--%s","go_play",go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
-        full_screen = new UiObject(new UiSelector().className("android.widget.Button"));
+        full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.Button"));
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 full_screen.clickAndWaitForNewWindow();
