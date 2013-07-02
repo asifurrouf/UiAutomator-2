@@ -1606,6 +1606,54 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         record.clickAndWaitForNewWindow();
         sleep(1000);
 
+        UiObject central_to_record = null;
+        UiObject top_to_record;
+        central_to_record = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        top_to_record = new UiObject(new UiSelector().className("android.widget.Button").index(2));
+        if (central_to_record != null){
+            central_to_record.clickAndWaitForNewWindow();
+
+        }
+
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        int rnd;
+        rnd = randomIndex(list_view_child_count,ZERO);
+        UiObject my_record;
+        my_record = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        my_record.clickAndWaitForNewWindow();
+        sleep(2000);
+        device.pressBack();
+        device.pressBack();
+        my_record.longClick();
+        sleep(1000);
+        UiObject view;
+        view = new UiObject(new UiSelector().className("android.view.View").index(0));
+        UiObject select_all;
+        select_all = view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.TextView").index(2));
+        if (list_view_child_count > 1){
+            select_all.click();
+            sleep(1000);
+        }
+        UiObject fav;
+        fav = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        fav.click();
+        sleep(1000);
+        my_record.longClick();
+        if (list_view_child_count > 1){
+            select_all.click();
+            sleep(1000);
+        }
+        UiObject delete;
+        delete = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        delete.click();
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        confirm.click();
+        sleep(1000);
+
         killVideo();
     }
 
