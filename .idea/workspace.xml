@@ -4,13 +4,15 @@
     <list default="true" id="684cbd0a-e535-4c99-9e3e-30796cc273e1" name="Default" comment="" />
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372651331678" ignored="false" />
+    <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372742496058" ignored="false" />
     <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372155582274" ignored="false" />
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372418180814" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1371815603855" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
     <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372683164240" ignored="false" />
     <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372408401622" ignored="false" />
+    <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
+    <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,7 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -71,7 +74,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -81,13 +83,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="128" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.2903225">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="28" column="27" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +95,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="360" column="34" selection-start="11144" selection-end="11144" vertical-scroll-proportion="0.0">
+            <state line="29" column="19" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,6 +106,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="63" column="160" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="307" column="30" selection-start="8825" selection-end="8825" vertical-scroll-proportion="0.45698926">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,12 +141,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/asdad.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/asdad.java" />
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/MiBoxTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/Test.java" />
+        <option value="$PROJECT_DIR$/command.txt" />
+        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
       </list>
     </option>
@@ -144,8 +156,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-7" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
     <option name="width" value="1617" />
     <option name="height" value="1058" />
   </component>
@@ -177,9 +189,22 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UiAutomator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="UiAutomator" />
@@ -221,11 +246,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
@@ -295,19 +321,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -334,6 +347,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -395,13 +421,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-7" width="1617" height="1058" extended-state="6" />
-    <editor active="false" />
+    <frame x="65" y="24" width="1617" height="1058" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.6526082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14824282" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1399361" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -489,27 +515,40 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
     <buildFile url="file://$PROJECT_DIR$/build.xml">
-      <targetFilters>
-        <filter targetName="-check-env" isVisible="false" />
-        <filter targetName="-pre-clean" isVisible="false" />
-        <filter targetName="clean" isVisible="true" />
-        <filter targetName="-build-setup" isVisible="false" />
-        <filter targetName="-pre-compile" isVisible="false" />
-        <filter targetName="compile" isVisible="false" />
-        <filter targetName="-post-compile" isVisible="false" />
-        <filter targetName="-dex" isVisible="false" />
-        <filter targetName="-post-dex" isVisible="false" />
-        <filter targetName="-jar" isVisible="false" />
-        <filter targetName="-post-jar" isVisible="false" />
-        <filter targetName="build" isVisible="false" />
-        <filter targetName="install" isVisible="true" />
-        <filter targetName="test" isVisible="true" />
-        <filter targetName="help" isVisible="false" />
-      </targetFilters>
       <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="160" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="360" column="34" selection-start="11144" selection-end="11144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="160" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -522,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="42" selection-start="81" selection-end="81" vertical-scroll-proportion="0.03816794">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/com.miui.player.test.PlayerTest">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -537,8 +569,8 @@
           <nodes>
             <node x="" y="">junit.framework.Assert</node>
             <node x="" y="">com.android.uiautomator.testrunner.UiAutomatorTestCase</node>
-            <node x="" y="">junit.framework.TestCase</node>
             <node x="" y="">junit.framework.Test</node>
+            <node x="" y="">junit.framework.TestCase</node>
             <node x="" y="">com.miui.player.test.PlayerTest</node>
           </nodes>
           <notes />
@@ -551,39 +583,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="17" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.36037737" />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/vm/adt-bundle-linux/sdk/platforms/android-4.2/uiautomator.jar!/com/android/uiautomator/core/UiObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="49" selection-start="932" selection-end="932" vertical-scroll-proportion="0.3480769" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="360" column="34" selection-start="11144" selection-end="11144" vertical-scroll-proportion="0.0">
+        <state line="16" column="17" selection-start="351" selection-end="362" vertical-scroll-proportion="0.47619048" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.txt">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="46" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UiAutomator.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="56" selection-start="490" selection-end="490" vertical-scroll-proportion="0.2238806" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="17" selection-start="0" selection-end="2638" vertical-scroll-proportion="0.27669346">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/command.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="46" selection-start="482" selection-end="482" vertical-scroll-proportion="0.5387524">
+        <state line="29" column="19" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
@@ -593,9 +630,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="27" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="128" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.2903225">
+        <state line="307" column="30" selection-start="8825" selection-end="8825" vertical-scroll-proportion="0.45698926">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

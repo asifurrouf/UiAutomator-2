@@ -11,6 +11,8 @@
 	get targetId：android list targets
 	exmp:
 	android create uitest-project -n uiautomator -t 13 -p E:\eclipse\workspace\uiautomator
+	
+	android create uitest-project -n uiautomator -t 8 -p /mnt/hgfs/vmshare/jiahuixing/UiAutomator/
 
 3.push the jar file into the phone 
 adb push uiautomator.jar /data/local/tmp/

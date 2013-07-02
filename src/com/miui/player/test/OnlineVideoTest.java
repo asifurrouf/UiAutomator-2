@@ -17,7 +17,6 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
-import sun.swing.plaf.synth.SynthFileChooserUIImpl;
 
 import java.util.Calendar;
 import java.io.IOException;
@@ -348,9 +347,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject progress_bar = null;
         progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         if (progress_bar != null) {
-        } else {
-            waitMsg(wait,5000);
-        }
+                } else {
+                    waitMsg(wait,5000);
+                }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
 /*        debug(String.format("%s %s","list_view=",list_view.getBounds()),1);*/
