@@ -516,7 +516,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play.getBounds()),1);
+        debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -526,6 +526,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen.clickAndWaitForNewWindow();
                 device.pressBack();
                 device.pressBack();
+                break;
             }
             else {
                 sleep(1000);
@@ -673,7 +674,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play.getBounds()),1);
+        debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -683,6 +684,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen.clickAndWaitForNewWindow();
                 device.pressBack();
                 device.pressBack();
+                break;
             }
             else {
                 sleep(1000);
@@ -860,7 +862,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play.getBounds()),1);
+        debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -870,6 +872,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen.clickAndWaitForNewWindow();
                 device.pressBack();
                 device.pressBack();
+                break;
             }
             else {
                 sleep(1000);
@@ -1037,7 +1040,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s", "go_play", go_play.getBounds()),1);
+        debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -1047,6 +1050,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen.clickAndWaitForNewWindow();
                 device.pressBack();
                 device.pressBack();
+                break;
             }
             else {
                 sleep(1000);
@@ -1215,7 +1219,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject go_play;
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(format("%s--%s","go_play",go_play.getBounds()),1);
+        debug(String.format("go_play=%s", go_play.getBounds()),1);
         go_play.clickAndWaitForNewWindow();
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
@@ -1225,6 +1229,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen.clickAndWaitForNewWindow();
                 device.pressBack();
                 device.pressBack();
+                break;
             }
             else {
                 sleep(1000);
