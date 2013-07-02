@@ -234,10 +234,13 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         for (int j = 0;j < TEST_TIMES;j++){
             debug(String.format("--------Test:%d--------", j + 1),1);
-            onlineVideo();
+
+/*            onlineVideo();
             onlineVideoMenu();
             myVideo();
-            myVideoMenu();
+            myVideoMenu();*/
+            myVideo();
+
         }
 
         lockPhone();
@@ -1621,13 +1624,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             wait_record = "Need 10 seconds to record.";
             waitMsg(wait_record,10000);
             to_record.click();
+            sleep(2000);
             UiObject save;
             save = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
-                    .getChild(new UiSelector().className("android.widget.RelativeLayout"))
+                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(0))
                     .getChild(new UiSelector().className("android.widget.ImageView").index(1));
             save.click();
+            sleep(2000);
         }
-
         top_to_record.clickAndWaitForNewWindow();
         sleep(3000);
         UiObject to_record;
@@ -1638,11 +1642,13 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         wait_record = "Need 10 seconds to record.";
         waitMsg(wait_record,10000);
         to_record.click();
+        sleep(2000);
         UiObject save;
         save = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
-                .getChild(new UiSelector().className("android.widget.RelativeLayout"))
+                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.ImageView").index(1));
         save.click();
+        sleep(2000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
