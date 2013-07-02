@@ -1612,8 +1612,37 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         top_to_record = new UiObject(new UiSelector().className("android.widget.Button").index(2));
         if (central_to_record != null){
             central_to_record.clickAndWaitForNewWindow();
-
+            sleep(3000);
+            UiObject to_record;
+            to_record = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
+                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(2));
+            to_record.click();
+            String wait_record;
+            wait_record = "Need 10 seconds to record.";
+            waitMsg(wait_record,10000);
+            to_record.click();
+            UiObject save;
+            save = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
+                    .getChild(new UiSelector().className("android.widget.RelativeLayout"))
+                    .getChild(new UiSelector().className("android.widget.ImageView").index(1));
+            save.click();
         }
+
+        top_to_record.clickAndWaitForNewWindow();
+        sleep(3000);
+        UiObject to_record;
+        to_record = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
+                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(2));
+        to_record.click();
+        String wait_record;
+        wait_record = "Need 10 seconds to record.";
+        waitMsg(wait_record,10000);
+        to_record.click();
+        UiObject save;
+        save = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(5))
+                .getChild(new UiSelector().className("android.widget.RelativeLayout"))
+                .getChild(new UiSelector().className("android.widget.ImageView").index(1));
+        save.click();
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
