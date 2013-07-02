@@ -88,13 +88,12 @@ public class Test {
         return rnd;
     }
 
+
+
     public static void main(String args[]){
 
         Test test = new Test();
-        for (int j = 0; j < 10;j++){
-            test.debug("j=="+j,1);
-            test.randomIndex(10,NOT_ZERO);
-        }
+        test.debug(String.format("%s--%s","111111","2222222"),1);
 
     }
 
