@@ -1259,12 +1259,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug(format("%s--%s",l_lay,l_lay.getBounds()),1);*/
+        /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
         UiObject my_video;
         my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        /*debug(format("%s--%s",my_video,my_video.getBounds()),1);*/
+        /*debug(format("%s--%s","my_video",my_video.getBounds()),1);*/
         my_video.click();
         sleep(1000);
 
@@ -1272,7 +1272,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject my_last_play;
         my_last_play = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
-        /*debug(format("%s--%s",my_last_play,my_last_play.getBounds()),1);*/
+        /*debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);*/
         my_last_play.clickAndWaitForNewWindow();
         sleep(1000);
 
@@ -1283,21 +1283,21 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             int rnd;
             rnd = randomIndex(list_view_child_count,ZERO);
             my_last_play = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-            debug(format("%s--%s",my_last_play,my_last_play.getBounds()),1);
+            debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);
             my_last_play.clickAndWaitForNewWindow();
             sleep(2000);
             device.pressBack();
             sleep(1000);
-        }
-        UiObject clear_history = null;
-        clear_history = new UiObject(new UiSelector().className("android.widget.Button"));
-        if (clear_history != null){
-            clear_history.click();
-            sleep(1000);
-            UiObject confirm;
-            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-            confirm.click();
-            sleep(1000);
+            UiObject clear_history = null;
+            clear_history = new UiObject(new UiSelector().className("android.widget.Button"));
+            if (clear_history != null){
+                clear_history.click();
+                sleep(1000);
+                UiObject confirm;
+                confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                confirm.click();
+                sleep(1000);
+            }
         }
 
         killVideo();
@@ -1312,12 +1312,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug(format("%s--%s",l_lay,l_lay.getBounds()),1);*/
+        /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
         UiObject my_video;
         my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        /*debug(format("%s--%s",my_video,my_video.getBounds()),1);*/
+        /*debug(format("%s--%s","my_video",my_video.getBounds()),1);*/
         my_video.click();
         sleep(1000);
 
@@ -1325,7 +1325,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject collect_fav;
         collect_fav = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
-        /*debug(format("%s--%s",collect_fav,collect_fav.getBounds()),1);*/
+        /*debug(format("%s--%s","collect_fav",collect_fav.getBounds()),1);*/
         collect_fav.clickAndWaitForNewWindow();
         sleep(1000);
 
@@ -1341,12 +1341,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug(format("%s--%s",l_lay,l_lay.getBounds()),1);*/
+        /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
         UiObject my_video;
         my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        /*debug(format("%s--%s",my_video,my_video.getBounds()),1);*/
+        /*debug(format("%s--%s","my_video",my_video.getBounds()),1);*/
         my_video.click();
         sleep(1000);
 
@@ -1354,7 +1354,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject record;
         record = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(3));
-        /*debug(format("%s--%s",record,record.getBounds()),1);*/
+        /*debug(format("%s--%s","record",record.getBounds()),1);*/
         record.clickAndWaitForNewWindow();
         sleep(1000);
 
@@ -1370,12 +1370,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug(format("%s--%s",l_lay,l_lay.getBounds()),1);*/
+        /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
         UiObject my_video;
         my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        /*debug(format("%s--%s",my_video,my_video.getBounds()),1);*/
+        /*debug(format("%s--%s","my_video",my_video.getBounds()),1);*/
         my_video.click();
         sleep(1000);
 
@@ -1383,7 +1383,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject download;
         download = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(4));
-        /*debug(format("%s--%s",download,download.getBounds()),1);*/
+        /*debug(format("%s--%s","download",download.getBounds()),1);*/
         download.clickAndWaitForNewWindow();
         sleep(1000);
 
