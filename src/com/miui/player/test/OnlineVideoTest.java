@@ -224,7 +224,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("Next.",1);
     }
 
-    public void testOnlineVideo() throws RemoteException, IOException, UiObjectNotFoundException {
+    public void testVideo() throws RemoteException, IOException, UiObjectNotFoundException {
         /*测试*/
         debug("--------------------------------testOnlineVideo begin--------------------------------",1);
 
@@ -364,10 +364,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         waitMsg(wait,5000);
         UiObject progress_bar = null;
         progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        if (progress_bar != null) {
-                } else {
-                    waitMsg(wait,5000);
-                }
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
 /*        debug(String.format("%s %s","list_view=",list_view.getBounds()),1);*/
@@ -1493,9 +1492,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
-        String wait;
-        wait = "Please wait 10 seconds for the content loading.";
-        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1507,6 +1503,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         my_video.click();
         sleep(1000);
 
+        String wait;
+        wait = "Please wait 5 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject my_last_play;
@@ -1522,14 +1521,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             int rnd;
             rnd = randomIndex(list_view_child_count,ZERO);
             my_last_play = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-            debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);
+            /*debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);*/
             my_last_play.clickAndWaitForNewWindow();
             sleep(2000);
             device.pressBack();
             sleep(1000);
             UiObject clear_history = null;
             clear_history = new UiObject(new UiSelector().className("android.widget.Button"));
-            if (clear_history != null){
+            if (clear_history.exists()){
                 clear_history.click();
                 sleep(1000);
                 UiObject confirm;
@@ -1549,9 +1548,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
-        String wait;
-        wait = "Please wait 10 seconds for the content loading.";
-        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1563,6 +1559,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         my_video.click();
         sleep(1000);
 
+        String wait;
+        wait = "Please wait 5 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject collect_fav;
@@ -1574,13 +1573,13 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        debug(String.format("list_view_child_count=%d", list_view_child_count),1);
+        /*debug(String.format("list_view_child_count=%d", list_view_child_count),1);*/
         if (list_view_child_count != 0){
             int rnd;
             rnd = randomIndex(list_view_child_count,ZERO);
             UiObject my_collect;
             my_collect = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-            debug(String.format("my_collect=%s", my_collect.getBounds()),1);
+            /*debug(String.format("my_collect=%s", my_collect.getBounds()),1);*/
             my_collect.clickAndWaitForNewWindow();
             sleep(1000);
             device.pressBack();
@@ -1615,9 +1614,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
-        String wait;
-        wait = "Please wait 10 seconds for the content loading.";
-        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1629,6 +1625,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         my_video.click();
         sleep(1000);
 
+        String wait;
+        wait = "Please wait 5 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject record;
@@ -1640,8 +1639,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject central_to_record = null;
         UiObject top_to_record;
         central_to_record = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        /*debug("central_to_record="+central_to_record.getBounds(),1);*/
         top_to_record = new UiObject(new UiSelector().className("android.widget.Button").index(2));
-        if (central_to_record != null){
+        /*debug("top_to_record="+top_to_record.getBounds(),1);*/
+        if (central_to_record.exists()){
+            /*debug("central_to_record!=null",1);*/
             central_to_record.clickAndWaitForNewWindow();
             sleep(3000);
             UiObject to_record;
@@ -1727,9 +1729,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
-        String wait;
-        wait = "Please wait 10 seconds for the content loading.";
-        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1741,6 +1740,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         my_video.click();
         sleep(1000);
 
+        String wait;
+        wait = "Please wait 5 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject download;
