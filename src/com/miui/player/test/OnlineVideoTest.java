@@ -235,11 +235,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         for (int j = 0;j < TEST_TIMES;j++){
             debug(String.format("--------Test:%d--------", j + 1),1);
 
-/*            onlineVideo();
+            onlineVideo();
             onlineVideoMenu();
             myVideo();
-            myVideoMenu();*/
-            myVideo();
+            myVideoMenu();
 
         }
 
@@ -631,6 +630,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         device.pressBack();
         device.pressBack();
         killVideo();
+    }
+
+    private void onlineLivePage() throws IOException {
+        /*在线直播*/
+        debug("--------onlineLivePage--------",1);
+
+        killVideo();
+        launchVideo();
     }
 
     private void onlineMoviePage() throws IOException, UiObjectNotFoundException {
