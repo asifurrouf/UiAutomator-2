@@ -30,7 +30,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     private static final int TEST_TIMES = 30;
     private static final String LOG_TAG = "MIUI_PlayerTest";
-    private static final String PLAYER_PAC_NAME = "com.miui.video";
+    private static final String VIDEO_PAC_NAME = "com.miui.video";
+    private static final String PLAYER_PAC_NAME = "com.miui.videoplayer";
     private static final int SWIPE_STEPS = 20;
     private int width;
     private int height;
@@ -177,8 +178,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     public void killVideo() throws IOException {
         /*杀掉视频*/
         debug("killVideo",1);
-        String kill = "am kill " + PLAYER_PAC_NAME;
-        String force_stop = "am force-stop " + PLAYER_PAC_NAME;
+        String kill = "am kill " + VIDEO_PAC_NAME;
+        String force_stop = "am force-stop " + VIDEO_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
         sleep(2000);
@@ -233,12 +234,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         unlockPhone();
 
         for (int j = 0;j < TEST_TIMES;j++){
-            debug(String.format("--------Test:%d--------", j + 1),1);
+            debug(String.format("--------------Test:%d--------------", j + 1),1);
 
             onlineVideo();
             onlineVideoMenu();
             myVideo();
-            myVideoMenu();
 
         }
 
@@ -291,54 +291,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         myCollectAndFavPage();
         myRecordsPage();
         myDownloadPage();
+        myOtherVideo();
 
         debug("--------myVideo Done--------",1);
-    }
-
-    private void myVideoMenu() throws IOException, UiObjectNotFoundException {
-        /*我的视频Menu*/
-        debug("--------myVideoMenu--------",1);
-
-        killVideo();
-        launchVideo();
-
-        UiObject l_lay;
-        l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
-        /*debug(format("%s--%s",l_lay,l_lay.getBounds()),1);*/
-        UiObject my_video;
-        my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
-                .getChild(new UiSelector().className("android.widget.LinearLayout"))
-                .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        /*debug(format("%s--%s",my_video,my_video.getBounds()),1);*/
-        my_video.click();
-        sleep(1000);
-        device.pressMenu();
-        sleep(1000);
-
-        UiObject list_view;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-        int list_view_child_count;
-        list_view_child_count = list_view.getChildCount();
-        UiObject menu;
-        if (list_view_child_count == 1){
-            menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-            menu.click();
-            sleep(1000);
-        }
-        else if (list_view_child_count == 2){
-            for (int j = 0; j < list_view_child_count ; j++){
-                if (j != 0) {
-                    device.pressMenu();
-                }
-                list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-                menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
-                menu.click();
-                sleep(1000);
-            }
-        }
-
-        device.pressBack();
-        killVideo();
     }
 
     private void onlineSearch() throws IOException, UiObjectNotFoundException {
@@ -1740,6 +1695,85 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug(format("%s--%s","download",download.getBounds()),1);*/
         download.clickAndWaitForNewWindow();
         sleep(1000);
+
+        killVideo();
+    }
+
+    private void myOtherVideo() throws IOException, UiObjectNotFoundException {
+        /*我的视频*/
+        debug("--------myDownloadPage--------",1);
+
+        killVideo();
+        launchVideo();
+
+        UiObject l_lay;
+        l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
+        /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
+        UiObject my_video;
+        my_video = l_lay.getChild(new UiSelector().className("android.widget.FrameLayout"))
+                .getChild(new UiSelector().className("android.widget.LinearLayout"))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        /*debug(format("%s--%s","my_video",my_video.getBounds()),1);*/
+        my_video.click();
+        sleep(1000);
+
+        String wait;
+        wait = "Please wait 5 seconds for the content loading.";
+        waitMsg(wait,5000);
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        UiObject movie = null;
+        if (list_view_child_count > 5){
+            int rnd;
+            rnd = 5 + randomIndex((list_view_child_count - 5), ZERO);
+            movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+            if (movie.exists()){
+                movie.clickAndWaitForNewWindow();
+                sleep(2000);
+                if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                    sleep(2000);
+                    device.pressBack();
+                    device.pressBack();
+                    device.pressBack();
+                }else {
+                    device.pressBack();
+                }
+                sleep(1000);
+                movie.longClick();
+                sleep(1000);
+                UiObject view;
+                view = new UiObject(new UiSelector().className("android.view.View").index(0));
+                UiObject select_all;
+                select_all = view.getChild(new UiSelector().className("android.widget.TextView").index(2));
+                if (list_view_child_count > 6){
+                    select_all.click();
+                    sleep(1000);
+                }
+                UiObject delete;
+                UiObject fav;
+                UiObject visible;
+                delete = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+                fav = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                visible = new UiObject(new UiSelector().className("android.widget.Button").index(2));
+                visible.click();
+                sleep(1000);
+                device.pressMenu();
+                sleep(1000);
+                list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+                UiObject menu;
+                menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+                menu.click();
+                movie.longClick();
+                visible.click();
+                movie.longClick();
+                fav.click();
+                movie.longClick();
+                delete.click();
+                device.pressBack();
+            }
+        }
 
         killVideo();
     }
