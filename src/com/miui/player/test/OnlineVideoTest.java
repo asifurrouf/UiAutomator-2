@@ -1766,6 +1766,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 menu = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
                 menu.click();
                 movie.longClick();
+                if (list_view_child_count > 6){
+                    select_all.click();
+                    sleep(1000);
+                }
                 visible.click();
                 movie.longClick();
                 fav.click();
