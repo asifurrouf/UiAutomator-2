@@ -533,7 +533,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -726,7 +726,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -929,7 +929,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1122,7 +1122,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1318,7 +1318,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        debug("full_screen="+full_screen.getBounds(),1);
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
