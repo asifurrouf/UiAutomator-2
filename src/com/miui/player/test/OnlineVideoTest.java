@@ -544,7 +544,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                /*debug("isDisable",0);*/
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
                 sleep(1000);
             }
         }
@@ -737,7 +741,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                /*debug("isDisable",0);*/
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
                 sleep(1000);
             }
         }
@@ -940,7 +948,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                /*debug("isDisable",0);*/
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
                 sleep(1000);
             }
         }
@@ -1133,7 +1145,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                /*debug("isDisable",0);*/
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
                 sleep(1000);
             }
         }
@@ -1329,7 +1345,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 break;
             }
             else {
-                /*debug("isDisable",0);*/
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
                 sleep(1000);
             }
         }
