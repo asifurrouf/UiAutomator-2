@@ -1493,6 +1493,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
+        String wait;
+        wait = "Please wait 10 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1546,6 +1549,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
+        String wait;
+        wait = "Please wait 10 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1609,6 +1615,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
+        String wait;
+        wait = "Please wait 10 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
@@ -1718,6 +1727,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         killVideo();
         launchVideo();
 
+        String wait;
+        wait = "Please wait 10 seconds for the content loading.";
+        waitMsg(wait,5000);
         UiObject l_lay;
         l_lay = new UiObject(new UiSelector().className("android.widget.LinearLayout").index(0));
         /*debug(format("%s--%s","l_lay",l_lay.getBounds()),1);*/
