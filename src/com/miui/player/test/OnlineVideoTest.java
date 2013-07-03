@@ -499,11 +499,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -534,12 +530,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
-        UiObject f_layout;
-        f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        /*debug("f_layout="+f_layout.getBounds(),1);*/
+
         UiObject full_screen;
-        full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button").index(0));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        debug("full_screen="+full_screen.getBounds(),1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -698,11 +692,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -733,12 +723,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
-        UiObject f_layout;
-        f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        /*debug("f_layout="+f_layout.getBounds(),1);*/
+
         UiObject full_screen;
-        full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button").index(0));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        debug("full_screen="+full_screen.getBounds(),1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -907,11 +895,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -942,12 +926,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
-        UiObject f_layout;
-        f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        /*debug("f_layout="+f_layout.getBounds(),1);*/
+
         UiObject full_screen;
-        full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button").index(0));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        debug("full_screen="+full_screen.getBounds(),1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1105,11 +1087,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -1141,12 +1119,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
-        UiObject f_layout;
-        f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        /*debug("f_layout="+f_layout.getBounds(),1);*/
+
         UiObject full_screen;
-        full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button").index(0));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        debug("full_screen="+full_screen.getBounds(),1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1308,11 +1284,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
-        if (list_view_child_count > 1) {
-            rnd = randomIndex(list_view_child_count, ZERO);
-        } else {
-            rnd = 0;
-        }
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject f_lay;
         f_lay = list_view.getChild(new UiSelector().className("android.widget.FrameLayout").index(rnd));
         int f_lay_child_count;
@@ -1343,12 +1315,10 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         String detail;
         detail = "Please wait 10 seconds for the web loading.";
         waitMsg(detail,10000);
-        UiObject f_layout;
-        f_layout = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2));
-        /*debug("f_layout="+f_layout.getBounds(),1);*/
+
         UiObject full_screen;
-        full_screen = f_layout.getChild(new UiSelector().className("android.widget.Button").index(0));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        debug("full_screen="+full_screen.getBounds(),1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
