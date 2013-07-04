@@ -13,7 +13,7 @@
     <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372408401622" ignored="false" />
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
-    <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372940966349" ignored="false" />
+    <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372941299953" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,7 @@
       <file leaf-file-name="OnlineVideoTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="7" selection-start="728" selection-end="1818" vertical-scroll-proportion="0.0">
+            <state line="65" column="78" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,7 +125,7 @@
       <file leaf-file-name="VideoPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/VideoPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="0" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.46774194">
+            <state line="32" column="50" selection-start="924" selection-end="924" vertical-scroll-proportion="0.21505377">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -660,7 +660,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="7" selection-start="728" selection-end="1818" vertical-scroll-proportion="0.0">
+        <state line="65" column="78" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -669,7 +669,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/VideoPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="0" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.46774194">
+        <state line="32" column="50" selection-start="924" selection-end="924" vertical-scroll-proportion="0.21505377">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

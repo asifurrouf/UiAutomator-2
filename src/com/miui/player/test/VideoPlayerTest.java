@@ -30,7 +30,7 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
 
     private static final int TEST_TIMES = 30;
     private static final String LOG_TAG = "MIUI_PlayerTest";
-    private static final String VIDEO_PAC_NAME = "com.miui.video";
+    private static final String FILE_EXPLORE = "";
     private static final String PLAYER_PAC_NAME = "com.miui.videoplayer";
     private static final int SWIPE_STEPS = 20;
     private int width;
@@ -178,11 +178,11 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
     public void killVideo() throws IOException {
         /*杀掉视频*/
         debug("killVideo",1);
-        String kill = "am kill " + VIDEO_PAC_NAME;
+        /*String kill = "am kill " + VIDEO_PAC_NAME;
         String force_stop = "am force-stop " + VIDEO_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(2000);
+        sleep(2000);*/
     }
 
     public void launchVideo() throws IOException {
