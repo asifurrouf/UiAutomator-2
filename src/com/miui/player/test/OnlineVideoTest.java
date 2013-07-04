@@ -1418,6 +1418,50 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(2000);
         swipePhone(TOP,1);
         sleep(2000);
+
+        UiObject collect;
+        collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        String collect_type;
+        collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+        collect.click();
+        sleep(1000);
+        if (collect_type.equals("追剧")){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+        }
+        UiObject go_play;
+        go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
+        go_play.clickAndWaitForNewWindow();
+        String detail;
+        detail = "Please wait 10 seconds for the web loading.";
+        waitMsg(detail,10000);
+
+        UiObject full_screen;
+        full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
+        for (int j = 0; j < 10 ; j++){
+            if (full_screen.isEnabled()){
+                /*debug("isEnabled",0);*/
+                full_screen.clickAndWaitForNewWindow();
+                sleep(5000);
+                device.pressBack();
+                device.pressBack();
+                break;
+            }
+            else {
+                if (j < 9){
+                    debug("Continue waiting>"+j,0);
+                }else {
+                    debug("Fail and back.",1);
+                }
+                sleep(1000);
+            }
+        }
+        device.pressBack();
+
         device.pressBack();
         sleep(2000);
 
@@ -1519,13 +1563,57 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         /*debug(String.format("list_view_child_count=%d", list_view_child_count),1);*/
-        if (list_view_child_count != 0){
+        if (list_view_child_count > 0){
             int rnd;
             rnd = randomIndex(list_view_child_count,ZERO);
             UiObject my_collect;
             my_collect = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
             /*debug(String.format("my_collect=%s", my_collect.getBounds()),1);*/
             my_collect.clickAndWaitForNewWindow();
+
+            UiObject collect;
+            collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+            String collect_type;
+            collect_type = collect.getText();
+        /*debug("collect_type="+collect_type,1);*/
+            collect.click();
+            sleep(1000);
+            if (collect_type.equals("追剧")){
+                UiObject confirm;
+                confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                confirm.click();
+            }
+            UiObject go_play;
+            go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
+            go_play.clickAndWaitForNewWindow();
+            String detail;
+            detail = "Please wait 10 seconds for the web loading.";
+            waitMsg(detail,10000);
+
+            UiObject full_screen;
+            full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
+            for (int j = 0; j < 10 ; j++){
+                if (full_screen.isEnabled()){
+                /*debug("isEnabled",0);*/
+                    full_screen.clickAndWaitForNewWindow();
+                    sleep(5000);
+                    device.pressBack();
+                    device.pressBack();
+                    break;
+                }
+                else {
+                    if (j < 9){
+                        debug("Continue waiting>"+j,0);
+                    }else {
+                        debug("Fail and back.",1);
+                    }
+                    sleep(1000);
+                }
+            }
+            device.pressBack();
+
             sleep(1000);
             device.pressBack();
             my_collect.longClick();
@@ -1695,6 +1783,22 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug(format("%s--%s","download",download.getBounds()),1);*/
         download.clickAndWaitForNewWindow();
         sleep(1000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        if (list_view_child_count > 0){
+            int rnd;
+            rnd = randomIndex(list_view_child_count,ZERO);
+            UiObject movie;
+            movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+            debug("movie="+movie.getBounds(),1);
+            movie.clickAndWaitForNewWindow();
+            if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                sleep(2000);
+                device.pressBack();
+                device.pressBack();
+            }
+        }
 
         killVideo();
     }
@@ -1738,6 +1842,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                     device.pressBack();
                     device.pressBack();
                 }else {
+                    list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+                    list_view_child_count = list_view.getChildCount();
+                    rnd = randomIndex(list_view_child_count,ZERO);
+                    movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+                    movie.clickAndWaitForNewWindow();
+                    sleep(5000);
+                    if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                        device.pressBack();
+                        device.pressBack();
+                    }
                     device.pressBack();
                 }
                 sleep(1000);
