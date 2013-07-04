@@ -366,7 +366,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -456,7 +456,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 }
                 else {
                     if (k < 9){
-                        debug("Waiting:"+k,0);
+                        debug("Waiting:"+( k + 1 ),0);
                     }else {
                         debug("Fail and back.",1);
                     }
@@ -548,8 +548,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         play = f_lay.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         play.clickAndWaitForNewWindow();
-
         sleep(1000);
+
         UiObject collect;
         collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
         String collect_type;
@@ -582,7 +582,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -777,7 +777,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -982,7 +982,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1177,7 +1177,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1375,7 +1375,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1525,7 +1525,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Waiting:"+j,0);
+                    debug("Waiting:"+( j + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
                 }
