@@ -31,6 +31,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     private static final int TEST_TIMES = 30;
     private static final String LOG_TAG = "MIUI_PlayerTest";
     private static final String VIDEO_PAC_NAME = "com.miui.video";
+    private static final String VIDEO_PAC_NAME_ACTIVITY = "com.miui.video/.HomeActivity";
     private static final String PLAYER_PAC_NAME = "com.miui.videoplayer";
     private static final int SWIPE_STEPS = 20;
     private int width;
@@ -188,7 +189,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     public void launchVideo() throws IOException {
         /*打开视频*/
         debug("launchVideo",1);
-        String launch = "am start -n com.miui.video/.HomeActivity";
+        String launch = "am start -n "+VIDEO_PAC_NAME_ACTIVITY;
         Runtime.getRuntime().exec(launch);
         sleep(2000);
     }

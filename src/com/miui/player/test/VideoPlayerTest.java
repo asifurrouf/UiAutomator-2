@@ -30,7 +30,8 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
 
     private static final int TEST_TIMES = 30;
     private static final String LOG_TAG = "MIUI_PlayerTest";
-    private static final String FILE_EXPLORE = "";
+    private static final String FILE_EXPLORER = "com.android.fileexplorer";
+    private static final String FILE_EXPLORER_ACTIVITY = "com.android.fileexplorer/.FileExplorerTabActivity";
     private static final String PLAYER_PAC_NAME = "com.miui.videoplayer";
     private static final int SWIPE_STEPS = 20;
     private int width;
@@ -223,6 +224,11 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
             sleep(1000);
         }
         debug("Next.",1);
+    }
+
+    private void openVideoFile(){
+        /*打开视频文件*/
+        debug("--------openFile--------",1);
     }
 
 }
