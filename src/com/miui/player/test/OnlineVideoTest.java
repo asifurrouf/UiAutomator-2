@@ -355,6 +355,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -445,6 +446,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             UiObject full_screen;
             full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+            debug("Waiting for full_screen.",1);
             for (int k = 0; k < 10 ; k++){
                 if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -455,7 +457,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                     break;
                 }
                 else {
-                    if (k < 9){
+                    if (j < 9){
                         debug("Waiting:"+( k + 1 ),0);
                     }else {
                         debug("Fail and back.",1);
@@ -571,6 +573,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -766,6 +769,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -971,6 +975,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1166,6 +1171,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1364,6 +1370,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
@@ -1514,6 +1521,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
+        debug("Waiting for full_screen.",1);
         for (int j = 0; j < 10 ; j++){
             if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
