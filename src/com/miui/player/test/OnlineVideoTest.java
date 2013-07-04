@@ -350,9 +350,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -368,7 +366,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -442,9 +440,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
             go_play.clickAndWaitForNewWindow();
-            String detail;
-            detail = "Please wait 10 seconds for the web loading.";
-            waitMsg(detail,10000);
+            sleep(2000);
 
             UiObject full_screen;
             full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -460,7 +456,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 }
                 else {
                     if (k < 9){
-                        debug("Continue waiting>"+k,0);
+                        debug("Waiting:"+k,0);
                     }else {
                         debug("Fail and back.",1);
                     }
@@ -570,9 +566,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -588,7 +582,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -767,9 +761,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -785,7 +777,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -974,9 +966,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -992,7 +982,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1171,9 +1161,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -1189,7 +1177,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1371,9 +1359,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -1389,7 +1375,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
@@ -1523,9 +1509,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
         go_play.clickAndWaitForNewWindow();
-        String detail;
-        detail = "Please wait 10 seconds for the web loading.";
-        waitMsg(detail,10000);
+        sleep(2000);
 
         UiObject full_screen;
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
@@ -1541,7 +1525,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
             else {
                 if (j < 9){
-                    debug("Continue waiting>"+j,0);
+                    debug("Waiting:"+j,0);
                 }else {
                     debug("Fail and back.",1);
                 }
