@@ -176,21 +176,31 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
         sleep(2000);
     }
 
-    public void killVideo() throws IOException {
+    public void killVideoPlayer() throws IOException {
         /*杀掉视频*/
         debug("killVideo",1);
-        /*String kill = "am kill " + VIDEO_PAC_NAME;
-        String force_stop = "am force-stop " + VIDEO_PAC_NAME;
+        String kill = "am kill " + PLAYER_PAC_NAME;
+        String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(2000);*/
+        sleep(2000);
     }
 
-    public void launchVideo() throws IOException {
+    public void launchFileExplorer() throws IOException {
         /*打开视频*/
         debug("launchVideo",1);
-        String launch = "am start -n com.miui.video/.HomeActivity";
+        String launch = "am start -n " + FILE_EXPLORER_ACTIVITY;
         Runtime.getRuntime().exec(launch);
+        sleep(2000);
+    }
+
+    public void killFileExplorer() throws IOException {
+        /*杀掉视频*/
+        debug("killFileExplorer",1);
+        String kill = "am kill " + FILE_EXPLORER;
+        String force_stop = "am force-stop " + FILE_EXPLORER;
+        Runtime.getRuntime().exec(kill);
+        Runtime.getRuntime().exec(force_stop);
         sleep(2000);
     }
 
@@ -226,9 +236,20 @@ public class VideoPlayerTest extends UiAutomatorTestCase{
         debug("Next.",1);
     }
 
-    private void openVideoFile(){
+    private void openVideoFile() throws IOException, UiObjectNotFoundException {
         /*打开视频文件*/
         debug("--------openFile--------",1);
+
+        killFileExplorer();
+        launchFileExplorer();
+
+        UiObject tabs;
+        tabs = new UiObject(new UiSelector().className("android.widget.HorizontalScrollView").index(1));
+        UiObject tab;
+        tab = tabs.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
+        tab.click();
+        sleep(2000);
     }
 
 }
