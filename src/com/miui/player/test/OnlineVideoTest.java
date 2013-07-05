@@ -29,7 +29,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
     protected UiDevice device = null;
 
     private static final int TEST_TIMES = 30;
-    private static final String LOG_TAG = "MIUI_PlayerTest";
+    private static final String LOG_TAG = "ONLINE_VIDEO_TEST";
     private static final String VIDEO_PAC_NAME = "com.miui.video";
     private static final String VIDEO_PAC_NAME_ACTIVITY = "com.miui.video/.HomeActivity";
     private static final String PLAYER_PAC_NAME = "com.miui.videoplayer";
@@ -70,6 +70,13 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         debug("width=" + width + " height=" + height,1);
         wakePhone();
 
+    }
+
+    private void log(String msg){
+        /*log*/
+        debug("log",1);
+        msg = String.format("******%s******", msg);
+        Log.e(LOG_TAG,msg);
     }
 
     private void debug(String msg,int wrap){
@@ -250,13 +257,19 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
         debug("Waiting for full_screen.",1);
+        sleep(2000);
         for (int k = 0; k < 10 ; k++){
             if (full_screen.isEnabled()){
                 debug("full_screen",1);
                 full_screen.clickAndWaitForNewWindow();
                 sleep(5000);
-                device.pressBack();
-                device.pressBack();
+                if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                    device.pressBack();
+                    device.pressBack();
+                }else {
+                    device.pressBack();
+                    log("Full_Screen Failed");
+                }
                 break;
             }
             else {
@@ -380,7 +393,9 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject search_result;
         int rnd;
         rnd = randomIndex(list_view_child_count,ZERO);
-        search_result = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        search_result = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
         search_result.clickAndWaitForNewWindow();
         sleep(2000);
 
@@ -437,47 +452,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             swipePhone(TOP,1);
             sleep(1000);
 
-            UiObject collect;
-            collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
-            String collect_type;
-            collect_type = collect.getText();
-        /*debug("collect_type="+collect_type,1);*/
-            collect.click();
-            sleep(1000);
-            if (collect_type.equals("追剧")){
-                UiObject confirm;
-                confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-                confirm.click();
-            }
-            UiObject go_play;
-            go_play = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        /*debug(String.format("go_play=%s", go_play.getBounds()),1);*/
-            go_play.clickAndWaitForNewWindow();
-            sleep(2000);
-
-            UiObject full_screen;
-            full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
-            debug("Waiting for full_screen.",1);
-            for (int k = 0; k < 10 ; k++){
-                if (full_screen.isEnabled()){
-                    debug("full_screen",1);
-                    full_screen.clickAndWaitForNewWindow();
-                    sleep(5000);
-                    device.pressBack();
-                    device.pressBack();
-                    break;
-                }
-                else {
-                    if (k < 9){
-                        debug("Waiting:"+( k + 1 ),0);
-                    }else {
-                        debug("Fail and back.",1);
-                    }
-                    sleep(1000);
-                }
-            }
-            device.pressBack();
+            videoDetail();
 
             device.pressBack();
             sleep(1000);
@@ -1385,13 +1360,19 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
                 debug("Waiting for full_screen.",1);
+                sleep(2000);
                 for (int k = 0; k < 10 ; k++){
                     if (full_screen.isEnabled()){
                         debug("full_screen",1);
                         full_screen.clickAndWaitForNewWindow();
                         sleep(5000);
-                        device.pressBack();
-                        device.pressBack();
+                        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                            device.pressBack();
+                            device.pressBack();
+                        }else {
+                            device.pressBack();
+                            log("Full_Screen Failed");
+                        }
                         break;
                     }
                     else {
