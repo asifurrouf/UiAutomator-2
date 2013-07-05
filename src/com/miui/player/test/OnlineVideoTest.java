@@ -326,6 +326,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
 
         device.pressBack();
+        sleep(2000);
 
         /*killVideo();*/
     }
@@ -404,6 +405,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         device.pressBack();
         device.pressBack();
         device.pressBack();
+        sleep(2000);
 
 /*        killVideo();*/
     }
@@ -482,6 +484,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         }
 
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -634,6 +637,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -796,6 +800,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -962,6 +967,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1119,6 +1125,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1251,6 +1258,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1323,6 +1331,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1410,6 +1419,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1528,6 +1538,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1645,6 +1656,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -1695,6 +1707,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
 /*        killVideo();*/
     }
 
@@ -1790,6 +1803,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 }
