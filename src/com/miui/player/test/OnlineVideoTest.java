@@ -282,10 +282,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         for (int j = 0;j < TEST_TIMES;j++){
             debug(String.format("--------------Test:%d--------------", j + 1),1);
 
+            killVideo();
             onlineVideo();
             onlineVideoMenu();
             myVideo();
             killVideo();
+
         }
 
         lockPhone();
