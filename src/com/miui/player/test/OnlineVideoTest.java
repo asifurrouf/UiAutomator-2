@@ -285,7 +285,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             onlineVideo();
             onlineVideoMenu();
             myVideo();
-
+            killVideo();
         }
 
         lockPhone();
@@ -313,7 +313,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*在线Menu*/
         debug("--------onlineVideoMenu--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         device.pressMenu();
@@ -326,7 +326,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         sleep(1000);
 
         device.pressBack();
-        killVideo();
+
+        /*killVideo();*/
     }
 
     private void myVideo() throws IOException, UiObjectNotFoundException {
@@ -346,7 +347,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*搜索*/
         debug("--------onlineSearch--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject search;
@@ -402,15 +403,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         clear_history.click();
         device.pressBack();
         device.pressBack();
+        device.pressBack();
 
-        killVideo();
+/*        killVideo();*/
     }
 
     private void onlineTopBanner() throws IOException, UiObjectNotFoundException {
         /*首页顶栏banner*/
         debug("--------topBanner--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject banner;
@@ -480,14 +482,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         }
 
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineTvPage() throws IOException, UiObjectNotFoundException {
         /*电视剧*/
         debug("--------tvPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject list_view;
@@ -632,14 +634,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineLivePage() throws IOException, UiObjectNotFoundException {
         /*在线直播*/
         debug("--------onlineLivePage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject list_view;
@@ -652,14 +654,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug("more_movie="+more_movie.getBounds(),1);*/
         more_live.clickAndWaitForNewWindow();
 
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineMoviePage() throws IOException, UiObjectNotFoundException {
         /*电影*/
         debug("--------moviePage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject list_view;
@@ -794,14 +796,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineShowPage() throws IOException, UiObjectNotFoundException {
         /*综艺*/
         debug("--------showPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         int start_x,start_y,end_x,end_y;
@@ -960,14 +962,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineComicPage() throws IOException, UiObjectNotFoundException {
         /*动漫*/
         debug("--------comicPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         int start_x,start_y,end_x,end_y;
@@ -1117,14 +1119,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineDocumentPage() throws IOException, UiObjectNotFoundException {
         /*纪录片*/
         debug("--------documentPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         int start_x,start_y,end_x,end_y;
@@ -1249,14 +1251,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void onlineTopicPage() throws IOException, UiObjectNotFoundException {
         /*专题*/
         debug("--------topicPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         int start_x,start_y,end_x,end_y;
@@ -1321,14 +1323,14 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         device.pressBack();
         device.pressBack();
-        killVideo();
+        /*killVideo();*/
     }
 
     private void myLastPlayedPage() throws IOException, UiObjectNotFoundException {
         /*最近播放*/
         debug("--------myLastPlayedPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject l_lay;
@@ -1406,14 +1408,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
         }
 
-        killVideo();
+        device.pressBack();
+        device.pressBack();
+        /*killVideo();*/
     }
 
     private void myCollectAndFavPage() throws IOException, UiObjectNotFoundException {
         /*收藏&追剧*/
         debug("--------myCollectAndFavPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject l_lay;
@@ -1522,14 +1526,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             device.pressBack();
         }
 
-        killVideo();
+        device.pressBack();
+        device.pressBack();
+        /*killVideo();*/
     }
 
     private void myRecordsPage() throws IOException, UiObjectNotFoundException {
         /*我拍摄的视频*/
         debug("--------myRecordsPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject l_lay;
@@ -1637,14 +1643,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         confirm.click();
         sleep(1000);
 
-        killVideo();
+        device.pressBack();
+        device.pressBack();
+        /*killVideo();*/
     }
 
     private void myDownloadPage() throws IOException, UiObjectNotFoundException {
         /*下载的离线视频*/
         debug("--------myDownloadPage--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject l_lay;
@@ -1685,14 +1693,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
         }
 
-        killVideo();
+        device.pressBack();
+        device.pressBack();
+/*        killVideo();*/
     }
 
     private void myOtherVideo() throws IOException, UiObjectNotFoundException {
         /*我的视频*/
         debug("--------myOtherVideo--------",1);
 
-        killVideo();
+        /*killVideo();*/
         launchVideo();
 
         UiObject l_lay;
@@ -1778,6 +1788,8 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             }
         }
 
-        killVideo();
+        device.pressBack();
+        device.pressBack();
+        /*killVideo();*/
     }
 }
