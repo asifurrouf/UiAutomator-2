@@ -74,7 +74,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
     private void log(String msg){
         /*log*/
-        debug("log",1);
+        debug("add a log",1);
         msg = String.format("******%s******", msg);
         Log.d(LOG_TAG,msg);
     }
