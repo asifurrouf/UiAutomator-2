@@ -310,6 +310,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
          /*在线视频*/
         debug("--------onlineVideo--------",1);
 
+        announceAndAuthority();
         onlineSearch();
         onlineTopBanner();
         onlineTvPage();
@@ -356,6 +357,29 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         myOtherVideo();
 
         debug("--------myVideo Done--------",1);
+    }
+
+    private void announceAndAuthority() throws UiObjectNotFoundException {
+        /*声明*/
+        debug("--------announceTable--------",1);
+        UiObject announce;
+        announce = new UiObject(new UiSelector().className("android.widget.TextView").text("声明"));
+        UiObject authority;
+        authority = new UiObject(new UiSelector().className("android.widget.TextView").text("访问权限请求"));
+        if (announce.exists()){
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+            sleep(5000);
+        }
+        if (device.getCurrentPackageName().equals("android")){
+            if (authority.exists()){
+                UiObject permit;
+                permit = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                permit.click();
+                sleep(5000);
+            }
+        }
     }
 
     private void onlineSearch() throws IOException, UiObjectNotFoundException {
