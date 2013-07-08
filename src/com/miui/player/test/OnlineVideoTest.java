@@ -206,16 +206,16 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         int rnd;
         rnd = (int) (Math.random() * area);
         if (type.equals(NOT_ZERO)){
-            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
+            debug(String.format("randomIndex>>area:%d>>>type:%s>>>rnd:%d",area,type,rnd),1);
             if (rnd==0) {
-                debug("ReRandom>>>",0);
+                debug("ReRandom>>>>>>>",0);
                 return randomIndex(area, type);
             }
             else {
                 return rnd;
             }
         }else if (type.equals(ZERO)){
-            debug(String.format("randomIndex>%s>type>%s",rnd,type),1);
+            debug(String.format("randomIndex>>area:%d>>>type:%s>>>rnd:%d",area,type,rnd),1);
         }
         return rnd;
     }
