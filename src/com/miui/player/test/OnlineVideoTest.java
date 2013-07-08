@@ -378,7 +378,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
         String wait;
         wait = "Please wait 5 seconds for the searching.";
-        waitMsg(wait,5000);
+        sleep(2000);
         UiObject progress_bar = null;
         progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         if (progress_bar.exists()){
@@ -409,7 +409,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         UiObject search_history;
         search_history = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
         search_history.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         device.pressBack();
         search.click();
         sleep(2000);
@@ -480,7 +484,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         more_tv.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the tv content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         /*精选*/
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
@@ -513,7 +522,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         /*排行*/
         rank.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -525,7 +538,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_tv="+more_tv.getBounds(),1);*/
         more_tv.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
@@ -556,7 +573,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         /*最新*/
         new_tvs.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -616,7 +637,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button").index(1));
         confirm.click();
         wait = "Wait 5 second to filter.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         device.pressBack();
         device.pressBack();
@@ -662,7 +687,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         more_movie.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the movie content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         int rnd;
         rnd = randomIndex(3,ZERO);
         if (rnd != 0){
@@ -678,7 +708,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -690,7 +724,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_movie="+more_movie.getBounds(),1);*/
         more_movie.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
@@ -726,7 +764,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(2));
         /*debug("new_movies="+new_movies.getBounds(),1);*/
         new_movies.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -786,7 +828,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button").index(1));
         confirm.click();
         wait = "Wait 5 second to filter.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         device.pressBack();
         device.pressBack();
@@ -826,7 +872,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         more_show.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the show content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         /*精选*/
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
@@ -854,7 +905,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
         sleep(2000);
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -866,7 +921,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_show="+more_show.getBounds(),1);*/
         more_show.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
@@ -902,7 +961,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(2));
         /*debug("new_shows="+new_shows.getBounds(),1);*/
         new_shows.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -961,7 +1024,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button").index(1));
         confirm.click();
         wait = "Wait 5 second to filter.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         device.pressBack();
         device.pressBack();
@@ -1001,7 +1068,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         more_comic.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the comic content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         /*精选*/
         int rnd;
@@ -1018,7 +1090,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -1030,7 +1106,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_comic="+more_comic.getBounds(),1);*/
         more_comic.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
@@ -1068,7 +1148,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(2));
         /*debug("new_comics="+new_comics.getBounds(),1);*/
         new_comics.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -1127,7 +1211,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button").index(1));
         confirm.click();
         wait = "Wait 5 second to filter.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         device.pressBack();
         device.pressBack();
@@ -1169,7 +1257,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         more_doc.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the document content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         /*精选*/
         sleep(2000);
@@ -1187,7 +1280,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("rank="+rank.getBounds(),1);*/
         rank.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -1200,7 +1297,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_doc="+more_doc.getBounds(),1);*/
         more_doc.clickAndWaitForNewWindow();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
@@ -1237,7 +1338,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(2));
         /*debug("new_docs="+new_docs.getBounds(),1);*/
         new_docs.click();
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         rnd = randomIndex(3,ZERO);
         swipePhone(TOP,rnd);
         if (rnd != 0){
@@ -1268,7 +1373,11 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button").index(1));
         confirm.click();
         wait = "Wait 5 second to filter.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
 
         device.pressBack();
         device.pressBack();
@@ -1306,7 +1415,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         topic.clickAndWaitForNewWindow();
         String wait;
         wait = "Please wait 5 seconds for the topic content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
@@ -1373,7 +1487,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         String wait;
         wait = "Please wait 5 seconds for the content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject my_last_play;
@@ -1466,7 +1585,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         String wait;
         wait = "Please wait 5 seconds for the content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject collect_fav;
@@ -1590,7 +1714,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         String wait;
         wait = "Please wait 5 seconds for the content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject record;
@@ -1708,7 +1837,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         String wait;
         wait = "Please wait 5 seconds for the content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         UiObject download;
@@ -1759,7 +1893,12 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
 
         String wait;
         wait = "Please wait 5 seconds for the content loading.";
-        waitMsg(wait,5000);
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         int list_view_child_count;
