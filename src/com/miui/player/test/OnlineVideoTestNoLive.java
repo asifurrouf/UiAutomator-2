@@ -476,7 +476,7 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view"+list_view.getBounds(),1);*/
         UiObject more_tv;
-        more_tv = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
+        more_tv = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_tv="+more_tv.getBounds(),1);*/

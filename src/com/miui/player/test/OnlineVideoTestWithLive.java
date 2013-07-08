@@ -313,6 +313,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         onlineSearch();
         onlineTopBanner();
         onlineTvPage();
+        onlineLivePage();
         onlineMoviePage();
         onlineShowPage();
         onlineComicPage();
@@ -476,7 +477,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view"+list_view.getBounds(),1);*/
         UiObject more_tv;
-        more_tv = list_view.getChild(new UiSelector().className("android.widget.LinearLayout"))
+        more_tv = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_tv="+more_tv.getBounds(),1);*/
@@ -665,6 +666,9 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         /*debug("more_movie="+more_movie.getBounds(),1);*/
         more_live.clickAndWaitForNewWindow();
 
+        device.pressBack();
+        device.pressBack();
+        sleep(2000);
         /*killVideo();*/
     }
 
@@ -675,7 +679,21 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         /*killVideo();*/
         launchVideo();
 
+        int start_x,start_y,end_x,end_y;
         UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject tmp;
+        tmp = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        /*debug(String.format("%s",tmp.getBounds()),1);*/
+        start_x = width / 2;
+        end_x = start_x;
+        start_y = tmp.getBounds().centerY();
+        end_y = height / 3;
+        /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
+        device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        sleep(2000);
+
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view"+list_view.getBounds(),1);*/
         UiObject more_movie;
@@ -778,7 +796,6 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         /*debug("filter="+filter.getBounds(),1);*/
         filter.clickAndWaitForNewWindow();
 
-        int start_x,start_y,end_x,end_y;
         int picker_top,picker_bottom;
         UiObject picker_lang;
         picker_lang = new UiObject(new UiSelector().className("android.widget.NumberPicker").index(0));
@@ -864,7 +881,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view="+list_view.getBounds(),1);*/
         UiObject more_show;
-        more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+        more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(3))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_show="+more_show.getBounds(),1);*/
@@ -1054,7 +1071,9 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        for (int j = 0;j<2;j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
         sleep(2000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
@@ -1249,7 +1268,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view="+list_view.getBounds(),1);*/
         UiObject more_doc;
-        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(3))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_comic="+more_doc.getBounds(),1);*/
