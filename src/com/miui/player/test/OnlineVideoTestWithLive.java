@@ -24,7 +24,7 @@ import java.io.IOException;
 import static java.lang.String.format;
 
 
-public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
+public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
 
     protected UiDevice device = null;
 
@@ -645,6 +645,26 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
         device.pressBack();
         device.pressBack();
         sleep(2000);
+        /*killVideo();*/
+    }
+
+    private void onlineLivePage() throws IOException, UiObjectNotFoundException {
+        /*在线直播*/
+        debug("--------onlineLivePage--------",1);
+
+        /*killVideo();*/
+        launchVideo();
+
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        debug(String.format("list_view=%s", list_view.getBounds()),1);
+        UiObject more_live;
+        more_live = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.Button"));
+        /*debug("more_movie="+more_movie.getBounds(),1);*/
+        more_live.clickAndWaitForNewWindow();
+
         /*killVideo();*/
     }
 

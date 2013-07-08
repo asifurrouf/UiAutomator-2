@@ -110,8 +110,21 @@
       <file leaf-file-name="OnlineVideoTestNoLive.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="18" selection-start="646" selection-end="646" vertical-scroll-proportion="0.6182796">
-              <folding />
+            <state line="29" column="61" selection-start="772" selection-end="772" vertical-scroll-proportion="0.41698113">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnlineVideoTestWithLive.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="113" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,6 +169,8 @@
         <option value="$PROJECT_DIR$/src/com/miui/player/test/VideoPlayerTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/Test.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
+        <option value="$PROJECT_DIR$/src/com/miui/player/test/dasdas.java" />
+        <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java" />
       </list>
     </option>
   </component>
@@ -541,13 +556,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="360" column="34" selection-start="11144" selection-end="11144" vertical-scroll-proportion="0.0">
@@ -657,10 +665,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="113" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="18" selection-start="646" selection-end="646" vertical-scroll-proportion="0.6182796">
-          <folding />
+        <state line="29" column="61" selection-start="772" selection-end="772" vertical-scroll-proportion="0.41698113">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

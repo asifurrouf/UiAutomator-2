@@ -20,5 +20,7 @@ adb push uiautomator.jar /data/local/tmp/
 4.run command
 adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.MusicPlayerTest
 
-adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.OnlineVideoTest
+adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.OnlineVideoTestNoLive
+
+adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.OnlineVideoTestWithLive
 
