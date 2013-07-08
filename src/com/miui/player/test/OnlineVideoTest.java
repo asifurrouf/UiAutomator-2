@@ -76,7 +76,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         /*log*/
         debug("log",1);
         msg = String.format("******%s******", msg);
-        Log.e(LOG_TAG,msg);
+        Log.d(LOG_TAG,msg);
     }
 
     private void debug(String msg,int wrap){
@@ -267,7 +267,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                     device.pressBack();
                     device.pressBack();
                 }else {
-                    device.pressBack();
                     log("Full_Screen Failed");
                 }
                 break;
@@ -1370,7 +1369,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                             device.pressBack();
                             device.pressBack();
                         }else {
-                            device.pressBack();
                             log("Full_Screen Failed");
                         }
                         break;
@@ -1478,10 +1476,15 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                 for (int j = 0; j < 10 ; j++){
                     if (full_screen.isEnabled()){
                 /*debug("isEnabled",0);*/
+                        debug("full_screen",1);
                         full_screen.clickAndWaitForNewWindow();
                         sleep(5000);
-                        device.pressBack();
-                        device.pressBack();
+                        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                            device.pressBack();
+                            device.pressBack();
+                        }else {
+                            log("Full_Screen Failed");
+                        }
                         break;
                     }
                     else {
