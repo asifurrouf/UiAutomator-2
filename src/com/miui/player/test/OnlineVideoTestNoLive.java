@@ -24,7 +24,7 @@ import java.io.IOException;
 import static java.lang.String.format;
 
 
-public class OnlineVideoTest extends UiAutomatorTestCase{
+public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
 
     protected UiDevice device = null;
 
