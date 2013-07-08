@@ -88,13 +88,10 @@ public class Test {
         return rnd;
     }
 
-
-
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         Test test = new Test();
-        test.debug(String.format("%s--%s","111111","2222222"),1);
-
+        test.debug(args[0],1);
     }
 
 }

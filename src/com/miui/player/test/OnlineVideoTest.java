@@ -59,7 +59,6 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
             {1180,1180,1180,},
     };
 
-
     protected void setUp() throws Exception {
         /*setUp*/
         debug("setUp",1);
