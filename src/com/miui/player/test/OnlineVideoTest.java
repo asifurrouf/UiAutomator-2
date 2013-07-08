@@ -1919,14 +1919,17 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
                     list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
                     list_view_child_count = list_view.getChildCount();
                     rnd = randomIndex(list_view_child_count,ZERO);
-                    movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-                    movie.clickAndWaitForNewWindow();
-                    sleep(5000);
+                    UiObject folder_movie;
+                    folder_movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+                    folder_movie.clickAndWaitForNewWindow();
+                    sleep(7000);
                     if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
                         device.pressBack();
                         device.pressBack();
+                        device.pressBack();
+                    }else if (VIDEO_PAC_NAME.equals(device.getCurrentPackageName())){
+                        device.pressBack();
                     }
-                    device.pressBack();
                 }
                 sleep(1000);
                 movie.longClick();
