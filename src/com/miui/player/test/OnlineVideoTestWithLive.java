@@ -722,13 +722,17 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        int times;
+        times = 1;
+        for (int j = 0; j < times ; j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
         sleep(2000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view"+list_view.getBounds(),1);*/
         UiObject more_movie;
-        more_movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+        more_movie = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_movie="+more_movie.getBounds(),1);*/
@@ -906,13 +910,17 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        int times;
+        times = 1;
+        for (int j = 0; j < times ; j++) {
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
         sleep(2000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view="+list_view.getBounds(),1);*/
         UiObject more_show;
-        more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(3))
+        more_show = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_show="+more_show.getBounds(),1);*/
@@ -1102,7 +1110,9 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        for (int j = 0;j<2;j++) {
+        int times;
+        times = 2;
+        for (int j = 0; j < times ; j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
         sleep(2000);
@@ -1110,7 +1120,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view="+list_view.getBounds(),1);*/
         UiObject more_comic;
-        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
+        more_comic = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_comic="+more_comic.getBounds(),1);*/
@@ -1291,7 +1301,9 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        for (int j = 0;j<2;j++) {
+        int times;
+        times = 2;
+        for (int j = 0; j < times ; j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
         sleep(2000);
@@ -1299,7 +1311,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
         /*debug("list_view="+list_view.getBounds(),1);*/
         UiObject more_doc;
-        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(3))
+        more_doc = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_comic="+more_doc.getBounds(),1);*/
@@ -1453,7 +1465,9 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         start_y = tmp.getBounds().centerY();
         end_y = height / 3;
         /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
-        for (int j = 0;j<3;j++) {
+        int times;
+        times = 3;
+        for (int j = 0; j < times ; j++) {
             device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
         }
         sleep(2000);
@@ -2024,5 +2038,30 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         device.pressBack();
         sleep(2000);
         /*killVideo();*/
+    }
+
+    private void flipPage() throws IOException, UiObjectNotFoundException {
+        /*测试*/
+        launchVideo();
+
+        int start_x,start_y,end_x,end_y;
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        UiObject tmp;
+        tmp = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        /*debug(String.format("%s",tmp.getBounds()),1);*/
+        start_x = width / 2;
+        end_x = start_x;
+        start_y = tmp.getBounds().centerY();
+        end_y = height / 3;
+        /*debug(String.format("%d,%d,%d,%d", start_x, start_y, end_x, end_y),1);*/
+        int times;
+        times = 2;
+        for (int j = 0; j < times ; j++){
+            device.swipe(start_x, start_y, end_x, end_y, SWIPE_STEPS);
+        }
+        sleep(2000);
+
     }
 }

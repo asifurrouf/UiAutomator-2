@@ -14,7 +14,7 @@
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372942653935" ignored="false" />
-    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373432446813" ignored="false" />
+    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373433780147" ignored="false" />
     <file path="/OnlineVideoTestNoLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373426759988" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnlineVideoTestNoLive.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OnlineVideoTestNoLive.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="364" column="17" selection-start="11114" selection-end="11114" vertical-scroll-proportion="0.2795699">
+            <state line="341" column="75" selection-start="10553" selection-end="10553" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,10 +120,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnlineVideoTestWithLive.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="OnlineVideoTestWithLive.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="362" column="0" selection-start="11052" selection-end="12027" vertical-scroll-proportion="5.892857">
+            <state line="321" column="26" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.33207548">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,8 +172,8 @@
         <option value="$PROJECT_DIR$/src/com/miui/player/test/Test.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/dasdas.java" />
-        <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java" />
+        <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java" />
       </list>
     </option>
   </component>
@@ -449,7 +449,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.6526082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15079872" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16230032" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -668,18 +668,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="0" selection-start="11052" selection-end="12027" vertical-scroll-proportion="5.892857">
+        <state line="341" column="75" selection-start="10553" selection-end="10553" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="364" column="17" selection-start="11114" selection-end="11114" vertical-scroll-proportion="0.2795699">
+        <state line="321" column="26" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.33207548">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
