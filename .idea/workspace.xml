@@ -112,7 +112,7 @@
       <file leaf-file-name="OnlineVideoTestNoLive.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="387" column="27" selection-start="11986" selection-end="11986" vertical-scroll-proportion="0.89784944">
+            <state line="364" column="17" selection-start="11114" selection-end="11114" vertical-scroll-proportion="0.2795699">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -679,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="27" selection-start="11986" selection-end="11986" vertical-scroll-proportion="0.89784944">
+        <state line="364" column="17" selection-start="11114" selection-end="11114" vertical-scroll-proportion="0.2795699">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

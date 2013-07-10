@@ -358,7 +358,7 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
         debug("--------myVideo Done--------",1);
     }
 
-    private void announceAndAuthority() throws UiObjectNotFoundException {
+    private void announceAndAuthority() throws UiObjectNotFoundException, IOException {
         /*声明*/
         debug("--------announceAndAuthority--------",1);
 
