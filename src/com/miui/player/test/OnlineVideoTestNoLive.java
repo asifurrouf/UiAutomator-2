@@ -360,8 +360,11 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
 
     private void announceAndAuthority() throws UiObjectNotFoundException {
         /*声明*/
-        debug("--------announceTable--------",1);
+        debug("--------announceAndAuthority--------",1);
+
+        launchVideo();
         sleep(2000);
+
         UiObject announce;
         announce = new UiObject(new UiSelector().className("android.widget.TextView").text("声明"));
         UiObject authority;
@@ -380,6 +383,9 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
                 sleep(5000);
             }
         }
+
+        device.pressBack();
+        device.pressBack();
     }
 
     private void onlineSearch() throws IOException, UiObjectNotFoundException {
