@@ -14,7 +14,7 @@
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372942653935" ignored="false" />
-    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373433780147" ignored="false" />
+    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373434568313" ignored="false" />
     <file path="/OnlineVideoTestNoLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373426759988" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +123,7 @@
       <file leaf-file-name="OnlineVideoTestWithLive.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="321" column="26" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.33207548">
+            <state line="725" column="53" selection-start="25776" selection-end="25776" vertical-scroll-proportion="0.43548387">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -444,12 +444,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-7" width="1617" height="1058" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.6526082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16230032" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1571885" sideWeight="0.6526082" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -457,7 +457,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.49968052" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.49968052" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15079872" sideWeight="0.35960045" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -679,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="321" column="26" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.33207548">
+        <state line="725" column="53" selection-start="25776" selection-end="25776" vertical-scroll-proportion="0.43548387">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

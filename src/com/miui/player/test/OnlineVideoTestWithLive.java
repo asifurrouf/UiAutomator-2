@@ -696,6 +696,45 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.Button"));
         /*debug("more_movie="+more_movie.getBounds(),1);*/
         more_live.clickAndWaitForNewWindow();
+        String wait;
+        wait = "Please wait 5 seconds for the live content loading.";
+        sleep(2000);
+        UiObject progress_bar = null;
+        progress_bar = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        if (progress_bar.exists()){
+            waitMsg(wait,5000);
+        }
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        int rnd;
+        rnd = randomIndex(list_view_child_count,ZERO);
+        UiObject live;
+        live = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        live.clickAndWaitForNewWindow();
+        sleep(2000);
+        device.pressBack();
+        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+            device.pressBack();
+        }
+        UiObject all;
+        all = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(2))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
+                .getChild(new UiSelector().className("android.widget.TextView").index(1));
+        all.click();
+        sleep(2000);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        list_view_child_count = list_view.getChildCount();
+        rnd = randomIndex(list_view_child_count,ZERO);
+        live = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
+                .getChild(new UiSelector().className("android.widget.FrameLayout").index(0));
+        live.clickAndWaitForNewWindow();
+        sleep(2000);
+        device.pressBack();
+        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+            device.pressBack();
+        }
 
         device.pressBack();
         device.pressBack();
