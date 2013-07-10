@@ -361,6 +361,7 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
     private void announceAndAuthority() throws UiObjectNotFoundException {
         /*声明*/
         debug("--------announceTable--------",1);
+        sleep(2000);
         UiObject announce;
         announce = new UiObject(new UiSelector().className("android.widget.TextView").text("声明"));
         UiObject authority;
