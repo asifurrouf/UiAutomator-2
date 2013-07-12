@@ -14,7 +14,7 @@
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372942653935" ignored="false" />
-    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373434568313" ignored="false" />
+    <file path="/OnlineVideoTestWithLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373439327811" ignored="false" />
     <file path="/OnlineVideoTestNoLive.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373426759988" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +123,7 @@
       <file leaf-file-name="OnlineVideoTestWithLive.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="725" column="53" selection-start="25776" selection-end="25776" vertical-scroll-proportion="0.43548387">
+            <state line="729" column="47" selection-start="25797" selection-end="25797" vertical-scroll-proportion="0.66129035">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -679,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="725" column="53" selection-start="25776" selection-end="25776" vertical-scroll-proportion="0.43548387">
+        <state line="729" column="47" selection-start="25797" selection-end="25797" vertical-scroll-proportion="0.66129035">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
