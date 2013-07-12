@@ -88,10 +88,22 @@ public class Test {
         return rnd;
     }
 
+    private void testString(String sss){
+        CharSequence container;
+        container = "卫视";
+        if (sss.contains(container)){
+            debug("1111",1);
+        }else {
+            debug("222222",1);
+        }
+
+    }
+
+
     public static void main(String[] args){
 
         Test test = new Test();
-        test.debug(args[0],1);
+        test.testString("河南卫视");
     }
 
 }

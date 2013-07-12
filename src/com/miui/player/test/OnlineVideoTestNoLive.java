@@ -1526,35 +1526,43 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
                 device.pressBack();
                 sleep(1000);
             }else {
-                UiObject full_screen;
-                full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+                String type;
+                type = my_last_play.getText();
+                CharSequence container;
+                container = "卫视";
+                if (type.contains(container)){
+                    debug("Skip live.",1);
+                }else {
+                    UiObject full_screen;
+                    full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
         /*debug("full_screen="+full_screen.getBounds(),1);*/
-                debug("Waiting for full_screen.",1);
-                sleep(2000);
-                for (int k = 0; k < 10 ; k++){
-                    if (full_screen.isEnabled()){
-                        debug("full_screen",1);
-                        full_screen.clickAndWaitForNewWindow();
-                        sleep(5000);
-                        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
-                            device.pressBack();
-                            device.pressBack();
-                        }else {
-                            log("Full_Screen Failed");
+                    debug("Waiting for full_screen.",1);
+                    sleep(2000);
+                    for (int k = 0; k < 10 ; k++){
+                        if (full_screen.isEnabled()){
+                            debug("full_screen",1);
+                            full_screen.clickAndWaitForNewWindow();
+                            sleep(5000);
+                            if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                                device.pressBack();
+                                device.pressBack();
+                            }else {
+                                log("Full_Screen Failed");
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    else {
-                        if (k < 9){
-                            debug("Waiting:"+( k + 1 ),0);
-                        }else {
-                            debug("Fail and back.",1);
+                        else {
+                            if (k < 9){
+                                debug("Waiting:"+( k + 1 ),0);
+                            }else {
+                                debug("Fail and back.",1);
+                            }
+                            sleep(1000);
                         }
-                        sleep(1000);
                     }
+                    device.pressBack();
+                    sleep(1000);
                 }
-                device.pressBack();
-                sleep(1000);
             }
 
             UiObject clear_history = null;
