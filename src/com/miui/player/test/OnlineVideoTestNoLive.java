@@ -1519,19 +1519,21 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
             rnd = randomIndex(list_view_child_count,ZERO);
             my_last_play = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
             /*debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);*/
-            my_last_play.clickAndWaitForNewWindow();
-            sleep(2000);
-            if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
-                device.pressBack();
-                device.pressBack();
-                sleep(1000);
+            String last_type;
+            last_type = my_last_play.getText();
+            debug("last_type="+last_type,1);
+            CharSequence container;
+            container = "卫视";
+            if (last_type.contains(container)){
+                debug("Skip live.",1);
             }else {
-                String type;
-                type = my_last_play.getText();
-                CharSequence container;
-                container = "卫视";
-                if (type.contains(container)){
-                    debug("Skip live.",1);
+                my_last_play.clickAndWaitForNewWindow();
+                sleep(2000);
+
+                if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                    device.pressBack();
+                    device.pressBack();
+                    sleep(1000);
                 }else {
                     UiObject full_screen;
                     full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
