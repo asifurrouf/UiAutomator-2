@@ -18,8 +18,11 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.io.IOException;
+import java.util.Date;
 
 import static java.lang.String.format;
 
@@ -266,7 +269,22 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
                     device.pressBack();
                     device.pressBack();
                 }else {
+                    debug("Full_Screen Failed",1);
                     log("Full_Screen Failed");
+                    debug("ScreenShot begin.",1);
+                    String file_path;
+                    file_path = "/sdcard/VideoTest/";
+                    String file_name;
+                    Date date=new Date();
+                    String fmt = "yyyy-MM-dd-HH-mm-ss";
+                    SimpleDateFormat s = new SimpleDateFormat(fmt);
+                    file_name = s.format(date);
+                    file_name = String.format("ScreenShot-%s.PNG", file_name);
+                    file_name += file_path;
+                    File screen_shot;
+                    screen_shot = new File(file_name);
+                    device.takeScreenshot(screen_shot);
+                    debug("ScreenShot done.",1);
                 }
                 break;
             }
@@ -275,6 +293,20 @@ public class OnlineVideoTestNoLive extends UiAutomatorTestCase{
                     debug("Waiting:"+( k + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
+                    debug("ScreenShot begin.",1);
+                    String file_path;
+                    file_path = "/sdcard/VideoTest/";
+                    String file_name;
+                    Date date=new Date();
+                    String fmt = "yyyy-MM-dd-HH-mm-ss";
+                    SimpleDateFormat s = new SimpleDateFormat(fmt);
+                    file_name = s.format(date);
+                    file_name = String.format("ScreenShot-%s.PNG", file_name);
+                    file_name += file_path;
+                    File screen_shot;
+                    screen_shot = new File(file_name);
+                    device.takeScreenshot(screen_shot);
+                    debug("ScreenShot done.",1);
                 }
                 sleep(1000);
             }
