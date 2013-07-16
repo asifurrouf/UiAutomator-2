@@ -270,20 +270,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
                     device.pressBack();
                 }else {
                     log("Full_Screen Failed");
-                    debug("ScreenShot begin.",1);
-                    String file_path;
-                    file_path = "/sdcard/VideoTest/";
-                    String file_name;
-                    Date date=new Date();
-                    String fmt = "yyyy-MM-dd-HH-mm-ss";
-                    SimpleDateFormat s = new SimpleDateFormat(fmt);
-                    file_name = s.format(date);
-                    file_name = String.format("ScreenShot-%s.PNG", file_name);
-                    file_name += file_path;
-                    File screen_shot;
-                    screen_shot = new File(file_name);
-                    device.takeScreenshot(screen_shot);
-                    debug("ScreenShot done.",1);
+                    takeScreenshot();
                 }
                 break;
             }
@@ -292,20 +279,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
                     debug("Waiting:"+( k + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
-                    debug("ScreenShot begin.",1);
-                    String file_path;
-                    file_path = "/sdcard/VideoTest/";
-                    String file_name;
-                    Date date=new Date();
-                    String fmt = "yyyy-MM-dd-HH-mm-ss";
-                    SimpleDateFormat s = new SimpleDateFormat(fmt);
-                    file_name = s.format(date);
-                    file_name = String.format("ScreenShot-%s.PNG", file_name);
-                    file_name += file_path;
-                    File screen_shot;
-                    screen_shot = new File(file_name);
-                    device.takeScreenshot(screen_shot);
-                    debug("ScreenShot done.",1);
+                    takeScreenshot();
                 }
                 sleep(1000);
             }
@@ -2121,5 +2095,25 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         }
         sleep(2000);
 
+    }
+
+    private void takeScreenshot(){
+        /*截屏*/
+        debug("ScreenShot begin.",1);
+/*        String file_path;
+        file_path = "/sdcard/VideoTest/";
+        String file_name;
+        Date date=new Date();
+        String fmt = "yyyy-MM-dd-HH-mm-ss";
+        SimpleDateFormat s = new SimpleDateFormat(fmt);
+        file_name = s.format(date);
+        file_name = String.format("ScreenShot-%s.PNG", file_name);
+        file_name += file_path;
+        device.takeScreenshot(new File(file_name));*/
+        device.pressKeyCode(KeyEvent.KEYCODE_MENU,KeyEvent.ACTION_DOWN);
+        device.pressKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
+        device.pressKeyCode(KeyEvent.KEYCODE_MENU,KeyEvent.ACTION_UP);
+        debug("ScreenShot done.",1);
+        sleep(2000);
     }
 }
