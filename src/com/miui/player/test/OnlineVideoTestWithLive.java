@@ -235,7 +235,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         debug("Next.",1);
     }
 
-    private void videoDetail() throws UiObjectNotFoundException {
+    private void videoDetail() throws UiObjectNotFoundException, IOException {
         /*影片详情页*/
         UiObject collect;
         collect = new UiObject(new UiSelector().className("android.widget.Button").index(0));
@@ -694,7 +694,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
 
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-        debug(String.format("list_view=%s", list_view.getBounds()),1);
+        /*debug(String.format("list_view=%s", list_view.getBounds()),1);*/
         UiObject more_live;
         more_live = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
                 .getChild(new UiSelector().className("android.widget.FrameLayout").index(0))
@@ -1604,54 +1604,63 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
             rnd = randomIndex(list_view_child_count,ZERO);
             my_last_play = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
             /*debug(format("%s--%s","my_last_play",my_last_play.getBounds()),1);*/
-            my_last_play.clickAndWaitForNewWindow();
-            sleep(2000);
-            if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
-                device.pressBack();
-                device.pressBack();
-                sleep(1000);
+            String live;
+            live = my_last_play.getText();
+            CharSequence ch = "卫视";
+            if (live.contains(ch)){
+                String quit;
+                quit = "跳过直播";
+                debug(quit,1);
             }else {
-                UiObject full_screen;
-                full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
-        /*debug("full_screen="+full_screen.getBounds(),1);*/
-                debug("Waiting for full_screen.",1);
+                my_last_play.clickAndWaitForNewWindow();
                 sleep(2000);
-                for (int k = 0; k < 10 ; k++){
-                    if (full_screen.isEnabled()){
-                        debug("full_screen",1);
-                        full_screen.clickAndWaitForNewWindow();
-                        sleep(5000);
-                        if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
-                            device.pressBack();
-                            device.pressBack();
-                        }else {
-                            log("Full_Screen Failed");
+                if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                    device.pressBack();
+                    device.pressBack();
+                    sleep(1000);
+                }else {
+                    UiObject full_screen;
+                    full_screen = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(1));
+        /*debug("full_screen="+full_screen.getBounds(),1);*/
+                    debug("Waiting for full_screen.",1);
+                    sleep(2000);
+                    for (int k = 0; k < 10 ; k++){
+                        if (full_screen.isEnabled()){
+                            debug("full_screen",1);
+                            full_screen.clickAndWaitForNewWindow();
+                            sleep(5000);
+                            if (PLAYER_PAC_NAME.equals(device.getCurrentPackageName())){
+                                device.pressBack();
+                                device.pressBack();
+                            }else {
+                                log("Full_Screen Failed");
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    else {
-                        if (k < 9){
-                            debug("Waiting:"+( k + 1 ),0);
-                        }else {
-                            debug("Fail and back.",1);
+                        else {
+                            if (k < 9){
+                                debug("Waiting:"+( k + 1 ),0);
+                            }else {
+                                debug("Fail and back.",1);
+                            }
+                            sleep(1000);
                         }
-                        sleep(1000);
                     }
+                    device.pressBack();
+                    sleep(1000);
                 }
-                device.pressBack();
-                sleep(1000);
             }
+        }
 
-            UiObject clear_history = null;
-            clear_history = new UiObject(new UiSelector().className("android.widget.Button"));
-            if (clear_history.exists()){
-                clear_history.click();
-                sleep(1000);
-                UiObject confirm;
-                confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-                confirm.click();
-                sleep(1000);
-            }
+        UiObject clear_history = null;
+        clear_history = new UiObject(new UiSelector().className("android.widget.Button"));
+        if (clear_history.exists()){
+            clear_history.click();
+            sleep(1000);
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            confirm.click();
+            sleep(1000);
         }
 
         device.pressBack();
@@ -2097,10 +2106,10 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
 
     }
 
-    private void takeScreenshot(){
+    private void takeScreenshot() throws IOException {
         /*截屏*/
         debug("ScreenShot begin.",1);
-/*        String file_path;
+        String file_path;
         file_path = "/sdcard/VideoTest/";
         String file_name;
         Date date=new Date();
@@ -2108,12 +2117,12 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         SimpleDateFormat s = new SimpleDateFormat(fmt);
         file_name = s.format(date);
         file_name = String.format("ScreenShot-%s.PNG", file_name);
-        file_name += file_path;
-        device.takeScreenshot(new File(file_name));*/
-        device.pressKeyCode(KeyEvent.KEYCODE_MENU,KeyEvent.ACTION_DOWN);
-        device.pressKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
-        device.pressKeyCode(KeyEvent.KEYCODE_MENU,KeyEvent.ACTION_UP);
-        debug("ScreenShot done.",1);
+        file_path += file_name;
+        String cmd;
+        cmd = "screencap -p " + file_path;
+        debug("cmd=" + cmd,1);
+        Runtime.getRuntime().exec(cmd);
+        debug("ScreenShot done.", 1);
         sleep(2000);
     }
 }
