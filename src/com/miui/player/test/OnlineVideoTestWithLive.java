@@ -279,7 +279,14 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
                     debug("Waiting:"+( k + 1 ),0);
                 }else {
                     debug("Fail and back.",1);
-                    takeScreenshot();
+                    UiObject web_loading;
+                    web_loading = new UiObject(new UiSelector().className("android.widget.ImageView").index(2));
+                    if (web_loading.exists()){
+                        debug("Still loading.",1);
+                    }
+                    else {
+                        takeScreenshot();
+                    }
                 }
                 sleep(1000);
             }
