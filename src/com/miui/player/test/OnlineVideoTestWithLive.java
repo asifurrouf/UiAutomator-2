@@ -2127,7 +2127,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         SimpleDateFormat s_hms = new SimpleDateFormat(hms);
         dir_name = s_ymd.format(date);
         file_name = s_hms.format(date);
-        file_name = String.format("ScreenShot-%s.PNG", file_name);
+        file_name = String.format("VideoTestFail-%s.PNG", file_name);
         file_path = file_path + dir_name + "/";
         file_path += file_name;
         String cmd;
