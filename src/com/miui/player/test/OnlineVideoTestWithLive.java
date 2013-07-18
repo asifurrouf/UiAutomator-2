@@ -491,15 +491,17 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         end_x = width / 4;
         start_y = banner.getBounds().centerY();
         end_y = start_y;
+        int rnd;
+        rnd = randomIndex(4,ZERO);
         for (int j = 0;j<4;j++){
             /*debug("j="+j,0);*/
-            banner.clickAndWaitForNewWindow();
-            sleep(1000);
-
-            videoDetail();
-
-            device.pressBack();
-            sleep(1000);
+            if (j==rnd){
+                banner.clickAndWaitForNewWindow();
+                sleep(1000);
+                videoDetail();
+                device.pressBack();
+                sleep(1000);
+            }
             device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
             sleep(1000);
         }
