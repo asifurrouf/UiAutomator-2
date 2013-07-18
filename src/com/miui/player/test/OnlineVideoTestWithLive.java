@@ -2128,7 +2128,7 @@ public class OnlineVideoTestWithLive extends UiAutomatorTestCase{
         dir_name = s_ymd.format(date);
         file_name = s_hms.format(date);
         file_name = String.format("ScreenShot-%s.PNG", file_name);
-        file_path = file_path + dir_name;
+        file_path = file_path + dir_name + "/";
         file_path += file_name;
         String cmd;
         cmd = "screencap -p " + file_path;
