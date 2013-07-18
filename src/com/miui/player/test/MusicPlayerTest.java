@@ -701,12 +701,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     break;
                 case 1:
                     /*添加到*/
+                    singer.longClick();
                     UiObject e_add_to;
                     e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
                     e_add_to.click();
                     break;
                 case 2:
                     /*删除*/
+                    singer.longClick();
                     UiObject e_delete;
                     e_delete = new UiObject(new UiSelector().className("android.widget.Button").instance(2));
                     e_delete.click();
