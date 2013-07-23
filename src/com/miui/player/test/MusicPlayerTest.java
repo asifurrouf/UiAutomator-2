@@ -607,11 +607,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         e_more.click();
         m_send.click();
         device.pressBack();
+        device.pressBack();
         /*用作手机铃声*/
+        song.longClick();
         e_more.click();
         m_set_ring.click();
+        device.pressBack();
         /*修改歌曲信息*/
         /*song.longClick();*/
+        song.longClick();
         e_more.click();
         m_id3.click();
         device.pressBack();
@@ -705,6 +709,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     UiObject e_add_to;
                     e_add_to = new UiObject(new UiSelector().className("android.widget.Button").instance(1));
                     e_add_to.click();
+                    device.pressBack();
                     break;
                 case 2:
                     /*删除*/
@@ -878,10 +883,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
                         sleep(2000);
-                        if (j != 0)
-/*                            MIUI-15430
-                                    <音乐> 长按最近播放列表 选择播放 不进入正在播放页*/
-                            device.pressBack();
+                        device.pressBack();
                         sleep(2000);
                     }
                     break;
