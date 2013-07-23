@@ -269,11 +269,11 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
                     .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
             if (i==0){
-                title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0));
+                title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(0));
                 /*debug("title="+title.getBounds(),1);*/
             }
             else if (i==1){
-                play_pause = top_view.getChild(new UiSelector().className("android.widget.ImageView").index(2));
+                play_pause = top_view.getChild(new UiSelector().className("android.widget.ImageView").index(2).instance(0));
                 /*debug("play_pause="+play_pause.getBounds(),1);*/
             }
         }
@@ -855,9 +855,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
-                    device.pressBack();
                     for (int j = 0;j < long_click_list_child_count;j++){
-                        fav_list.longClick();
+                        if (j != 0) {
+                            fav_list.longClick();
+                        }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
@@ -874,9 +875,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
-                    device.pressBack();
                     for (int j = 0;j < long_click_list_child_count;j++){
-                        last_played_list.longClick();
+                        if (j != 0) {
+                            last_played_list.longClick();
+                        }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
@@ -893,9 +895,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
-                    device.pressBack();
                     for (int j = 0;j < long_click_list_child_count;j++){
-                        last_added_list.longClick();
+                        if (j != 0) {
+                            last_added_list.longClick();
+                        }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
@@ -912,9 +915,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
-                    device.pressBack();
                     for (int j = 0;j < long_click_list_child_count;j++){
-                        most_played_list.longClick();
+                        if (j != 0) {
+                            most_played_list.longClick();
+                        }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
@@ -1595,8 +1599,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("recommend="+recommend.getBounds(),1);*/
         recommend.clickAndWaitForNewWindow();
-        wait = "Please wait 10 seconds to load online data.";
-        waitMsg(wait,10000);
+        sleep(2000);
+        UiObject loading;
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (loading.exists()){
+            wait = "Please wait 1 seconds to load online data.";
+            waitMsg(wait,1000);
+        }
 
         /*更多*/
         UiObject sc_view;
@@ -1605,14 +1614,18 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"));
-        debug("sc_view="+sc_view.getBounds(),1);
+        /*debug("sc_view="+sc_view.getBounds(),1);*/
         more_albums = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        debug("more_albums"+more_albums.getBounds(),1);
+        /*debug("more_albums"+more_albums.getBounds(),1);*/
 
         more_albums.clickAndWaitForNewWindow();
-        wait = "Please wait 10 seconds for the albums loading.";
-        waitMsg(wait, 10000);
+        sleep(2000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (loading.exists()){
+            wait = "Please wait 1 seconds to load online data.";
+            waitMsg(wait,1000);
+        }
         device.pressBack();
         sleep(2000);
 
@@ -1621,10 +1634,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         more_singers = sc_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
-        debug("more_singers="+more_singers.getBounds(),1);
+        /*debug("more_singers="+more_singers.getBounds(),1);*/
         more_singers.clickAndWaitForNewWindow();
-        wait = "Please wait 10 seconds for the singers loading.";
-        waitMsg(wait, 10000);
+        sleep(2000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (loading.exists()){
+            wait = "Please wait 1 seconds to load online data.";
+            waitMsg(wait,1000);
+        }
         device.pressBack();
         sleep(2000);
 
@@ -1648,9 +1665,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         edit_text.setText(search_string);
         sleep(1000);
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-        sleep(500);
-        wait = "Please wait 10 seconds for the searhing result.";
-        waitMsg(wait, 10000);
+        sleep(2000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (loading.exists()){
+            wait = "Please wait 1 seconds to load online data.";
+            waitMsg(wait,1000);
+        }
         device.pressMenu();
         sleep(1000);
         device.pressBack();
@@ -1667,8 +1687,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject online_album;
         online_album = online_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_album.click();
-        wait = "Please wait 10 second for the album detail loading.";
-        waitMsg(wait, 10000);
+        sleep(2000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (loading.exists()){
+            wait = "Please wait 1 seconds to load online data.";
+            waitMsg(wait,1000);
+        }
 
         swipePhone(TOP);
         sleep(1000);
