@@ -8,6 +8,7 @@ if [[ $#>0 ]]; then
 	echo "$file_prefix"
 	if [[ "${flash##*.}" = "tar" ]]; then
 		#statements
+		echo "tar file"
 		tar xvf "$flash"
 		flash_shell="$file_prefix/flash_all_except_storage.sh"
 		echo "flash_shell=$flash_shell"
@@ -15,9 +16,12 @@ if [[ $#>0 ]]; then
 			#statements
 			if [[ "${flash_shell##*.}" = "sh" ]]; then
 				#statements
+				echo "chmod file"
 				chmod a+x "$flash_shell"
+				echo "reboot device"
 				adb reboot bootloader
 				sleep 1
+				echo "flash device"
 				./"$flash_shell"
 				echo "delete tar file"
 				rm "$flash"	
