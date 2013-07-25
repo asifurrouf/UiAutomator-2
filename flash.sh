@@ -26,7 +26,7 @@ if [[ $#>0 ]]; then
 				echo "--------delete tar file--------"
 				rm "$flash"	
 				echo "--------delete folder--------"
-				rm -r "$flash_shell"
+				rm -r "$file_prefix/"
 				echo "--------flash done--------"
 			else
 				echo "--------not a  shell file--------"
