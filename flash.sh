@@ -23,11 +23,25 @@ if [[ $#>0 ]]; then
 				sleep 1
 				echo "--------flash device--------"
 				./"$flash_shell"
-				echo "--------delete tar file--------"
-				rm "$flash"	
-				echo "--------delete folder--------"
-				rm -r "$file_prefix/"
-				echo "--------flash done--------"
+				echo "Do u want to delete the tar file(Enter 1 for sure.)?"
+				read delete_tar
+				if [[ "$delete_tar" = 1 ]]; then
+					#statements
+					echo "delete_tar"
+					rm -r "$flash"	
+				else
+					echo "do not delete_tar"
+				fi
+				echo "Do u want to delete folder(Enter 1 for sure.)?"
+				read delete_folder
+				if [[ "$delete_folder" = 1 ]]; then
+					#statements
+					echo "delete_folder"
+					rm -r "$file_prefix/"
+				else
+					echo "do not delete_folder"
+				fi
+				echo "flash done"				
 			else
 				echo "--------not a  shell file--------"
 			fi			
