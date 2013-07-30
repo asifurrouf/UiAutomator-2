@@ -20,7 +20,8 @@ if [[ $#>0 ]]; then
 				chmod a+x "$flash_shell"
 				echo "--------reboot device--------"
 				adb reboot bootloader
-				sleep 1
+				echo "--------wait for 5 second"--------"
+				sleep 5
 				echo "--------flash device--------"
 				./"$flash_shell"
 				echo "Do u want to delete the tar file(Enter 1 for sure.)?"
