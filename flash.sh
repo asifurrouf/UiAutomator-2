@@ -20,7 +20,7 @@ if [[ $#>0 ]]; then
 				chmod a+x "$flash_shell"
 				echo "--------reboot device--------"
 				adb reboot bootloader
-				echo "--------wait for 5 second"--------"
+				echo "--------wait for 5 second--------"
 				sleep 5
 				echo "--------flash device--------"
 				./"$flash_shell"
