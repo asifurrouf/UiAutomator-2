@@ -5,7 +5,7 @@ if [[ $# = 1 ]]; then
 	echo "1pacakge name = $1"
 	read monkey_times
 	echo "monkey_times = $monkey_times"
-	adb shell monkey -p "$1" "$monkey_times"
+	adb shell monkey -p "$1" -s 100 "$monkey_times"
 elif [[ $# = 2 ]]; then
 	#statements
 	echo "2pacakge name = $1"
