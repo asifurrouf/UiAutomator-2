@@ -11,7 +11,7 @@ elif [[ $# = 2 ]]; then
 	echo "2pacakge name = $1"
 	monkey_times="$2"
 	echo "monkey_times = $monkey_times"
-	adb shell monkey -p "$1" "$monkey_times"
+	adb shell monkey -p "$1" -s 100 "$monkey_times"
 elif [[ $# -le 0 ]]; then
 	#statements
 	echo "pls give the pacakge name"
