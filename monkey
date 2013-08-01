@@ -5,13 +5,13 @@ if [[ $# = 1 ]]; then
 	echo "1pacakge name = $1"
 	read monkey_times
 	echo "monkey_times = $monkey_times"
-	adb shell monkey --kill-process-after-error --throttle 200 --bugreport -p "$1" "$monkey_times" -v -v > /sdcard/Monkey.txt
+	adb shell monkey --kill-process-after-error --throttle 200 --bugreport -p "$1" "$monkey_times" -v -v > /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/Monkey.txt &
 elif [[ $# = 2 ]]; then
 	#statements
 	echo "2pacakge name = $1"
 	monkey_times="$2"
 	echo "monkey_times = $monkey_times"
-	adb shell monkey --kill-process-after-error --throttle 200 --bugreport -p "$1" "$monkey_times" -v -v > /sdcard/Monkey.txt
+	adb shell monkey --kill-process-after-error --throttle 200 --bugreport -p "$1" "$monkey_times" -v -v > /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/Monkey.txt &
 elif [[ $# -le 0 ]]; then
 	#statements
 	echo "pls give the pacakge name"

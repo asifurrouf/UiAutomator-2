@@ -24,3 +24,10 @@ adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.OnlineVide
 
 adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.OnlineVideoTestWithLive
 
+
+
+
+adb shell monkey --kill-process-after-error --throttle 200 --bugreport -p "$1" "$monkey_times" -v -v > /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/Monkey.txt &
+
+
+monkey --kill-process-after-error --throttle 200 --bugreport -p com.miui.player 50000 -v -v > /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/Monkey.txt
