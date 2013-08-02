@@ -536,9 +536,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
-        sleep(1000);
+        sleep(3000);
         device.pressBack();
-        sleep(1000);
+        sleep(3000);
         int list_count;
         list_count = list_view.getChildCount() -2;
         /*debug("list_count=" + list_count,1);*/
@@ -550,9 +550,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("song="+song.getBounds(),1);*/
         sleep(1000);
         song.click();
-        sleep(1000);
+        sleep(3000);
         device.pressBack();
-        sleep(1000);
+        sleep(3000);
 
         /* 编辑模式 */
         song.longClick();
@@ -1670,9 +1670,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(2000);
         UiObject loading;
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        while (loading.exists()){
-            wait = "Please wait 1 seconds to load online data.";
-            waitMsg(wait,1000);
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                debug("loading done",1);
+                sleep(1000);
+                break;
+            }
         }
 
         /*更多*/
@@ -1690,9 +1696,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         more_albums.clickAndWaitForNewWindow();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        while (loading.exists()){
-            wait = "Please wait 1 seconds to load online data.";
-            waitMsg(wait,1000);
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                debug("loading done",1);
+                sleep(1000);
+                break;
+            }
         }
         device.pressBack();
         sleep(2000);
@@ -1706,9 +1718,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         more_singers.clickAndWaitForNewWindow();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        while (loading.exists()){
-            wait = "Please wait 1 seconds to load online data.";
-            waitMsg(wait,1000);
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                debug("loading done",1);
+                sleep(1000);
+                break;
+            }
         }
         device.pressBack();
         sleep(2000);
@@ -1735,9 +1753,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        while (loading.exists()){
-            wait = "Please wait 1 seconds to load online data.";
-            waitMsg(wait,1000);
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                debug("loading done",1);
+                sleep(1000);
+                break;
+            }
         }
         device.pressMenu();
         sleep(1000);
@@ -1757,9 +1781,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         online_album.click();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
-        while (loading.exists()){
-            wait = "Please wait 1 seconds to load online data.";
-            waitMsg(wait,1000);
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                debug("loading done",1);
+                sleep(1000);
+                break;
+            }
         }
 
         swipePhone(TOP);
@@ -2067,10 +2097,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         log_name += ".txt";
         debug("--------getBugreport="+log_name+"--------",1);
         String bugreport;
-        bugreport = "bugreport > " + log_name;
-        Runtime rc;
-        rc = Runtime.getRuntime();
-        rc.exec(bugreport);
+        bugreport = "bugreport > " + "sdcard/" +log_name;
+        Runtime.getRuntime().exec(bugreport);
     }
 
 }
