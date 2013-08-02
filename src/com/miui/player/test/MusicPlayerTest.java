@@ -15,6 +15,8 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiScrollable;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -53,11 +55,11 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private static final int[][] unlock_start_point= {
             {240,360,540,},
-            {920,920,920,},
+            {615,920,920,},
     };
     private static final int[][] unlock_end_point= {
             {240,360,540,},
-            {1180,1180,1180,},
+            {820,1180,1180,},
     };
 
     protected void setUp() throws Exception {
@@ -248,6 +250,47 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug("Next.",1);
     }
 
+    private void connectWifi() throws UiObjectNotFoundException {
+        /*链接wifi*/
+        debug("--------connectWifi--------",1);
+
+        if ("com.miui.home".equals(device.getCurrentPackageName())){
+            debug("already home",1);
+        }else {
+            device.pressHome();
+            sleep(1000);
+        }
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        UiObject settings;
+        settings = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(list_view_child_count-1));
+        settings.clickAndWaitForNewWindow();
+        sleep(1000);
+        UiObject top;
+        top = new UiObject(new UiSelector().className("android.widget.HorizontalScrollView"));
+        UiObject all_settings;
+        all_settings = top.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(1));
+        debug(String.format("all_settings=%s", all_settings.getBounds()),1);
+        all_settings.click();
+        sleep(1000);
+        UiObject wifi;
+        wifi = new UiObject(new UiSelector().className("android.widget.TextView").text("WLAN"));
+        debug(String.format("wifi=%s", wifi.getBounds()),1);
+        wifi.click();
+        sleep(1000);
+
+        UiScrollable list;
+        list = new UiScrollable(new UiSelector().className("android.widget.ListView"));
+        UiObject mi_box;
+        mi_box = list.getChildByText(new UiSelector().className("android.widget.LinearLayout"),"Mibox");
+        debug(String.format("mi_box=%s", mi_box.getBounds()),1);
+        mi_box.click();
+        sleep(1000);
+
+    }
+
     private void homeTop() throws UiObjectNotFoundException, IOException {
         /*首页顶栏*/
         debug("--------homeTop--------",1);
@@ -257,6 +300,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
+        UiObject state;
+        state = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        if (state.exists()){
+            state.click();
+            sleep(1000);
+        }
         UiObject top_view;
         top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
                 .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
@@ -832,6 +881,19 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         long_click_rename_button.click();
         sleep(1000);
         device.pressBack();
+        UiObject enter_box;
+        enter_box = new UiObject(new UiSelector().className("android.widget.EditText"));
+        /*debug("enter_box"+enter_box.getBounds(),1);*/
+        while (true){
+            /*debug("while",1);*/
+            if (enter_box.exists()) {
+                /*debug("enter_box=1",1);*/
+                device.pressBack();
+            } else {
+                /*debug("enter_box=0",1);*/
+                break;
+            }
+        }
         the_create_list.longClick();
         UiObject long_click_add_song_button;
         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -945,6 +1007,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         gotoPage(ONLINE);
 
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        if (confirm.exists()){
+            confirm.click();
+            sleep(1000);
+        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
         /*debug("list_view=" + list_view.getBounds(),1);*/
