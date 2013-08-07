@@ -10,7 +10,21 @@ if [[ $#>0 ]]; then
 		#statements
 		echo "--------tar file--------"
 		tar xvf "$flash"
-		flash_shell="$file_prefix/flash_all_except_storage.sh"
+		echo "----------------------------------------"
+		echo "choose 1 for flash_all"
+		echo "choose 2 for flash_all_except_data_storage"
+		echo "choose 3 for flash_all_except_storage"
+		echo "----------------------------------------"
+		read choose_flash_type
+		if [[ "$choose_flash_type" = 1 ]]; then
+			#statements
+			flash_shell="$file_prefix/flash_all.sh"
+		elif [[ "$choose_flash_type" = 2 ]]; then
+			#statements
+			flash_shell="$file_prefix/flash_all_except_data_storage.sh"
+		else
+			flash_shell="$file_prefix/flash_all_except_storage.sh"
+		fi
 		echo "--------flash_shell=$flash_shell--------"
 		if [[ -f "$flash_shell" ]]; then
 			#statements

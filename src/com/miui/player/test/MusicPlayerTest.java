@@ -536,9 +536,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
-        sleep(3000);
+        sleep(2000);
         device.pressBack();
-        sleep(3000);
+        sleep(2000);
         int list_count;
         list_count = list_view.getChildCount() -2;
         /*debug("list_count=" + list_count,1);*/
@@ -550,9 +550,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("song="+song.getBounds(),1);*/
         sleep(1000);
         song.click();
-        sleep(3000);
+        sleep(2000);
         device.pressBack();
-        sleep(3000);
+        sleep(2000);
 
         /* 编辑模式 */
         song.longClick();
@@ -1800,8 +1800,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject play_all;
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         play_all.clickAndWaitForNewWindow();
-        wait = "Please wait 10 second for the online song loading.";
-        waitMsg(wait, 10000);
+        wait = "Please wait 10 seconds for the song.";
+        waitMsg(wait,10000);
         device.pressBack();
         sleep(1000);
         rnd = randomIndex(list_view_child_count);
@@ -1809,6 +1809,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject online_album_song;
         online_album_song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
         online_album_song.clickAndWaitForNewWindow();
+        wait = "Please wait 10 second for the song loading.";
         waitMsg(wait, 10000);
         device.pressBack();
         sleep(1000);
@@ -2030,8 +2031,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject online_singer;
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer.clickAndWaitForNewWindow();
-        wait = "Please wait 10 second for the singers detail loading.";
-        waitMsg(wait, 10000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 5 second for the song loading.";
+                waitMsg(wait, 5000);
+            }else {
+                break;
+            }
+        }
         swipePhone(LEFT);
         sleep(5000);
         swipePhone(TOP);
@@ -2059,8 +2067,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         board = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("board="+board.isClickable(),1);*/
         board.click();
-        wait = "Please wait 10 seconds for the board loading.";
-        waitMsg(wait, 10000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 5 second for the song loading.";
+                waitMsg(wait, 5000);
+            }else {
+                break;
+            }
+        }
         device.pressBack();
         sleep(1000);
         swipePhone(TOP);
@@ -2076,8 +2091,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("fm="+fm.isClickable(),1);*/
         fm.click();
-        wait = "Please wait 15 seconds for the fm loading.";
-        waitMsg(wait, 15000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 5 second for the song loading.";
+                waitMsg(wait, 5000);
+            }else {
+                break;
+            }
+        }
         device.pressBack();
         swipePhone(TOP);
         sleep(1000);
