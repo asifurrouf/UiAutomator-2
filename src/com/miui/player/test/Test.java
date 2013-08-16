@@ -99,11 +99,19 @@ public class Test {
 
     }
 
+    private void testPrint(){
+
+        for (int i = 0;i<2;i++){
+              System.out.println(i);
+        }
+    }
+
 
     public static void main(String[] args){
 
         Test test = new Test();
-        test.testString("河南卫视");
+
+        test.testPrint();
     }
 
 }

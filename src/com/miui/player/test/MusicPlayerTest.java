@@ -220,6 +220,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         wakePhone();
         unlockPhone();
 
+        clearMusicData();
+
         for (int i = 0;i < TEST_TIMES;i++){
             debug("--------Test:"+(i+1)+"--------",1);
             homeTop();
@@ -288,6 +290,50 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug(String.format("mi_box=%s", mi_box.getBounds()),1);
         mi_box.click();
         sleep(1000);
+
+    }
+
+    private void clearMusicData() throws IOException, RemoteException, UiObjectNotFoundException {
+        /*音乐数据清空*/
+        debug("--------clearMusicData--------",1);
+
+        killPlayer();
+        launchPlayer();
+        sleep(2000);
+        device.pressHome();
+        sleep(1000);
+        device.pressRecentApps();
+        sleep(2000);
+
+        UiObject view;
+        view = new UiObject(new UiSelector().className("android.view.View").index(1));
+        UiObject music;
+        music = view.getChild(new UiSelector().className("android.widget.TextView").index(0));
+        debug(String.format("music=%s", music.getBounds()),1);
+        music.longClick();
+        sleep(2000);
+        swipePhone(TOP);
+        sleep(1000);
+        UiObject clear;
+        clear = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(0));
+        debug(String.format("clear=%s", clear.getBounds()),1);
+        while (true){
+            if (clear.isEnabled()){
+                break;
+            }else{
+                String wait;
+                wait = "clear button is not enable now,pls wait";
+                waitMsg(wait,1000);
+            }
+        }
+        clear.clickAndWaitForNewWindow();
+        sleep(1000);
+        UiObject confirm;
+        confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        debug(String.format("confirm=%s", confirm.getBounds()),1);
+        confirm.click();
+        sleep(1000);
+        device.pressHome();
 
     }
 
@@ -1670,14 +1716,22 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(2000);
         UiObject loading;
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        UiObject retry;
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
                 waitMsg(wait,1000);
             }else {
-                debug("loading done",1);
-                sleep(1000);
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
 
@@ -1696,14 +1750,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         more_albums.clickAndWaitForNewWindow();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
                 waitMsg(wait,1000);
             }else {
-                debug("loading done",1);
-                sleep(1000);
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         device.pressBack();
@@ -1718,14 +1779,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         more_singers.clickAndWaitForNewWindow();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
                 waitMsg(wait,1000);
             }else {
-                debug("loading done",1);
-                sleep(1000);
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         device.pressBack();
@@ -1753,14 +1821,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
                 waitMsg(wait,1000);
             }else {
-                debug("loading done",1);
-                sleep(1000);
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         device.pressMenu();
@@ -1781,14 +1856,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         online_album.click();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
                 waitMsg(wait,1000);
             }else {
-                debug("loading done",1);
-                sleep(1000);
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
 
@@ -2032,12 +2114,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer.clickAndWaitForNewWindow();
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
-                wait = "Please wait 5 second for the song loading.";
-                waitMsg(wait, 5000);
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
             }else {
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         swipePhone(LEFT);
@@ -2068,12 +2159,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("board="+board.isClickable(),1);*/
         board.click();
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
-                wait = "Please wait 5 second for the song loading.";
-                waitMsg(wait, 5000);
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
             }else {
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         device.pressBack();
@@ -2092,12 +2192,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("fm="+fm.isClickable(),1);*/
         fm.click();
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
             if (loading.exists()){
-                wait = "Please wait 5 second for the song loading.";
-                waitMsg(wait, 5000);
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
             }else {
-                break;
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
             }
         }
         device.pressBack();
