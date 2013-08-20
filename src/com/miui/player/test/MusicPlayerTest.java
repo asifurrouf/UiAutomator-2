@@ -309,14 +309,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         view = new UiObject(new UiSelector().className("android.view.View").index(1));
         UiObject music;
         music = view.getChild(new UiSelector().className("android.widget.TextView").index(0));
-        debug(String.format("music=%s", music.getBounds()),1);
+        /*debug(String.format("music=%s", music.getBounds()),1);*/
         music.longClick();
         sleep(2000);
         swipePhone(TOP);
         sleep(1000);
         UiObject clear;
         clear = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(0));
-        debug(String.format("clear=%s", clear.getBounds()),1);
+        /*debug(String.format("clear=%s", clear.getBounds()),1);*/
         while (true){
             if (clear.isEnabled()){
                 break;
@@ -330,7 +330,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         UiObject confirm;
         confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        debug(String.format("confirm=%s", confirm.getBounds()),1);
+        /*debug(String.format("confirm=%s", confirm.getBounds()),1);*/
         confirm.click();
         sleep(1000);
         device.pressHome();
@@ -926,7 +926,16 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         long_click_rename_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
         long_click_rename_button.click();
         sleep(1000);
-        device.pressBack();
+        UiObject rename_list;
+        rename_list = new UiObject(new UiSelector().className("android.widget.EditText"));
+        int list_num;
+        list_num = randomIndex(99999);
+                    /*new_list_name.clearTextField();*/
+        rename_list.setText(""+list_num);
+        sleep(2000);
+        UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+        confirm_button.click();
+        sleep(1000);
         UiObject enter_box;
         enter_box = new UiObject(new UiSelector().className("android.widget.EditText"));
         /*debug("enter_box"+enter_box.getBounds(),1);*/
@@ -1264,11 +1273,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         UiObject seek_bar;
         seek_bar = new UiObject(new UiSelector().className("android.widget.SeekBar").index(1));
-        /*debug("seek_bar="+seek_bar.getBounds(),1);*/
-        seek_bar.click();
-        sleep(5000);
-        seek_bar.click();
-        sleep(2000);
+        int seek_bar_x,seek_bar_y;
+        seek_bar_y = seek_bar.getBounds().centerY();
+        for (int j = 0;j<5;j++){
+            seek_bar_x = randomIndex(width);
+            device.click(seek_bar_x,seek_bar_y);
+            sleep(1000);
+        }
 
         /*Menu菜单项*/
         device.pressMenu();
