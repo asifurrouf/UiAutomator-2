@@ -4,13 +4,13 @@
     <list default="true" id="684cbd0a-e535-4c99-9e3e-30796cc273e1" name="Default" comment="" />
     <ignored path="UiAutomator.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1376385169348" ignored="false" />
+    <file path="/Dummy.txt" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1377589736439" ignored="false" />
     <file path="/PlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372155582274" ignored="false" />
     <file path="/Test.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1375957392981" ignored="false" />
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373278451808" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
     <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373284392846" ignored="false" />
-    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1376916127418" ignored="false" />
+    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1377003218736" ignored="false" />
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372942653935" ignored="false" />
@@ -97,7 +97,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1282" column="22" selection-start="51313" selection-end="51313" vertical-scroll-proportion="0.7253385">
+            <state line="1418" column="27" selection-start="56257" selection-end="56257" vertical-scroll-proportion="-1.1266055">
               <folding />
             </state>
           </provider>
@@ -115,7 +115,7 @@
       <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="5" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.0">
+            <state line="107" column="5" selection-start="2577" selection-end="2577" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -125,12 +125,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Thread2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="28" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1035#1092#0" expanded="true" />
-                <element signature="e#1088#1089#0" expanded="true" />
-                <element signature="e#1136#1193#0" expanded="true" />
-                <element signature="e#1189#1190#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -218,7 +213,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,6 +269,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -295,9 +290,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="gradle.tool.window.active" value="Tasks" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Application.Thread2">
     <configuration default="false" name="MyThread" type="Application" factoryName="Application" temporary="true">
@@ -398,19 +393,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -437,6 +419,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -577,7 +572,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984026" sideWeight="0.6526082" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.49968052" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -662,7 +657,7 @@
         <filter targetName="test" isVisible="true" />
         <filter targetName="help" isVisible="false" />
       </targetFilters>
-      <expanded value="false" />
+      <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
@@ -681,8 +676,8 @@
           <nodes>
             <node x="" y="">junit.framework.Assert</node>
             <node x="" y="">com.android.uiautomator.testrunner.UiAutomatorTestCase</node>
-            <node x="" y="">junit.framework.TestCase</node>
             <node x="" y="">junit.framework.Test</node>
+            <node x="" y="">junit.framework.TestCase</node>
             <node x="" y="">com.miui.player.test.PlayerTest</node>
           </nodes>
           <notes />
@@ -768,7 +763,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="5" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.0">
+        <state line="107" column="5" selection-start="2577" selection-end="2577" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -776,18 +771,13 @@
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/Thread2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="28" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1035#1092#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1136#1193#0" expanded="true" />
-            <element signature="e#1189#1190#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1282" column="22" selection-start="51313" selection-end="51313" vertical-scroll-proportion="0.7253385">
+        <state line="1418" column="27" selection-start="56257" selection-end="56257" vertical-scroll-proportion="-1.1266055">
           <folding />
         </state>
       </provider>

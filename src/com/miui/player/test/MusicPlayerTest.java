@@ -207,9 +207,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         if (rnd==0) {
             return randomIndex(area);
         }
-        else
+        else  {
             debug("rnd="+rnd,1);
             return rnd;
+        }
     }
 
     public void testPlayer() throws IOException, UiObjectNotFoundException, RemoteException {
@@ -1276,6 +1277,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int seek_bar_x,seek_bar_y;
         seek_bar_y = seek_bar.getBounds().centerY();
         for (int j = 0;j<5;j++){
+            debug("seek_bar:"+j,1);
             seek_bar_x = randomIndex(width);
             device.click(seek_bar_x,seek_bar_y);
             sleep(1000);
@@ -1289,16 +1291,19 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject menu_button;
         int menu_list_child_count;
         menu_list_child_count = menu_list.getChildCount();
-        device.pressBack();
-        sleep(1000);
         for (int i = 0; i < menu_list_child_count;i++){
-            device.pressMenu();
-            sleep(1000);
+            if (i != 0){
+                device.pressMenu();
+                sleep(1000);
+            }
             menu_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             menu_button = menu_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(i));
             /*debug("menu_button="+menu_button.getBounds(),1);*/
             menu_button.click();
             sleep(1000);
+            if (i == 2){
+
+            }
             device.pressBack();
             sleep(1000);
         }
