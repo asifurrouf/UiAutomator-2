@@ -53,6 +53,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     private static final String FOLDER = "folder";
     private static final String COMMON = "common";
 
+    private static final String ZERO = "zero";
+    private static final String NOT_ZERO = "not_zero";
+
     private static final int[][] unlock_start_point= {
             {240,360,540,},
             {615,920,920,},
@@ -199,17 +202,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             System.out.print(" <"+debug_msg+"> ");
     }
 
-    public int randomIndex(int area){
+    public int randomIndex(int area,String zero_or_not){
         /*获取随机数*/
         debug("randomIndex",1);
         int rnd;
         rnd = (int) (Math.random() * area);
-        if (rnd==0) {
-            return randomIndex(area);
-        }
-        else  {
-            debug("rnd="+rnd,1);
+        if (zero_or_not.equals(ZERO)){
             return rnd;
+        }else {
+            if (rnd==0) {
+                return randomIndex(area,NOT_ZERO);
+            }
+            else  {
+                debug("rnd="+rnd,1);
+                return rnd;
+            }
         }
     }
 
@@ -590,7 +597,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_count = list_view.getChildCount() -2;
         /*debug("list_count=" + list_count,1);*/
         int rnd;
-        rnd = randomIndex(list_count)+1;
+        rnd = randomIndex(list_count,ZERO)+1;
         /*debug("rnd=" + rnd,1);*/
         UiObject song;
         song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
@@ -749,7 +756,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int list_count;
         list_count = list_view.getChildCount()-2;
         int rnd;
-        rnd = randomIndex(list_count)+1;
+        rnd = randomIndex(list_count,ZERO)+1;
         UiObject singer;
         singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("singer="+singer.getBounds(),1);*/
@@ -890,7 +897,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     UiObject new_list_name = new UiObject(new UiSelector().className("android.widget.EditText").index(0));
                     int list_num;
-                    list_num = randomIndex(99999);
+                    list_num = randomIndex(99999,ZERO);
                     /*new_list_name.clearTextField();*/
                     new_list_name.setText("new list"+list_num);
                     sleep(2000);
@@ -930,7 +937,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject rename_list;
         rename_list = new UiObject(new UiSelector().className("android.widget.EditText"));
         int list_num;
-        list_num = randomIndex(99999);
+        list_num = randomIndex(99999,ZERO);
                     /*new_list_name.clearTextField();*/
         rename_list.setText(""+list_num);
         sleep(2000);
@@ -1278,7 +1285,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         seek_bar_y = seek_bar.getBounds().centerY();
         for (int j = 0;j<5;j++){
             debug("seek_bar:"+j,1);
-            seek_bar_x = randomIndex(width);
+            seek_bar_x = randomIndex(width,ZERO);
             device.click(seek_bar_x,seek_bar_y);
             sleep(1000);
         }
@@ -1329,7 +1336,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         int rnd;
-        rnd = randomIndex(list_view_child_count);
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject album;
         album = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         album.clickAndWaitForNewWindow();
@@ -1419,7 +1426,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         int rnd;
-        rnd = randomIndex(list_view_child_count);
+        rnd = randomIndex(list_view_child_count,ZERO);
         UiObject folder;
         folder = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         folder.clickAndWaitForNewWindow();
@@ -1548,14 +1555,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject song;
         int rnd;
-        rnd = randomIndex(list_view_child_count);
+        rnd = randomIndex(list_view_child_count,ZERO);
         song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
         song.longClick();
         sleep(1000);
 
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count);
+        rnd = randomIndex(list_view_child_count,ZERO);
         song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
         UiObject change_pos = song.getChild(new UiSelector().index(0));
 
@@ -1866,7 +1873,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int online_albums_child_count;
         online_albums_child_count = online_albums.getChildCount();
         int rnd;
-        rnd = randomIndex(online_albums_child_count);
+        rnd = randomIndex(online_albums_child_count,ZERO);
         UiObject online_album;
         online_album = online_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_album.click();
@@ -1902,7 +1909,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         waitMsg(wait,10000);
         device.pressBack();
         sleep(1000);
-        rnd = randomIndex(list_view_child_count);
+        rnd = randomIndex(list_view_child_count,ZERO);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject online_album_song;
         online_album_song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
@@ -2125,7 +2132,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.GridView").index(0));
         int online_singers_child_count;
         online_singers_child_count = online_singers.getChildCount();
-        rnd = randomIndex(online_singers_child_count);
+        rnd = randomIndex(online_singers_child_count,ZERO);
         UiObject online_singer;
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer.clickAndWaitForNewWindow();
@@ -2155,7 +2162,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         online_singer_albums = new UiObject(new UiSelector().className("android.widget.GridView").index(0));
         int online_singer_albums_child_count;
         online_singer_albums_child_count = online_singer_albums.getChildCount();
-        rnd = randomIndex(online_singer_albums_child_count);
+        rnd = randomIndex(online_singer_albums_child_count,ZERO);
         UiObject online_singer_album;
         online_singer_album =  online_singer_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer_album.clickAndWaitForNewWindow();
