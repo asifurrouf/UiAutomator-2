@@ -204,7 +204,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     public int randomIndex(int area,String zero_or_not){
         /*获取随机数*/
-        debug("randomIndex",1);
+        debug(String.format("randomIndex:%s", zero_or_not),1);
         int rnd;
         rnd = (int) (Math.random() * area);
         if (zero_or_not.equals(ZERO)){
