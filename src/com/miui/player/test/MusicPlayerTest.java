@@ -95,7 +95,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*唤醒手机*/
         debug("wakePhone",1);
         device.wakeUp();
-        sleep(3000);
+        sleep(2000);
     }
 
     public void unlockPhone() throws RemoteException {
@@ -181,7 +181,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(3000);
+        sleep(2000);
     }
 
     public void launchPlayer() throws IOException {
@@ -189,7 +189,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug("launchPlayer",1);
         String launch = "am start -n com.miui.player/.ui.MusicBrowserActivity";
         Runtime.getRuntime().exec(launch);
-        sleep(3000);
+        sleep(2000);
     }
 
 
@@ -529,7 +529,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     search.setText(text);
                     sleep(1000);
                     device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-                    sleep(3000);
+                    sleep(2000);
                     device.pressBack();
                 }
                 else if (j==4){
@@ -1070,12 +1070,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         gotoPage(ONLINE);
 
-        UiObject confirm;
-        confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-        if (confirm.exists()){
-            confirm.click();
-            sleep(1000);
-        }
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
         /*debug("list_view=" + list_view.getBounds(),1);*/
@@ -1110,6 +1104,12 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     break;
             }
             sleep(1000);
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            if (confirm.exists()){
+                confirm.click();
+                sleep(1000);
+            }
         }
         killPlayer();
     }
@@ -2169,7 +2169,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(5000);
         device.pressBack();
         device.pressBack();
-        sleep(3000);
+        sleep(2000);
 
         /*热门推荐*/
         swipePhone(LEFT);
@@ -2202,7 +2202,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         device.pressBack();
         sleep(1000);
         swipePhone(TOP);
-        sleep(3000);
+        sleep(2000);
 
         /*随心听*/
         swipePhone(LEFT);
