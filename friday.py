@@ -165,5 +165,5 @@ if __name__ == '__main__':
     print('.........Work done.........')
     print(".........Cost time : %d seconds........."%cost)
     print(ge.print_format)
-    ge.writePrintFormat()
+    #ge.writePrintFormat()
 
