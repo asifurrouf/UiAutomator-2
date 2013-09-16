@@ -362,7 +362,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         UiObject top_view;
         top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
-                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
+                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
         /*debug("top_view="+top_view.getBounds(),1);*/
         int top_view_child_count;
         top_view_child_count = top_view.getChildCount();
@@ -370,7 +370,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject title = null;
         for (int i = 0; i < top_view_child_count;i++){
             top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
-                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(3));
+                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
             if (i==0){
                 title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(0));
                 /*debug("title="+title.getBounds(),1);*/
@@ -1086,30 +1086,28 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     /*debug("recommend="+recommend.getBounds(),1);*/
                     recommend.click();
                     sleep(1000);
-                    device.pressBack();
                     break;
                 case 1:
                     top = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
                     /*debug("top="+top.getBounds(),1);*/
                     top.click();
                     sleep(1000);
-                    device.pressBack();
                     break;
                 case 2:
                     fm = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
                     /*debug("fm="+fm.getBounds(),1);*/
                     fm.click();
                     sleep(1000);
-                    device.pressBack();
                     break;
             }
-            sleep(1000);
             UiObject confirm;
             confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
             if (confirm.exists()){
                 confirm.click();
                 sleep(1000);
             }
+            device.pressBack();
+            sleep(1000);
         }
         killPlayer();
     }
