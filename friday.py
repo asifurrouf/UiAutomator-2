@@ -30,13 +30,13 @@ Rom_Properties = [
     ['小米手机3','开发版','miui_MI3_',],
     ['红米手机_WCDMA','开发版','miui_HM2W_',],
     ['红米手机_TD','开发版','miui_HM2_',],
-]
+    ]
 
 Rom_Type = [
     ['zip','卡刷包',],
     ['exe','线刷包',],
     ['tar','线刷包'],
-]
+    ]
 
 
 
@@ -142,9 +142,9 @@ class Generate:
             c_name = rom_property[0]
             dev_type = rom_property[1]
             url = sub_url + self.version + '/' + name
-            print_format = "%s%s%s%s%s%s%s%s%s%s%s%s%s" % (
-            print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
-            wrap,wrap)
+            print_format = "%s%s %s %s %s%s%s%s%s%s%s%s%s" % (
+                print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
+                wrap,wrap)
         self.print_format = print_format
 
     def writePrintFormat(self):
