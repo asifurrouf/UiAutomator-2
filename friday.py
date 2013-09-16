@@ -75,7 +75,7 @@ def getVersion():
 
 def getRomDetail(rom_name):
     length = len(Rom_Properties)
-    index = 0
+    index = False
     for i in xrange(length):
         rom_property = Rom_Properties[i][2]
         if rom_property in rom_name:
@@ -100,19 +100,21 @@ def walk_dir(dir,topdown=True):
     rom_info = list()
     for root, dirs, files in os.walk(dir, topdown):
         for name in files:
-            print os.path.abspath(os.path.join(root,name))
             if miui in name:
-                info = []
                 index = getRomDetail(name)
-                info.append(index)
-                info.append(name)
-                rom_type = getRomType(name)
-                info.append(rom_type)
-                size = getRomSize(os.path.join(root,name))
-                info.append(size)
-                md5 = getFileMd5(os.path.join(root,name))
-                info.append(md5)
-                rom_info.append(info)
+                print os.path.abspath(os.path.join(root,name))
+                #print(index)
+                if index:
+                    info = []
+                    info.append(index)
+                    info.append(name)
+                    rom_type = getRomType(name)
+                    info.append(rom_type)
+                    size = getRomSize(os.path.join(root,name))
+                    info.append(size)
+                    md5 = getFileMd5(os.path.join(root,name))
+                    info.append(md5)
+                    rom_info.append(info)
     return rom_info
 
 class Generate:
