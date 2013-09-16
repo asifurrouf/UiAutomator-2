@@ -146,7 +146,6 @@ class Generate:
             print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
             wrap,wrap)
         self.print_format = print_format
-        return  print_format
 
     def writePrintFormat(self):
         read_mode = 'w'
@@ -160,10 +159,10 @@ if __name__ == '__main__':
     print('.........Begin to work.........')
     begin = time.time()
     ge = Generate()
-    print_format = ge.getPrintFormat()
+    ge.getPrintFormat()
     end = time.time()
     cost = int(end-begin)
     print('.........Work done.........')
     print(".........Cost time : %d seconds........."%cost)
-    print(print_format)
+    print(ge.print_format)
 
