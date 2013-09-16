@@ -125,6 +125,8 @@ class Generate:
         if len(sys.argv) >= 2:
             self.mFolder = sys.argv[1]
             self.version = getVersion()
+            print('Folder:' + self.mFolder)
+            print('Version:' + self.version)
         else:
             print('No argv given.')
             return
