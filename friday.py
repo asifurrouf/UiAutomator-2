@@ -127,7 +127,7 @@ class Generate:
 
     def getPrintFormat(self):
         wrap = '\r\n'
-        print_format = ''
+        print_format = '' + wrap
         tab = '     '
         sub_url = 'http://bigota.d.miui.com/'
         rom_info = walk_dir(self.mFolder)
