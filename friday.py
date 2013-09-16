@@ -30,7 +30,6 @@ Rom_Properties = [
     ['小米手机3','开发版','miui_MI3_',],
     ['红米手机WCDMA','开发版','miui_HM2W_',],
     ['红米手机TD','开发版','miui_HM2_',],
-
 ]
 
 Rom_Type = [
