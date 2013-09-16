@@ -120,13 +120,14 @@ class Generate:
 
     mFolder = ''
     version = ''
+    print_format = ''
 
     def __init__(self):
         self.mFolder = getFolder()
         self.version = self.mFolder
 
     def getPrintFormat(self):
-        another_line = '\r\n'
+        wrap = '\r\n'
         print_format = ''
         tab = '     '
         sub_url = 'http://bigota.d.miui.com/'
@@ -143,10 +144,17 @@ class Generate:
             dev_type = rom_property[1]
             url = sub_url + self.version + '/' + name
             print_format = "%s%s%s%s%s%s%s%s%s%s%s%s%s" % (
-            print_format, c_name, dev_type, self.version, rom_type, another_line, url, another_line, size, tab, md5,
-            another_line,another_line)
+            print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
+            wrap,wrap)
+        self.print_format = print_format
         return  print_format
 
+    def writePrintFormat(self):
+        read_mode = 'w'
+        file_name = self.version + '.txt'
+        file_obj = open(file_name,read_mode)
+        file_obj.write(self.print_format)
+        file_obj.close()
 
 if __name__ == '__main__':
 
