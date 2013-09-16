@@ -60,18 +60,18 @@ def getRomSize(filename):
     size = str(size) + 'M'
     return size
 
-def getFolder():
+def getVersion():
     block = '.'
     argv_len = len(sys.argv)
-    if argv_len >= 2:
-        folder = sys.argv[1]
+    if argv_len >= 3:
+        version = sys.argv[2]
     else:
         year,mon,day= time.strftime('%Y'),time.strftime('%m'),time.strftime('%d')
         year = year[-1]
         mon = str(int(mon))
         day = str(int(day))
-        folder = year + block + mon + block + day
-    return folder
+        version = year + block + mon + block + day
+    return version
 
 def getRomDetail(rom_name):
     length = len(Rom_Properties)
@@ -122,30 +122,42 @@ class Generate:
     print_format = ''
 
     def __init__(self):
-        self.mFolder = getFolder()
-        self.version = self.mFolder
+        if len(sys.argv) >= 2:
+            self.mFolder = sys.argv[1]
+            self.version = getVersion()
+        else:
+            print('No argv given.')
+            return
 
     def getPrintFormat(self):
         wrap = '\r\n'
         print_format = '' + wrap
         tab = '     '
         sub_url = 'http://bigota.d.miui.com/'
-        rom_info = walk_dir(self.mFolder)
-        for i in xrange(len(rom_info)):
-            info = rom_info[i]
-            index = info[0]
-            name = info[1]
-            rom_type = info[2]
-            size = info[3]
-            md5 = info[4]
-            rom_property = Rom_Properties[index]
-            c_name = rom_property[0]
-            dev_type = rom_property[1]
-            url = sub_url + self.version + '/' + name
-            print_format = "%s%s %s %s %s%s%s%s%s%s%s%s%s" % (
-                print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
-                wrap,wrap)
-        self.print_format = print_format
+        if self.mFolder != '':
+            if os.path.exists(self.mFolder):
+                rom_info = walk_dir(self.mFolder)
+                for i in xrange(len(rom_info)):
+                    info = rom_info[i]
+                    index = info[0]
+                    name = info[1]
+                    rom_type = info[2]
+                    size = info[3]
+                    md5 = info[4]
+                    rom_property = Rom_Properties[index]
+                    c_name = rom_property[0]
+                    dev_type = rom_property[1]
+                    url = sub_url + self.version + '/' + name
+                    print_format = "%s%s %s %s %s%s%s%s%s%s%s%s%s" % (
+                        print_format, c_name, dev_type, self.version, rom_type, wrap, url, wrap, size, tab, md5,
+                        wrap,wrap)
+                self.print_format = print_format
+            else:
+                print('Folder not found.')
+                sys.exit()
+        else:
+            print('Folder not given.')
+            sys.exit()
 
     def writePrintFormat(self):
         read_mode = 'w'
