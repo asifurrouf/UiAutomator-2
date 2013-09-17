@@ -68,7 +68,7 @@ def checkTodayTar():
                 urllib.urlretrieve(tar_file_url,tar)
                 end = time.time()
                 cost = int(end - begin)
-                print('Done and cost time : %d '% cost )
+                print('Done and cost time : %d seconds.'% cost )
             else:
                 print('Tar file not found.')
         else:
