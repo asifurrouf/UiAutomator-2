@@ -306,12 +306,17 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug("--------clearMusicData--------",1);
 
         killPlayer();
+        device.pressRecentApps();
+        UiObject clear_all;
+        clear_all = new UiObject(new UiSelector().className("android.view.View").index(2));
+        clear_all.click();
+        sleep(1000);
         launchPlayer();
         sleep(2000);
         device.pressHome();
         sleep(1000);
         device.pressRecentApps();
-        sleep(2000);
+        sleep(1000);
 
         UiObject view;
         view = new UiObject(new UiSelector().className("android.view.View").index(1));
@@ -341,7 +346,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug(String.format("confirm=%s", confirm.getBounds()),1);*/
         confirm.click();
         sleep(1000);
-        device.pressHome();
+        device.pressBack();
+        device.pressBack();
 
     }
 
@@ -1131,20 +1137,20 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         for (int i = 0;i < 2;i++){
             /*防止停留在列表页*/
             swipePhone(RIGHT);
-            sleep(1000);
+            sleep(500);
         }
         for (int i = 0;i < 2;i++){
             /*歌词页面*/
             swipePhone(LEFT);
-            sleep(1000);
+            sleep(500);
         }
         for (int i = 0;i < 1;i++){
             /*返回中间封面页*/
             swipePhone(RIGHT);
-            sleep(1000);
+            sleep(500);
         }
         swipePhone(CENTRAL);
-        sleep(1000);
+        sleep(500);
 
         /*喜欢*/
         UiObject top;
@@ -1157,9 +1163,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         fav = top.getChild(new UiSelector().className("android.widget.ImageView").index(1));
         /*debug("fav="+fav.getBounds(),1);*/
         fav.click();
-        sleep(1000);
+        sleep(500);
         fav.click();
-        sleep(1000);
+        sleep(500);
 
         /*米联 均衡器 顺序 下载 按钮*/
         UiObject function_buttons_list;
@@ -1307,6 +1313,39 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             menu_button.click();
             sleep(1000);
             if (i == 2){
+                UiObject down_lyric;
+                UiObject down_cover;
+                UiObject confirm_button;
+                for (int j = 0;j<2;j++){
+                    list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
+                    if (j==0){
+                        down_lyric = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
+                        down_lyric.click();
+                        confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                        confirm_button.click();
+                        UiObject lyric_list;
+                        lyric_list = new UiObject(new UiSelector().className("miui.widget.CheckedTextView"));
+                        if (lyric_list.exists()){
+                            device.pressBack();
+                            sleep(500);
+                        }
+                        device.pressMenu();
+                        menu_button.click();
+                    }else if (j==1){
+                        down_cover = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(4));
+                        down_cover.click();
+                        confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+                        confirm_button.click();
+                        UiObject choose_cover;
+                        choose_cover = new UiObject(new UiSelector().className("android.widget.TextView").text("请选择专辑封面"));
+                        if (choose_cover.exists()){
+                            device.pressBack();
+                            sleep(500);
+                        }
+                    }
+
+                }
+
 
             }
             device.pressBack();
