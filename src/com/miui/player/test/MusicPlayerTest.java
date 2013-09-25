@@ -1317,14 +1317,26 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 UiObject down_cover;
                 UiObject confirm_button;
                 for (int j = 0;j<2;j++){
+                    UiObject loading;
                     list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
                     if (j==0){
                         down_lyric = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2));
                         down_lyric.click();
                         confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                         confirm_button.click();
+                        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+                        while (true){
+                            if (loading.exists()){
+                                String wait;
+                                wait = "Wait loading.";
+                                waitMsg(wait,1000);
+                            }else {
+                                break;
+                            }
+                        }
+                        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
                         UiObject lyric_list;
-                        lyric_list = new UiObject(new UiSelector().className("miui.widget.CheckedTextView"));
+                        lyric_list = list_view.getChild(new UiSelector().className("miui.widget.CheckedTextView"));
                         if (lyric_list.exists()){
                             device.pressBack();
                             sleep(500);
@@ -1336,7 +1348,16 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         down_cover.click();
                         confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                         confirm_button.click();
-                        sleep(2000);
+                        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+                        while (true){
+                            if (loading.exists()){
+                                String wait;
+                                wait = "Wait loading.";
+                                waitMsg(wait,1000);
+                            }else {
+                                break;
+                            }
+                        }
                         UiObject choose_cover;
                         choose_cover = new UiObject(new UiSelector().className("android.widget.TextView").text("请选择专辑封面"));
                         if (choose_cover.exists()){
