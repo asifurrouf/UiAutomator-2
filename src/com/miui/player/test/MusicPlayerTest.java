@@ -26,14 +26,14 @@ import java.util.Date;
 
 public class MusicPlayerTest extends UiAutomatorTestCase{
 
-    protected UiDevice device = null;
+    protected static UiDevice device = null;
 
     private static final int TEST_TIMES = 30;
     private static final String LOG_TAG = "MIUI_PlayerTest";
     private static final String PLAYER_PAC_NAME = "com.miui.player";
     private static final int SWIPE_STEPS = 10;
-    private int width;
-    private int height;
+    private static int width;
+    private static int height;
     private static int clear_data = 0;
 
     private static final int P_480 = 0;
