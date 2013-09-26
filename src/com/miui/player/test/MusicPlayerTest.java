@@ -34,6 +34,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     private static final int SWIPE_STEPS = 10;
     private int width;
     private int height;
+    private int clear_data = 0;
 
     private static final int P_480 = 0;
     private static final int P_720 = 1;
@@ -69,14 +70,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*setUp*/
         debug("setUp",1);
         super.setUp();
-        device = getUiDevice();
-        width = device.getDisplayWidth();
-        height = device.getDisplayHeight();
-        debug("width=" + width + " height=" + height,1);
-        wakePhone();
-        lockPhone();
-        wakePhone();
-        unlockPhone();
         clearMusicData();
 
     }
@@ -106,6 +99,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*解锁*/
         debug("unlockPhone",1);
         int phone_type = phoneType();
+        debug(String.format("phone_type=%d", phone_type),1);
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
@@ -266,52 +260,64 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     private void clearMusicData() throws IOException, RemoteException, UiObjectNotFoundException {
         /*音乐数据清空*/
-        debug("--------clearMusicData--------",1);
+        if (clear_data == 0){
 
-        killPlayer();
-        device.pressRecentApps();
-        UiObject clear_all;
-        clear_all = new UiObject(new UiSelector().className("android.view.View").index(2));
-        clear_all.click();
-        sleep(1000);
-        launchPlayer();
-        sleep(2000);
-        device.pressHome();
-        sleep(1000);
-        device.pressRecentApps();
-        sleep(1000);
+            device = getUiDevice();
+            width = device.getDisplayWidth();
+            height = device.getDisplayHeight();
+            debug("width=" + width + " height=" + height,1);
+            wakePhone();
+            lockPhone();
+            wakePhone();
+            unlockPhone();
 
-        UiObject view;
-        view = new UiObject(new UiSelector().className("android.view.View").index(1));
-        UiObject music;
-        music = view.getChild(new UiSelector().className("android.widget.TextView").index(0));
+            debug("--------clearMusicData--------",1);
+
+            killPlayer();
+            device.pressRecentApps();
+            UiObject clear_all;
+            clear_all = new UiObject(new UiSelector().className("android.view.View").index(2));
+            clear_all.click();
+            sleep(1000);
+            launchPlayer();
+            sleep(2000);
+            device.pressHome();
+            sleep(1000);
+            device.pressRecentApps();
+            sleep(1000);
+
+            UiObject view;
+            view = new UiObject(new UiSelector().className("android.view.View").index(1));
+            UiObject music;
+            music = view.getChild(new UiSelector().className("android.widget.TextView").index(0));
         /*debug(String.format("music=%s", music.getBounds()),1);*/
-        music.longClick();
-        sleep(2000);
-        swipePhone(TOP);
-        sleep(1000);
-        UiObject clear;
-        clear = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(0));
+            music.longClick();
+            sleep(2000);
+            swipePhone(TOP);
+            sleep(1000);
+            UiObject clear;
+            clear = new UiObject(new UiSelector().className("android.widget.Button").index(0).instance(0));
         /*debug(String.format("clear=%s", clear.getBounds()),1);*/
-        while (true){
-            if (clear.isEnabled()){
-                break;
-            }else{
-                String wait;
-                wait = "clear button is not enable now,pls wait";
-                waitMsg(wait,1000);
+            while (true){
+                if (clear.isEnabled()){
+                    break;
+                }else{
+                    String wait;
+                    wait = "clear button is not enable now,pls wait";
+                    waitMsg(wait,1000);
+                }
             }
-        }
-        clear.click();
-        sleep(1000);
-        UiObject confirm;
-        confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            clear.click();
+            sleep(1000);
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         /*debug(String.format("confirm=%s", confirm.getBounds()),1);*/
-        confirm.click();
-        sleep(1000);
-        device.pressBack();
-        device.pressBack();
-
+            confirm.click();
+            sleep(1000);
+            device.pressBack();
+            device.pressBack();
+            clear_data = 1;
+        }
     }
 
     private void gotoPage(String page) throws UiObjectNotFoundException {
