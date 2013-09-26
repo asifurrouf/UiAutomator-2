@@ -1495,9 +1495,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    public void testListdetailPage() throws IOException, UiObjectNotFoundException {
+    public void testListDetailPage() throws IOException, UiObjectNotFoundException {
         /*列表详情页*/
-        debug("--------listdetailPage--------",1);
+        debug("--------listDetailPage--------",1);
 
         killPlayer();
         launchPlayer();
@@ -1518,21 +1518,11 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         fav_list.click();
         sleep(1000);
 
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        UiObject play_all;
-        int list_view_child_count;
-        list_view_child_count = list_view.getChildCount();
-        play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        play_all.click();
-        sleep(1000);
-        device.pressBack();
-        sleep(1000);
-
         /*添加歌曲*/
         UiObject add_songs;
         add_songs = new UiObject(new UiSelector().className("android.widget.Button").index(0));
         add_songs.click();
-        sleep(1000);
+        sleep(500);
         UiObject select_buttons;
         UiObject cancel = null;
         select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
@@ -1541,13 +1531,22 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject select_all;
         select_all = select_buttons.getChild(new UiSelector().index(2));
         select_all.click();
-        sleep(1000);
+        sleep(500);
         UiObject confirm;
         confirm = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1))
                 .getChild(new UiSelector().className("android.widget.Button").index(0));
         /*debug("confirm="+confirm.getBounds(),1);*/
         confirm.click();
-        sleep(1000);
+        sleep(500);
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject play_all;
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
+        play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        play_all.click();
+        sleep(500);
+        device.pressBack();
+        sleep(500);
 
         /*编辑模式*/
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -1715,9 +1714,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    public void testOnlinedetailPage() throws IOException, UiObjectNotFoundException {
+    public void testOnlineDetailPage() throws IOException, UiObjectNotFoundException {
         /*在线详情页*/
-        debug("--------onlinedetailPage--------",1);
+        debug("--------onlineDetailPage--------",1);
 
         killPlayer();
         launchPlayer();
