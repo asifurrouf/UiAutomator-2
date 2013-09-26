@@ -34,7 +34,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     private static final int SWIPE_STEPS = 10;
     private int width;
     private int height;
-    private int clear_data = 0;
+    private static int clear_data = 0;
 
     private static final int P_480 = 0;
     private static final int P_720 = 1;
