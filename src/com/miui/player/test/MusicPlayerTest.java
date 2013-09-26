@@ -74,6 +74,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         height = device.getDisplayHeight();
         debug("width=" + width + " height=" + height,1);
         wakePhone();
+        lockPhone();
+        wakePhone();
+        unlockPhone();
+        clearMusicData();
 
     }
 
@@ -220,8 +224,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
     }
 
-    public void testPlayer() throws IOException, UiObjectNotFoundException, RemoteException {
-        /*测试*/
+/*    public void testPlayer() throws IOException, UiObjectNotFoundException, RemoteException {
+        *//*测试*//*
         debug("testPlayer",1);
 
         lockPhone();
@@ -246,7 +250,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
 
         lockPhone();
-    }
+    }*/
 
     private void waitMsg(String wait,int timeout){
         debug(wait,1);
@@ -258,47 +262,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             sleep(1000);
         }
         debug("Next.",1);
-    }
-
-    private void connectWifi() throws UiObjectNotFoundException {
-        /*链接wifi*/
-        debug("--------connectWifi--------",1);
-
-        if ("com.miui.home".equals(device.getCurrentPackageName())){
-            debug("already home",1);
-        }else {
-            device.pressHome();
-            sleep(1000);
-        }
-        UiObject list_view;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView"));
-        int list_view_child_count;
-        list_view_child_count = list_view.getChildCount();
-        UiObject settings;
-        settings = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(list_view_child_count-1));
-        settings.clickAndWaitForNewWindow();
-        sleep(1000);
-        UiObject top;
-        top = new UiObject(new UiSelector().className("android.widget.HorizontalScrollView"));
-        UiObject all_settings;
-        all_settings = top.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(1));
-        debug(String.format("all_settings=%s", all_settings.getBounds()),1);
-        all_settings.click();
-        sleep(1000);
-        UiObject wifi;
-        wifi = new UiObject(new UiSelector().className("android.widget.TextView").text("WLAN"));
-        debug(String.format("wifi=%s", wifi.getBounds()),1);
-        wifi.click();
-        sleep(1000);
-
-        UiScrollable list;
-        list = new UiScrollable(new UiSelector().className("android.widget.ListView"));
-        UiObject mi_box;
-        mi_box = list.getChildByText(new UiSelector().className("android.widget.LinearLayout"),"Mibox");
-        debug(String.format("mi_box=%s", mi_box.getBounds()),1);
-        mi_box.click();
-        sleep(1000);
-
     }
 
     private void clearMusicData() throws IOException, RemoteException, UiObjectNotFoundException {
@@ -339,7 +302,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 waitMsg(wait,1000);
             }
         }
-        clear.clickAndWaitForNewWindow();
+        clear.click();
         sleep(1000);
         UiObject confirm;
         confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
@@ -349,55 +312,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         device.pressBack();
         device.pressBack();
 
-    }
-
-    private void homeTop() throws UiObjectNotFoundException, IOException {
-        /*首页顶栏*/
-        debug("--------homeTop--------",1);
-
-        killPlayer();
-        launchPlayer();
-        sleep(1000);
-        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
-
-        UiObject state;
-        state = new UiObject(new UiSelector().className("android.widget.Button").index(0));
-        if (state.exists()){
-            state.click();
-            sleep(1000);
-        }
-        UiObject top_view;
-        top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
-                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
-        /*debug("top_view="+top_view.getBounds(),1);*/
-        int top_view_child_count;
-        top_view_child_count = top_view.getChildCount();
-        UiObject play_pause = null;
-        UiObject title = null;
-        for (int i = 0; i < top_view_child_count;i++){
-            top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
-                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
-            if (i==0){
-                title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(0));
-                /*debug("title="+title.getBounds(),1);*/
-            }
-            else if (i==1){
-                play_pause = top_view.getChild(new UiSelector().className("android.widget.ImageView").index(2).instance(0));
-                /*debug("play_pause="+play_pause.getBounds(),1);*/
-            }
-        }
-        if (null != play_pause) {
-            play_pause.click();
-            sleep(2000);
-            play_pause.click();
-            sleep(2000);
-        }
-        if (null != title) {
-            title.click();
-            sleep(1000);
-        }
-        device.pressBack();
-        sleep(1000);
     }
 
     private void gotoPage(String page) throws UiObjectNotFoundException {
@@ -439,7 +353,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
             UiObject albums;
             albums = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-            albums.clickAndWaitForNewWindow();
+            albums.click();
             sleep(1000);
         }
         else if (page.equals(FOLDER)){
@@ -452,7 +366,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             UiObject folders;
             list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(2));
             folders = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
-            folders.clickAndWaitForNewWindow();
+            folders.click();
             sleep(1000);
         }
     }
@@ -572,7 +486,63 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
     }
 
-    private void songPage() throws UiObjectNotFoundException, IOException {
+    private void musicStatement() throws UiObjectNotFoundException {
+
+        UiObject state;
+        state = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+        if (state.exists()){
+            state.click();
+            sleep(1000);
+        }
+
+    }
+
+    public void testHomeTop() throws UiObjectNotFoundException, IOException {
+        /*首页顶栏*/
+        debug("--------homeTop--------",1);
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
+
+        UiObject top_view;
+        top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
+                .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
+        /*debug("top_view="+top_view.getBounds(),1);*/
+        int top_view_child_count;
+        top_view_child_count = top_view.getChildCount();
+        UiObject play_pause = null;
+        UiObject title = null;
+        for (int i = 0; i < top_view_child_count;i++){
+            top_view = new UiObject(new UiSelector().className("android.view.View").index(0))
+                    .getChild(new UiSelector().className("android.widget.RelativeLayout").index(4));
+            if (i==0){
+                title = top_view.getChild(new UiSelector().className("android.widget.TextView").index(0).instance(0));
+                /*debug("title="+title.getBounds(),1);*/
+            }
+            else if (i==1){
+                play_pause = top_view.getChild(new UiSelector().className("android.widget.ImageView").index(2).instance(0));
+                /*debug("play_pause="+play_pause.getBounds(),1);*/
+            }
+        }
+        if (null != play_pause) {
+            play_pause.click();
+            sleep(2000);
+            play_pause.click();
+            sleep(2000);
+        }
+        if (null != title) {
+            title.click();
+            sleep(1000);
+        }
+        device.pressBack();
+        sleep(1000);
+    }
+
+    public void testSongPage() throws UiObjectNotFoundException, IOException {
         /*歌曲页*/
         debug("--------songPage--------",1);
 
@@ -580,6 +550,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         for (int i = 0;i < 1;i++){
             swipePhone(TOP);
@@ -735,7 +707,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
     }
 
-    private void singerPage() throws IOException, UiObjectNotFoundException {
+    public void testSingerPage() throws IOException, UiObjectNotFoundException {
         /*歌手页*/
         debug("--------singerPage--------",1);
 
@@ -743,6 +715,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         gotoPage(SINGER);
 
@@ -838,7 +812,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void listPage() throws IOException, UiObjectNotFoundException {
+    public void testListPage() throws IOException, UiObjectNotFoundException {
         /*列表页*/
         debug("--------listPage--------",1);
 
@@ -846,6 +820,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         gotoPage(LIST);
 
@@ -1067,60 +1043,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void onlinePage() throws IOException, UiObjectNotFoundException {
-        /*在线页*/
-        debug("--------onlinePage--------",1);
-
-        killPlayer();
-        launchPlayer();
-        sleep(1000);
-        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
-
-        gotoPage(ONLINE);
-
-        UiObject list_view;
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
-        /*debug("list_view=" + list_view.getBounds(),1);*/
-        int list_view_child_count;
-        list_view_child_count = list_view.getChildCount();
-        UiObject recommend;
-        UiObject top;
-        UiObject fm;
-        for (int i = 0; i < list_view_child_count;i++){
-            list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
-            switch (i){
-                case 0:
-                    recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("recommend="+recommend.getBounds(),1);*/
-                    recommend.click();
-                    sleep(1000);
-                    break;
-                case 1:
-                    top = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("top="+top.getBounds(),1);*/
-                    top.click();
-                    sleep(1000);
-                    break;
-                case 2:
-                    fm = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
-                    /*debug("fm="+fm.getBounds(),1);*/
-                    fm.click();
-                    sleep(1000);
-                    break;
-            }
-            UiObject confirm;
-            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
-            if (confirm.exists()){
-                confirm.click();
-                sleep(1000);
-            }
-            device.pressBack();
-            sleep(1000);
-        }
-        killPlayer();
-    }
-
-    private void nowplayingPage() throws IOException, UiObjectNotFoundException {
+    public void testNowplayingPage() throws IOException, UiObjectNotFoundException {
         /*正在播放页*/
         debug("--------nowplayingPage--------",1);
 
@@ -1129,11 +1052,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
+        musicStatement();
+
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject play_all;
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        play_all.clickAndWaitForNewWindow();
+        play_all.click();
         sleep(2000);
 
         for (int i = 0;i < 2;i++){
@@ -1379,7 +1304,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void albumsPage() throws IOException, UiObjectNotFoundException {
+    public void testAlbumsPage() throws IOException, UiObjectNotFoundException {
         /*专辑页*/
         debug("--------albumsPage--------",1);
 
@@ -1387,6 +1312,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         gotoPage(ALBUMS);
 
@@ -1400,7 +1327,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(list_view_child_count,ZERO);
         UiObject album;
         album = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        album.clickAndWaitForNewWindow();
+        album.click();
         sleep(1000);
         device.pressBack();
 
@@ -1469,7 +1396,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void folderPage() throws IOException, UiObjectNotFoundException {
+    public void testFolderPage() throws IOException, UiObjectNotFoundException {
         /*文件夹页*/
         debug("--------folderPage--------",1);
 
@@ -1477,6 +1404,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         gotoPage(FOLDER);
 
@@ -1490,7 +1419,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(list_view_child_count,ZERO);
         UiObject folder;
         folder = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        folder.clickAndWaitForNewWindow();
+        folder.click();
         sleep(1000);
         device.pressBack();
         sleep(1000);
@@ -1560,7 +1489,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void listdetailPage() throws IOException, UiObjectNotFoundException {
+    public void testListdetailPage() throws IOException, UiObjectNotFoundException {
         /*列表详情页*/
         debug("--------listdetailPage--------",1);
 
@@ -1568,6 +1497,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         launchPlayer();
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
 
         gotoPage(LIST);
 
@@ -1586,7 +1517,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        play_all.clickAndWaitForNewWindow();
+        play_all.click();
         sleep(1000);
         device.pressBack();
         sleep(1000);
@@ -1594,7 +1525,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*添加歌曲*/
         UiObject add_songs;
         add_songs = new UiObject(new UiSelector().className("android.widget.Button").index(0));
-        add_songs.clickAndWaitForNewWindow();
+        add_songs.click();
         sleep(1000);
         UiObject select_buttons;
         UiObject cancel = null;
@@ -1778,7 +1709,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         killPlayer();
     }
 
-    private void onlinedetailPage() throws IOException, UiObjectNotFoundException {
+    public void testOnlinedetailPage() throws IOException, UiObjectNotFoundException {
         /*在线详情页*/
         debug("--------onlinedetailPage--------",1);
 
@@ -1787,16 +1718,56 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
         assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
 
+        musicStatement();
+
         gotoPage(ONLINE);
 
-        String wait;
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
         /*debug("list_view=" + list_view.getBounds(),1);*/
+        int list_view_child_count;
+        list_view_child_count = list_view.getChildCount();
         UiObject recommend;
+        UiObject top;
+        UiObject fm;
+        for (int i = 0; i < list_view_child_count;i++){
+            list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
+            switch (i){
+                case 0:
+                    recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
+                    /*debug("recommend="+recommend.getBounds(),1);*/
+                    recommend.click();
+                    sleep(1000);
+                    break;
+                case 1:
+                    top = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
+                    /*debug("top="+top.getBounds(),1);*/
+                    top.click();
+                    sleep(1000);
+                    break;
+                case 2:
+                    fm = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(i));
+                    /*debug("fm="+fm.getBounds(),1);*/
+                    fm.click();
+                    sleep(1000);
+                    break;
+            }
+            UiObject confirm;
+            confirm = new UiObject(new UiSelector().className("android.widget.Button").index(1));
+            if (confirm.exists()){
+                confirm.click();
+                sleep(1000);
+            }
+            device.pressBack();
+            sleep(500);
+        }
+
+        String wait;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(3));
+        /*debug("list_view=" + list_view.getBounds(),1);*/
         recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("recommend="+recommend.getBounds(),1);*/
-        recommend.clickAndWaitForNewWindow();
+        recommend.click();
         sleep(2000);
         UiObject loading;
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
@@ -1831,7 +1802,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("more_albums"+more_albums.getBounds(),1);*/
 
-        more_albums.clickAndWaitForNewWindow();
+        more_albums.click();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
@@ -1860,7 +1831,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.LinearLayout").index(2).instance(1))
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("more_singers="+more_singers.getBounds(),1);*/
-        more_singers.clickAndWaitForNewWindow();
+        more_singers.click();
         sleep(2000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
@@ -1961,11 +1932,10 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         swipePhone(TOP);
         sleep(1000);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
         UiObject play_all;
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
-        play_all.clickAndWaitForNewWindow();
+        play_all.click();
         wait = "Please wait 10 seconds for the song.";
         waitMsg(wait,10000);
         device.pressBack();
@@ -1974,7 +1944,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject online_album_song;
         online_album_song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
-        online_album_song.clickAndWaitForNewWindow();
+        online_album_song.click();
         wait = "Please wait 10 second for the song loading.";
         waitMsg(wait, 10000);
         device.pressBack();
@@ -2196,7 +2166,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(online_singers_child_count,ZERO);
         UiObject online_singer;
         online_singer = online_singers.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        online_singer.clickAndWaitForNewWindow();
+        online_singer.click();
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
@@ -2226,7 +2196,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         rnd = randomIndex(online_singer_albums_child_count,ZERO);
         UiObject online_singer_album;
         online_singer_album =  online_singer_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
-        online_singer_album.clickAndWaitForNewWindow();
+        online_singer_album.click();
         sleep(5000);
         device.pressBack();
         device.pressBack();
@@ -2271,7 +2241,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         list_view_child_count = list_view.getChildCount();
         rnd = (int) (Math.random()*list_view_child_count);
-        UiObject fm;
         fm = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("fm="+fm.isClickable(),1);*/
         fm.click();
