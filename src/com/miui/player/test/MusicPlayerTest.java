@@ -403,6 +403,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     private void gotoPage(String page) throws UiObjectNotFoundException {
         /*进入指定页面*/
 
+        debug(page,1);
+
         if (page.equals(SINGER)){
             for (int i = 0;i < 1;i++){
                 swipePhone(LEFT);
