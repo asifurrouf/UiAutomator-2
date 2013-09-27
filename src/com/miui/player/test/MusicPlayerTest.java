@@ -84,7 +84,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug("lockPhone",1);
         if (device.isScreenOn())
             device.sleep();
-        sleep(2000);
+        sleep(1000);
     }
 
 
@@ -92,7 +92,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*唤醒手机*/
         debug("wakePhone",1);
         device.wakeUp();
-        sleep(2000);
+        sleep(1000);
     }
 
     public void unlockPhone() throws RemoteException {
@@ -179,7 +179,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         String force_stop = "am force-stop " + PLAYER_PAC_NAME;
         Runtime.getRuntime().exec(kill);
         Runtime.getRuntime().exec(force_stop);
-        sleep(2000);
+        sleep(1000);
     }
 
     public void launchPlayer() throws IOException {
@@ -187,7 +187,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         debug("launchPlayer",1);
         String launch = "am start -n com.miui.player/.ui.MusicBrowserActivity";
         Runtime.getRuntime().exec(launch);
-        sleep(2000);
+        sleep(1000);
     }
 
 
@@ -282,7 +282,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             device.pressBack();
             sleep(500);
             launchPlayer();
-            sleep(2000);
+            sleep(1000);
             device.pressHome();
             sleep(1000);
             device.pressRecentApps();
@@ -294,7 +294,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             music = view.getChild(new UiSelector().className("android.widget.TextView").index(0));
         /*debug(String.format("music=%s", music.getBounds()),1);*/
             music.longClick();
-            sleep(2000);
+            sleep(1000);
             swipePhone(TOP);
             sleep(1000);
             UiObject clear;
@@ -451,7 +451,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     device.pressMenu();
                     sleep(1000);
                     menu_button.click();
-                    sleep(2000);
+                    sleep(1000);
                     String text = "12";
                     UiObject search;
                     search = new UiObject(new UiSelector().className("android.widget.EditText").index(1));
@@ -459,7 +459,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     search.setText(text);
                     sleep(1000);
                     device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-                    sleep(2000);
+                    sleep(1000);
                     device.pressBack();
                 }
                 else if (j==4){
@@ -486,7 +486,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     sleep(1000);
                     menu_button.click();
                     sleep(1000);
-                    sleep(2000);
+                    sleep(1000);
                     device.pressBack();
                     sleep(1000);
                 }
@@ -538,9 +538,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         if (null != play_pause) {
             play_pause.click();
-            sleep(2000);
+            sleep(1000);
             play_pause.click();
-            sleep(2000);
+            sleep(1000);
         }
         if (null != title) {
             title.click();
@@ -578,9 +578,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
-        sleep(2000);
+        sleep(1000);
         device.pressBack();
-        sleep(2000);
+        sleep(1000);
         int list_count;
         list_count = list_view.getChildCount() -2;
         /*debug("list_count=" + list_count,1);*/
@@ -592,9 +592,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("song="+song.getBounds(),1);*/
         sleep(1000);
         song.click();
-        sleep(2000);
+        sleep(1000);
         device.pressBack();
-        sleep(2000);
+        sleep(1000);
 
         /* 编辑模式 */
         song.longClick();
@@ -892,7 +892,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     list_num = randomIndex(99999,ZERO);
                     /*new_list_name.clearTextField();*/
                     new_list_name.setText("new list"+list_num);
-                    sleep(2000);
+                    sleep(1000);
                     UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                     /*debug("confirm_button="+confirm_button.getBounds(),1);*/
                     confirm_button.click();
@@ -932,7 +932,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_num = randomIndex(99999,ZERO);
                     /*new_list_name.clearTextField();*/
         rename_list.setText(""+list_num);
-        sleep(2000);
+        sleep(1000);
         UiObject confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
         confirm_button.click();
         sleep(1000);
@@ -981,9 +981,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                         /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
-                        sleep(2000);
+                        sleep(1000);
                         device.pressBack();
-                        sleep(2000);
+                        sleep(1000);
                     }
                     break;
                 case 1:
@@ -1001,9 +1001,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                         /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
-                        sleep(2000);
+                        sleep(1000);
                         device.pressBack();
-                        sleep(2000);
+                        sleep(1000);
                     }
                     break;
                 case 2:
@@ -1021,9 +1021,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                         /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
-                        sleep(2000);
+                        sleep(1000);
                         device.pressBack();
-                        sleep(2000);
+                        sleep(1000);
                     }
                     break;
                 case 3:
@@ -1041,9 +1041,9 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         UiObject list_button = long_click_list.getChild(new UiSelector().className("android.widget.LinearLayout").index(j));
                         /*debug(String.format("list_button(%d) %s", j, list_button.getBounds()),1);*/
                         list_button.click();
-                        sleep(2000);
+                        sleep(1000);
                         device.pressBack();
-                        sleep(2000);
+                        sleep(1000);
                     }
                     break;
             }
@@ -1067,25 +1067,21 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject play_all;
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         play_all.click();
-        sleep(2000);
+        sleep(1000);
 
         for (int i = 0;i < 2;i++){
             /*防止停留在列表页*/
             swipePhone(RIGHT);
-            sleep(500);
         }
         for (int i = 0;i < 2;i++){
             /*歌词页面*/
             swipePhone(LEFT);
-            sleep(500);
         }
         for (int i = 0;i < 1;i++){
             /*返回中间封面页*/
             swipePhone(RIGHT);
-            sleep(500);
         }
         swipePhone(CENTRAL);
-        sleep(500);
 
         /*喜欢*/
         UiObject top;
@@ -1341,7 +1337,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         /*编辑模式*/
         album.longClick();
-        sleep(2000);
+        sleep(1000);
         /* 编辑模式：取消 全选 取消全选*/
         UiObject select_buttons;
         UiObject cancel = null;
@@ -1434,7 +1430,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
         /*编辑模式*/
         folder.longClick();
-        sleep(2000);
+        sleep(1000);
         /* 编辑模式：取消 全选 取消全选*/
         UiObject select_buttons;
         UiObject cancel = null;
@@ -1546,7 +1542,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view_child_count = list_view.getChildCount();
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         play_all.click();
-        sleep(500);
+        sleep(1000);
         device.pressBack();
         sleep(500);
 
@@ -1775,7 +1771,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         recommend = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("recommend="+recommend.getBounds(),1);*/
         recommend.click();
-        sleep(2000);
+        sleep(1000);
         UiObject loading;
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         UiObject retry;
@@ -1810,7 +1806,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("more_albums"+more_albums.getBounds(),1);*/
 
         more_albums.click();
-        sleep(2000);
+        sleep(1000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
@@ -1830,7 +1826,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             }
         }
         device.pressBack();
-        sleep(2000);
+        sleep(1000);
 
         sc_view = new UiObject(new UiSelector().className("android.widget.ScrollView"))
                 .getChild(new UiSelector().className("android.widget.LinearLayout"));
@@ -1839,7 +1835,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 .getChild(new UiSelector().className("android.widget.TextView").index(1));
         /*debug("more_singers="+more_singers.getBounds(),1);*/
         more_singers.click();
-        sleep(2000);
+        sleep(1000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
@@ -1859,7 +1855,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             }
         }
         device.pressBack();
-        sleep(2000);
+        sleep(1000);
 
         UiObject to_search;
         to_search = new UiObject(new UiSelector().className("android.widget.ScrollView").index(0))
@@ -1881,7 +1877,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         edit_text.setText(search_string);
         sleep(1000);
         device.pressKeyCode(KeyEvent.KEYCODE_ENTER);
-        sleep(2000);
+        sleep(1000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
@@ -1916,7 +1912,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject online_album;
         online_album = online_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_album.click();
-        sleep(2000);
+        sleep(1000);
         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
         while (true){
@@ -1960,8 +1956,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         download_online_album_song = online_album_song.getChild(new UiSelector().className("android.widget.ImageView").index(2));
         /*debug("download_online_album_song=("+download_online_album_song.getBounds().centerX()+","+download_online_album_song.getBounds().centerY()+")"+download_online_album_song.getBounds(),1);*/
         download_online_album_song.click();
-        wait = "Please wait 20 seconds for this online song downloading.";
-        waitMsg(wait, 20000);
+        wait = "Please wait 10 seconds for this online song downloading.";
+        waitMsg(wait, 10000);
 
         /*编辑模式*/
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -2119,7 +2115,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             waitMsg(wait, 30000);
         }
         else {
-            sleep(2000);
+            sleep(1000);
         }
 
         for (int i=0;i < 3;i++) {
@@ -2193,7 +2189,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             }
         }
         swipePhone(LEFT);
-        sleep(5000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
+            }
+        }
         swipePhone(TOP);
         sleep(1000);
         UiObject online_singer_albums;
@@ -2204,10 +2217,27 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         UiObject online_singer_album;
         online_singer_album =  online_singer_albums.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         online_singer_album.click();
-        sleep(5000);
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+        retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
+        while (true){
+            if (loading.exists()){
+                wait = "Please wait 1 seconds to load online data.";
+                waitMsg(wait,1000);
+            }else {
+                if (retry.exists()){
+                    debug("loading fail and retry.",1);
+                    retry.click();
+                    sleep(1000);
+                }else {
+                    debug("loading done",1);
+                    sleep(1000);
+                    break;
+                }
+            }
+        }
         device.pressBack();
         device.pressBack();
-        sleep(2000);
+        sleep(1000);
 
         /*热门推荐*/
         swipePhone(LEFT);
@@ -2240,7 +2270,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         device.pressBack();
         sleep(1000);
         swipePhone(TOP);
-        sleep(2000);
+        sleep(1000);
 
         /*随心听*/
         swipePhone(LEFT);
@@ -2276,6 +2306,41 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         sleep(1000);
 
         killPlayer();
+    }
+
+    public void testLandscapeMode() throws IOException, UiObjectNotFoundException, RemoteException {
+        debug("--------LandscapeMode--------",1);
+
+        killPlayer();
+        launchPlayer();
+        sleep(1000);
+        assertEquals(PLAYER_PAC_NAME, device.getCurrentPackageName());
+
+        musicStatement();
+
+        for (int i = 0;i < 1;i++){
+            swipePhone(TOP);
+        }
+        sleep(1000);
+
+        UiObject page;
+        page = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject list_view;
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        /*debug("tmp=" + tmp.getBounds(),1);*/
+        UiObject play_all;
+        play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        /*debug("play_all=" + play_all.getBounds(),1);*/
+        play_all.click();
+        sleep(1000);
+        device.setOrientationLeft();
+        sleep(2000);
+        if (!device.isNaturalOrientation()){
+            device.setOrientationNatural();
+        }
+
+        killPlayer();
+
     }
 
     private void getBugreport() throws IOException {
