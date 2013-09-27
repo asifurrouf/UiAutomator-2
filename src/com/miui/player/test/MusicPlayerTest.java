@@ -2321,7 +2321,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         for (int i = 0;i < 1;i++){
             swipePhone(TOP);
         }
-        sleep(1000);
+        sleep(500);
 
         UiObject page;
         page = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -2333,15 +2333,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
         sleep(1000);
+        device.unfreezeRotation();
+        sleep(500);
         if (device.isNaturalOrientation()){
-            device.unfreezeRotation();
-            sleep(500);
             device.setOrientationLeft();
         }
         sleep(2000);
         if (!device.isNaturalOrientation()){
-            device.unfreezeRotation();
-            sleep(500);
             device.setOrientationNatural();
         }
 
