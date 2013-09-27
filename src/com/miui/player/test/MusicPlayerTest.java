@@ -279,6 +279,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             clear_all = new UiObject(new UiSelector().className("android.view.View").index(2));
             clear_all.click();
             sleep(1000);
+            device.pressBack();
+            sleep(500);
             launchPlayer();
             sleep(2000);
             device.pressHome();
