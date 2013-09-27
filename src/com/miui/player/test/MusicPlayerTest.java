@@ -2333,9 +2333,15 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
         sleep(1000);
-        device.setOrientationLeft();
+        if (device.isNaturalOrientation()){
+            device.unfreezeRotation();
+            sleep(500);
+            device.setOrientationLeft();
+        }
         sleep(2000);
         if (!device.isNaturalOrientation()){
+            device.unfreezeRotation();
+            sleep(500);
             device.setOrientationNatural();
         }
 

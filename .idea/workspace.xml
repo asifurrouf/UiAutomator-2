@@ -10,7 +10,7 @@
     <file path="/fragment.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373278451808" ignored="false" />
     <file path="/a.dummy" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372075533838" ignored="false" />
     <file path="/OnlineVideoTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1373284392846" ignored="false" />
-    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1380254763474" ignored="false" />
+    <file path="/MusicPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1380271284176" ignored="false" />
     <file path="$USER_HOME$/vm/adt-bundle-linux/sdk/tools/ant/uibuild.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372732496577" ignored="false" />
     <file path="/build.xml" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372734507747" ignored="false" />
     <file path="/VideoPlayerTest.java" changelist="684cbd0a-e535-4c99-9e3e-30796cc273e1" time="1372942653935" ignored="false" />
@@ -97,7 +97,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2152" column="29" selection-start="87541" selection-end="87544" vertical-scroll-proportion="0.3326886">
+            <state line="2343" column="21" selection-start="94916" selection-end="94916" vertical-scroll-proportion="0.5647969">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -659,7 +659,7 @@
         <filter targetName="test" isVisible="true" />
         <filter targetName="help" isVisible="false" />
       </targetFilters>
-      <expanded value="true" />
+      <expanded value="false" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
@@ -724,11 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/vm/adt-bundle-linux/sdk/platforms/android-4.2/uiautomator.jar!/com/android/uiautomator/core/UiDevice.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="58" selection-start="1290" selection-end="1299" vertical-scroll-proportion="0.3484252" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/command.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="79" selection-start="107" selection-end="107" vertical-scroll-proportion="0.14687882" />
@@ -779,9 +774,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/vm/adt-bundle-linux/sdk/platforms/android-4.2/uiautomator.jar!/com/android/uiautomator/core/UiDevice.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="34" selection-start="2967" selection-end="2985" vertical-scroll-proportion="0.34896812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2152" column="29" selection-start="87541" selection-end="87544" vertical-scroll-proportion="0.3326886">
+        <state line="2343" column="21" selection-start="94916" selection-end="94916" vertical-scroll-proportion="0.5647969">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
