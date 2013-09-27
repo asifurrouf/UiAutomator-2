@@ -619,13 +619,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             if (null != select_all) {
                 select_all.click();
             }
-            sleep(2000);
+            sleep(500);
         }
         /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
-        sleep(1000);
+        sleep(500);
         for (int i=0;i < 3;i++) {
             song.longClick();
             UiObject e_play;
@@ -776,13 +776,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             if (null != select_all) {
                 select_all.click();
             }
-            sleep(2000);
+            sleep(500);
         }
         /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
-        sleep(1000);
+        sleep(500);
         for (int i=0;i < 3;i++) {
             switch (i){
 /*                MIUI-15431
@@ -900,13 +900,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                             .getChild(new UiSelector().className("android.widget.Button").index(2));
                     /*debug("select_all="+select_all.getBounds(),1);*/
                     select_all.click();
-                    sleep(1000);
+                    sleep(500);
                     UiObject finish_button;
                     finish_button = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(0))
                             .getChild(new UiSelector().className("android.widget.Button").index(0));
                     /*debug("finish_button="+finish_button.getBounds(),1);*/
                     finish_button.click();
-                    sleep(1000);
+                    sleep(500);
                     break;
             }
             sleep(1000);
@@ -1364,13 +1364,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             if (null != select_all) {
                 select_all.click();
             }
-            sleep(2000);
+            sleep(500);
         }
         /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
-        sleep(1000);
+        sleep(500);
         for (int i=0;i < 3;i++) {
             album.longClick();
             switch (i){
@@ -1457,13 +1457,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             if (null != select_all) {
                 select_all.click();
             }
-            sleep(2000);
+            sleep(500);
         }
         /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
-        sleep(1000);
+        sleep(500);
         for (int i=0;i < 3;i++) {
             folder.longClick();
             switch (i){
@@ -1989,13 +1989,13 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             if (null != select_all) {
                 select_all.click();
             }
-            sleep(2000);
+            sleep(500);
         }
         /*debug("cancel=" + cancel.getBounds(),1);*/
         if (null != cancel) {
             cancel.click();
         }
-        sleep(1000);
+        sleep(500);
         online_album_song.longClick();
         UiObject e_more;
         e_more = new UiObject(new UiSelector().className("android.widget.Button").instance(3));
@@ -2152,7 +2152,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     UiObject confirm_delete;
                     confirm_delete = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                     confirm_delete.click();
-                    sleep(1000);
+                    sleep(500);
                     break;
             }
             sleep(1000);
