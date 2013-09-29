@@ -859,6 +859,25 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     /*debug("fav_list=" + fav_list.getBounds(),1);*/
                     fav_list.click();
                     sleep(1000);
+                    UiObject add_songs;
+                    add_songs = new UiObject(new UiSelector().className("android.widget.Button").index(0));
+                    add_songs.click();
+                    sleep(500);
+                    UiObject select_buttons;
+                    UiObject cancel = null;
+                    select_buttons = new UiObject(new UiSelector().className("android.view.View").index(0))
+                            .getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+                    /*debug("select_buttons="+select_buttons.getBounds(),1);*/
+                    UiObject select_all;
+                    select_all = select_buttons.getChild(new UiSelector().index(2));
+                    select_all.click();
+                    sleep(500);
+                    UiObject confirm;
+                    confirm = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1))
+                            .getChild(new UiSelector().className("android.widget.Button").index(0));
+                    /*debug("confirm="+confirm.getBounds(),1);*/
+                    confirm.click();
+                    sleep(500);
                     device.pressBack();
                     break;
                 case 2:
@@ -897,7 +916,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     /*debug("confirm_button="+confirm_button.getBounds(),1);*/
                     confirm_button.click();
                     sleep(1000);
-                    UiObject select_all;
                     select_all = new UiObject(new UiSelector().className("android.view.View").index(0))
                             .getChild(new UiSelector().className("android.widget.Button").index(2));
                     /*debug("select_all="+select_all.getBounds(),1);*/
