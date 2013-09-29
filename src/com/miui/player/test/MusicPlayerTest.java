@@ -578,7 +578,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
-        sleep(1000);
+        sleep(2000);
         device.pressBack();
         sleep(1000);
         int list_count;
@@ -592,7 +592,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         /*debug("song="+song.getBounds(),1);*/
         sleep(1000);
         song.click();
-        sleep(1000);
+        sleep(2000);
         device.pressBack();
         sleep(1000);
 
@@ -2065,13 +2065,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         if (null != m_down){
             online_album_song.longClick();
             e_more.click();
-            sleep(1000);
+            sleep(500);
             m_down.click();
-            sleep(1000);
+            sleep(500);
             UiObject confirm_down;
             confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
             confirm_down.click();
-            sleep(1000);
+            wait = "Please wait 10 seconds to download the song.";
+            waitMsg(wait,1000);
         }
 
         /*发送*/
@@ -2079,33 +2080,37 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         e_more.click();
         if (m_send.isEnabled()){
             m_send.click();
-            sleep(1000);
+            sleep(500);
             device.pressBack();
         }
 
         /*用作手机铃声*/
+        if (!e_more.exists()){
+            online_album_song.longClick();
+        }
         e_more.click();
         if (m_set_ring.isEnabled()){
             m_set_ring.click();
-            sleep(1000);
+            sleep(500);
         }
         else {
             device.pressBack();
         }
+
         /*修改歌曲信息*/
         e_more.click();
         m_id3.click();
-        sleep(1000);
+        sleep(500);
         device.pressBack();
         device.pressBack();
 
         device.pressMenu();
-        sleep(1000);
+        sleep(500);
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject m_down_all;
         m_down_all = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
         m_down_all.click();
-        sleep(1000);
+        sleep(500);
         if (list_view_child_count > 2){
             UiObject confirm_down;
             confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
@@ -2114,7 +2119,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             waitMsg(wait, 30000);
         }
         else {
-            sleep(1000);
+            sleep(500);
         }
 
         for (int i=0;i < 3;i++) {
@@ -2135,7 +2140,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 case 1:
                     /*添加到*/
                     e_add_to.click();
-                    sleep(1000);
+                    sleep(500);
                     device.pressBack();
                     device.pressBack();
                     break;
@@ -2145,7 +2150,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         select_all.click();
                     }
                     e_delete.click();
-                    sleep(1000);
+                    sleep(500);
                     UiObject confirm_delete;
                     confirm_delete = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                     confirm_delete.click();
