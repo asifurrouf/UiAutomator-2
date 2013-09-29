@@ -1005,14 +1005,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     }
                     break;
                 case 1:
-                    /*debug("last_played_list",1);*/
-                    last_played_list.longClick();
+                    /*debug("last_added_list",1);*/
+                    last_added_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
                     for (int j = 0;j < long_click_list_child_count;j++){
                         if (j != 0) {
-                            last_played_list.longClick();
+                            last_added_list.longClick();
                         }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
@@ -1025,14 +1025,14 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     }
                     break;
                 case 2:
-                    /*debug("last_added_list",1);*/
-                    last_added_list.longClick();
+                     /*debug("last_played_list",1);*/
+                    last_played_list.longClick();
                     sleep(1000);
                     long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
                     long_click_list_child_count = long_click_list.getChildCount();
                     for (int j = 0;j < long_click_list_child_count;j++){
                         if (j != 0) {
-                            last_added_list.longClick();
+                            last_played_list.longClick();
                         }
                         sleep(1000);
                         long_click_list = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
