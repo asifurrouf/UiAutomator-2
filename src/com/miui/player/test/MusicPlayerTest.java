@@ -1292,7 +1292,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         UiObject choose_cover;
                         choose_cover = new UiObject(new UiSelector().className("android.widget.TextView").text("请选择专辑封面"));
                         if (choose_cover.exists()){
-                            device.pressBack();
                             sleep(500);
                         }
                     }
