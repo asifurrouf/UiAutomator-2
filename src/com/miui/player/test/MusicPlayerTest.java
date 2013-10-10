@@ -566,23 +566,28 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         sleep(1000);
 
+        UiObject page,quick_search;
+        page = new UiObject(new UiSelector().className("miui.v5.view.ViewPager").index(0))
+                .getChild(new UiSelector().className("android.widget.FrameLayout"));
+        quick_search = page.getChild(new UiSelector().className("android.widget.ImageView").index(1));
+        debug(String.format("quick_search=%s", quick_search.getBounds()),1);
+
         pageMenu(SONG);
         pageMenu(COMMON);
 
-        UiObject page;
-        page = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         /*debug("tmp=" + tmp.getBounds(),1);*/
+        int list_count;
+        list_count = list_view.getChildCount() -2;
         UiObject play_all;
-        play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
+        play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
         sleep(2000);
         device.pressBack();
         sleep(1000);
-        int list_count;
-        list_count = list_view.getChildCount() -2;
+        swipePhone(TOP);
         /*debug("list_count=" + list_count,1);*/
         int rnd;
         rnd = randomIndex(list_count,ZERO)+1;
@@ -703,7 +708,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         song.longClick();
         e_more.click();
         m_set_ring.click();
-        device.pressBack();
         /*修改歌曲信息*/
         /*song.longClick();*/
         song.longClick();
@@ -2090,7 +2094,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             confirm_down = new UiObject(new UiSelector().className("android.widget.Button").index(1));
             confirm_down.click();
             wait = "Please wait 10 seconds to download the song.";
-            waitMsg(wait,1000);
+            waitMsg(wait, 1000);
         }
 
         /*发送*/
