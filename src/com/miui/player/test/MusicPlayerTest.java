@@ -1318,6 +1318,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                                 wait = "Wait loading.";
                                 waitMsg(wait,1000);
                             }else {
+                                debug("Loading done.",1);
                                 break;
                             }
                         }
@@ -1342,6 +1343,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                                 wait = "Wait loading.";
                                 waitMsg(wait,1000);
                             }else {
+                                debug("Loading done.",1);
                                 break;
                             }
                         }
@@ -1744,7 +1746,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             e_more.click();
             if (m_set_ring.isEnabled()){
                 m_set_ring.click();
-                sleep(1000);
+                sleep(500);
+                song.longClick();
             }
             /*修改歌曲信息*/
             e_more.click();
@@ -1757,7 +1760,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             device.pressBack();
             e_more.click();
             m_set_ring.click();
-            sleep(1000);
+            sleep(500);
+            song.longClick();
             e_more.click();
             m_id3.click();
             sleep(1000);
