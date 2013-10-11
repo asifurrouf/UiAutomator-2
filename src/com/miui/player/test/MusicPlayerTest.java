@@ -134,6 +134,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
     public void swipePhone(String type){
         /*滑动手机屏幕*/
         debug("swipePhone:"+type,1);
+        int swipe_or_click = 0;
         int start_x = 0;
         int start_y = 0;
         int end_x = 0;
@@ -143,33 +144,43 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
             start_y = height*3 / 4;
             end_x = width / 2;
             end_y = height / 2;
+            swipe_or_click = 0;
         }
         else if (type.equals(BOTTOM)) {
             start_x = width / 2;
             start_y = height / 2;
             end_x = width / 2;
             end_y = height*3 / 4;
+            swipe_or_click = 0;
         }
         else if (type.equals(LEFT)) {
             start_x = width*2 / 3;
             start_y = height*2 / 3;
             end_x = width / 3;
             end_y = height*2 / 3;
+            swipe_or_click = 0;
         }
         else if (type.equals(RIGHT)) {
             start_x = width / 3;
             start_y = height*2 / 3;
             end_x = width*2 / 3;
             end_y = height*2 / 3;
+            swipe_or_click = 0;
         }
         else if (type.equals(CENTRAL)) {
             start_x = width / 2;
             start_y = height / 2;
             end_x = width / 2;
             end_y = height / 2;
+            swipe_or_click = 1;
         }
         /*debug("point="+start_x+","+start_y+","+end_x+","+end_y,1);*/
-        device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
+        if (swipe_or_click == 0 ){
+            device.swipe(start_x,start_y,end_x,end_y,SWIPE_STEPS);
+        }else {
+            device.click(start_x,start_y);
+        }
+
         sleep(1000);
     }
 
