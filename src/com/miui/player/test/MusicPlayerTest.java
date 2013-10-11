@@ -2152,6 +2152,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         if (m_set_ring.isEnabled()){
             m_set_ring.click();
             sleep(500);
+            online_album_song.longClick();
         }
         else {
             device.pressBack();

@@ -97,7 +97,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1749" column="33" selection-start="70896" selection-end="70896" vertical-scroll-proportion="0.622824">
+            <state line="2148" column="42" selection-start="88155" selection-end="88155" vertical-scroll-proportion="0.24564797">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -551,7 +551,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-7" width="1617" height="1058" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.6526082" order="2" side_tool="false" content_ui="tabs" />
@@ -564,7 +564,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971245" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.49968052" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34739178" sideWeight="0.49968052" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984026" sideWeight="0.6526082" order="1" side_tool="false" content_ui="tabs" />
@@ -662,7 +662,7 @@
         <filter targetName="test" isVisible="true" />
         <filter targetName="help" isVisible="false" />
       </targetFilters>
-      <expanded value="true" />
+      <expanded value="false" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
@@ -784,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1749" column="33" selection-start="70896" selection-end="70896" vertical-scroll-proportion="0.622824">
+        <state line="2148" column="42" selection-start="88155" selection-end="88155" vertical-scroll-proportion="0.24564797">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
