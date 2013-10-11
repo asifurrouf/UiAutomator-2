@@ -42,12 +42,12 @@ def getDevices():
 def musicUi():
     TEST_TIMES = input('Pls input num of test times:')
     TEST_TIMES = int(TEST_TIMES)
-    print('----------Push jar to the device----------')
     devices = getDevices()
     length = len(devices)
     begin = time.time()
     print('----------Begin to run test----------')
     if length > 0:
+        print('----------Push jar to the device----------')
         for j in xrange(length):
             device = devices[j]
             print('device:%s'%device)
@@ -58,10 +58,10 @@ def musicUi():
                 run = command_run%device
                 os.system(run)
     print('----------Test done----------')
-    print('----------Begin to get bugreport----------')
     devices = getDevices()
     length = len(devices)
     if length > 0:
+        print('----------Begin to get bugreport----------')
         for i in xrange(length):
             device = devices[i]
             date = getDate()
@@ -72,11 +72,15 @@ def musicUi():
             bugreport_name = date + '-' + time.strftime('%H') + block + time.strftime('%M') + block + time.strftime('%S') + '.txt'
             command_bugreport_tmp = command_bugreport%device
             bugreport = '%s%s/%s' % (command_bugreport_tmp, path, bugreport_name)
-            print('----------bugreport:%s----------' % bugreport)
-            os.system(bugreport)
-            print('----------Begin to analyse the bugreort----------')
-            analyse = command_bugreport_analyse + bugreport
-            os.system(analyse)
+            if os.path.getsize(bugreport) > 0:
+                print('----------bugreport:%s----------' % bugreport)
+                os.system(bugreport)
+                print('----------Begin to analyse the bugreort----------')
+                analyse = command_bugreport_analyse + bugreport
+                print('----------analyse:%s----------' % analyse)
+                os.system(analyse)
+            else:
+                print('----------bugreport size 0----------')
     end = time.time()
     cost = end - begin
     print('----------Cost time:%s----------' % cost)
