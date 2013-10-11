@@ -72,7 +72,7 @@ def musicUi():
             bugreport_name = date + '-' + time.strftime('%H') + block + time.strftime('%M') + block + time.strftime('%S') + '.txt'
             command_bugreport_tmp = command_bugreport%device
             bugreport = '%s%s/%s' % (command_bugreport_tmp, path, bugreport_name)
-            if os.path.getsize(bugreport) > 0:
+            if os.path.exists(bugreport) and os.path.getsize(bugreport) > 0 :
                 print('----------bugreport:%s----------' % bugreport)
                 os.system(bugreport)
                 print('----------Begin to analyse the bugreort----------')
