@@ -97,7 +97,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="731" column="105" selection-start="25954" selection-end="25954" vertical-scroll-proportion="-1.8899083">
+            <state line="2353" column="33" selection-start="95956" selection-end="95973" vertical-scroll-proportion="0.559633">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -662,7 +662,7 @@
         <filter targetName="test" isVisible="true" />
         <filter targetName="help" isVisible="false" />
       </targetFilters>
-      <expanded value="true" />
+      <expanded value="false" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
@@ -784,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="731" column="105" selection-start="25954" selection-end="25954" vertical-scroll-proportion="-1.8899083">
+        <state line="2353" column="33" selection-start="95956" selection-end="95973" vertical-scroll-proportion="0.559633">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

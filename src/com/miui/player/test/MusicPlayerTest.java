@@ -2390,18 +2390,4 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
 
     }
 
-    private void getBugreport() throws IOException {
-        /*抓log*/
-        String log_name;
-        Date date=new Date();
-        String fmt = "yyyy-MM-dd-HH-mm-ss";
-        SimpleDateFormat s = new SimpleDateFormat(fmt);
-        log_name = s.format(date);
-        log_name += ".txt";
-        debug("--------getBugreport="+log_name+"--------",1);
-        String bugreport;
-        bugreport = "bugreport > " + "sdcard/" +log_name;
-        Runtime.getRuntime().exec(bugreport);
-    }
-
 }

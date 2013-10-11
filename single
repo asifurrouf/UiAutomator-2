@@ -1,0 +1,49 @@
+#!/bin/bash
+
+adb push /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/uiautomator.jar /data/local/tmp/
+
+comm="adb shell uiautomator runtest uiautomator.jar -c com.miui.player.test.MusicPlayerTest#"
+echo "choose num for part"
+echo "1:testHomeTop"
+echo "2:testSongPage"
+echo "3:testSingerPage"
+echo "4:testListPage"
+echo "5:testNowplayingPage"
+echo "6:testAlbumsPage"
+echo "7:testFolderPage"
+echo "8:testListDetailPage"
+echo "9:testOnlineDetailPage"
+echo "10:testLandscapeMode"
+read choose_part
+if [[ "$choose_part" = 1 ]]; then
+	comm="$comm""testHomeTop"
+elif [[ "$choose_part" = 2 ]]; then
+	#statements
+	comm="$comm""testSongPage"
+elif [[ "$choose_part" = 3 ]]; then
+	#statements
+	comm="$comm""testSingerPage"
+elif [[ "$choose_part" = 4 ]]; then
+	#statements
+	comm="$comm""testListPage"
+elif [[ "$choose_part" = 5 ]]; then
+	#statements
+	comm="$comm""testNowplayingPage"
+elif [[ "$choose_part" = 6 ]]; then
+	#statements
+	comm="$comm""testAlbumsPage"
+elif [[ "$choose_part" = 7 ]]; then
+	#statements
+	comm="$comm""testFolderPage"
+elif [[ "$choose_part" = 8 ]]; then
+	#statements
+	comm="$comm""testListDetailPage"
+elif [[ "$choose_part" = 9 ]]; then
+	#statements
+	comm="$comm""testOnlineDetailPage"
+elif [[ "$choose_part" = 10 ]]; then
+	#statements
+	comm="$comm""testLandscapeMode"
+fi
+echo "$comm"
+$comm
