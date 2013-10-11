@@ -106,12 +106,20 @@ public class Test {
         }
     }
 
+    private void randomTest(){
+        int top,bottom;
+        int rnd;
+        top = 50;
+        bottom = 500;
+        rnd = top + (int)(Math.random()*(bottom-top));
+        debug(String.format("rnd>%d",rnd),1);
+    }
 
     public static void main(String[] args){
 
         Test test = new Test();
 
-        test.testPrint();
+        test.randomTest();
     }
 
 }

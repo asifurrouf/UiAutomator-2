@@ -13,6 +13,7 @@ import android.view.View;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.UiCollection;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
@@ -566,12 +567,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         }
         sleep(1000);
 
-        UiObject page,quick_search;
-        page = new UiObject(new UiSelector().className("miui.v5.view.ViewPager").index(0))
-                .getChild(new UiSelector().className("android.widget.FrameLayout"));
-        quick_search = page.getChild(new UiSelector().className("android.widget.ImageView").index(1));
-        debug(String.format("quick_search=%s", quick_search.getBounds()),1);
-
         pageMenu(SONG);
         pageMenu(COMMON);
 
@@ -715,6 +710,28 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         m_id3.click();
         device.pressBack();
         device.pressBack();
+
+        UiObject quick_search;
+        UiCollection images;
+        images = new UiCollection(new UiSelector().className("miui.v5.view.ViewPager"));
+        int images_count;
+        images_count = images.getChildCount(new UiSelector().className("android.widget.ImageView"));
+        /*debug("images_count="+images_count,1);*/
+        quick_search = images.getChildByInstance(new UiSelector().className("android.widget.ImageView"),images_count-1);
+        /*debug(String.format("quick_search=%s", quick_search.getBounds()),1);*/
+        int click_x,click_y;
+        int quick_x,quick_top,quick_bottom;
+        quick_x = quick_search.getBounds().centerX();
+        quick_top = quick_search.getBounds().top;
+        quick_bottom = quick_search.getBounds().bottom;
+        click_x = quick_x;
+        for (int j = 0;j<10;j++){
+            click_y = quick_top + (int)(Math.random()*(quick_bottom-quick_top));
+            /*debug(String.format("click_x>%d>click_y>%d", click_x,click_y),1);*/
+            device.click(click_x,click_y);
+            sleep(200);
+        }
+
         killPlayer();
         sleep(1000);
     }
