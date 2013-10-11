@@ -752,25 +752,30 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         pageMenu(SINGER);
 
         UiObject page;
-        page = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
         /*debug("list_view=" + page.getBounds(),1);*/
         UiObject list_view;
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
+        int list_count;
+        list_count = list_view.getChildCount()-2;
         /*debug("list_view=" + list_view.getBounds(),1);*/
         UiObject albums;
-        albums = page.getChild(new UiSelector().className("android.widget.LinearLayout").index(0));
+        albums = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(0))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
         /*debug("albums=" + albums.getBounds(),1);*/
         albums.click();
         sleep(1000);
         device.pressBack();
         sleep(1000);
-        int list_count;
-        list_count = list_view.getChildCount()-2;
         int rnd;
         /*rnd = randomIndex(list_count,ZERO)+1;*/
         rnd = randomIndex(list_count,NOT_ZERO);
+/*        if (rnd+1<list_count){
+            rnd += 1;
+        }*/
         UiObject singer;
-        singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
+        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
+        singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd))
+                .getChild(new UiSelector().className("android.widget.LinearLayout").index(1));
         /*debug("singer="+singer.getBounds(),1);*/
         singer.click();
         sleep(1000);
