@@ -767,7 +767,8 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         int list_count;
         list_count = list_view.getChildCount()-2;
         int rnd;
-        rnd = randomIndex(list_count,ZERO)+1;
+        /*rnd = randomIndex(list_count,ZERO)+1;*/
+        rnd = randomIndex(list_count,NOT_ZERO);
         UiObject singer;
         singer = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(rnd));
         /*debug("singer="+singer.getBounds(),1);*/
