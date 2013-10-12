@@ -80,7 +80,10 @@ def musicUi():
                 print('----------analyse:%s----------' % analyse)
                 os.system(analyse)
             else:
-                print('----------bugreport size 0----------')
+                if not os.path.exists(bugreport):
+                    print('----------bugreport not exist----------')
+                elif os.path.getsize(bugreport) == 0:
+                    print('----------bugreport size 0----------')
     end = time.time()
     cost = end - begin
     print('----------Cost time:%s----------' % cost)
