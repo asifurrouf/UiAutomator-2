@@ -5,8 +5,8 @@ import os
 import time
 
 command_push = 'adb -s %s push /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/uiautomator.jar /data/local/tmp/'
-command_run = 'adb  -s %s shell uiautomator runtest uiautomator.jar -c com.miui.player.test.MusicPlayerTest'
-command_bugreport = 'adb  -s %s bugreport > '
+command_run = 'adb -s %s shell uiautomator runtest uiautomator.jar -c com.miui.player.test.MusicPlayerTest'
+command_bugreport = 'adb -s %s bugreport > '
 command_bugreport_analyse = 'java -jar /mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/chkbugreport.jar '
 command_adb_devices = 'adb devices'
 
