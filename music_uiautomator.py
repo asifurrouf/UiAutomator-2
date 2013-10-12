@@ -67,7 +67,7 @@ def musicUi():
             date = getDate()
             if not os.path.exists(date):
                 os.mkdir(date)
-            block = ':'
+            block = '-'
             path = os.path.abspath(date)
             bugreport_name = date + '-' + time.strftime('%H') + block + time.strftime('%M') + block + time.strftime('%S') + '.txt'
             command_bugreport_tmp = command_bugreport%device
