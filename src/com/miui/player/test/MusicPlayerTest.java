@@ -1369,8 +1369,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                     }
 
                 }
-
-
             }
             device.pressBack();
             sleep(1000);
