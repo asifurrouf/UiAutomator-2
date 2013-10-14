@@ -1312,13 +1312,20 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                         confirm_button.click();
                         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+                        int wait_loading_time = 0;
+                        String wait;
                         while (true){
                             if (loading.exists()){
-                                String wait;
-                                wait = "Wait loading.";
+                                wait = "Please wait 1 seconds to load online data.";
+                                wait_loading_time += 1;
                                 waitMsg(wait,1000);
                             }else {
-                                debug("Loading done.",1);
+                                    debug("loading done",1);
+                                    sleep(1000);
+                                    break;
+                            }
+                            if (wait_loading_time > 60){
+                                swipePhone(CENTRAL);
                                 break;
                             }
                         }
@@ -1337,19 +1344,26 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                         confirm_button = new UiObject(new UiSelector().className("android.widget.Button").index(1));
                         confirm_button.click();
                         loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
+                        int wait_loading_time = 0;
+                        String wait;
                         while (true){
                             if (loading.exists()){
-                                String wait;
-                                wait = "Wait loading.";
+                                wait = "Please wait 1 seconds to load online data.";
+                                wait_loading_time += 1;
                                 waitMsg(wait,1000);
                             }else {
-                                debug("Loading done.",1);
+                                    debug("loading done",1);
+                                    sleep(1000);
+                                    break;
+                                }
+                            if (wait_loading_time > 60){
                                 break;
                             }
                         }
                         UiObject choose_cover;
                         choose_cover = new UiObject(new UiSelector().className("android.widget.TextView").text("请选择专辑封面"));
                         if (choose_cover.exists()){
+                            device.pressBack();
                             sleep(500);
                         }
                     }
@@ -1832,23 +1846,31 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         recommend.click();
         sleep(1000);
         UiObject loading;
-        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         UiObject retry;
+        loading = new UiObject(new UiSelector().className("android.widget.ProgressBar"));
         retry = new UiObject(new UiSelector().className("android.widget.TextView").text("重试"));
+        int wait_loading_time = 0;
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
 
@@ -1871,17 +1893,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         device.pressBack();
@@ -1900,17 +1929,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         device.pressBack();
@@ -1942,17 +1978,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         device.pressMenu();
@@ -1977,17 +2020,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
 
@@ -2240,17 +2290,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         swipePhone(LEFT);
@@ -2259,17 +2316,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         swipePhone(TOP);
@@ -2287,17 +2351,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                break;
             }
         }
         device.pressBack();
@@ -2319,17 +2390,25 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
+                    wait_loading_time = 0;
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                wait_loading_time = 0;
+                swipePhone(CENTRAL);
+                break;
             }
         }
         device.pressBack();
@@ -2351,17 +2430,22 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         while (true){
             if (loading.exists()){
                 wait = "Please wait 1 seconds to load online data.";
+                wait_loading_time += 1;
                 waitMsg(wait,1000);
             }else {
                 if (retry.exists()){
                     debug("loading fail and retry.",1);
                     retry.click();
+                    wait_loading_time += 1;
                     sleep(1000);
                 }else {
                     debug("loading done",1);
                     sleep(1000);
                     break;
                 }
+            }
+            if (wait_loading_time > 60){
+                break;
             }
         }
         device.pressBack();
