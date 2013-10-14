@@ -97,7 +97,7 @@
       <file leaf-file-name="MusicPlayerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1370" column="17" selection-start="55913" selection-end="55913" vertical-scroll-proportion="0.54805726">
+            <state line="1366" column="39" selection-start="55835" selection-end="55846" vertical-scroll-proportion="0.42535788">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -784,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1370" column="17" selection-start="55913" selection-end="55913" vertical-scroll-proportion="0.54805726">
+        <state line="1366" column="39" selection-start="55835" selection-end="55846" vertical-scroll-proportion="0.42535788">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
