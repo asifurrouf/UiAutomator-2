@@ -58,33 +58,36 @@ def musicUi():
                 run = command_run%device
                 os.system(run)
     print('----------Test done----------')
-    devices = getDevices()
-    length = len(devices)
-    if length > 0:
-        print('----------Begin to get bugreport----------')
-        for i in xrange(length):
-            device = devices[i]
-            date = getDate()
-            if not os.path.exists(date):
-                os.mkdir(date)
-            block = '-'
-            path = os.path.abspath(date)
-            bugreport_name = date + '-' + time.strftime('%H') + block + time.strftime('%M') + block + time.strftime('%S') + '.txt'
-            command_bugreport_tmp = command_bugreport%device
-            bugreport = '%s%s/%s' % (command_bugreport_tmp, path, bugreport_name)
-            print('----------bugreport:%s----------' % bugreport)
-            os.system(bugreport)
-            bugreport_file = '%s/%s'%(path,bugreport_name)
-            analyse = '%s/%s' % (command_bugreport_analyse, bugreport_file)
-            print('----------analyse:%s----------' % analyse)
-            if os.path.exists(bugreport_file) and os.path.getsize(bugreport_file) > 0 :
-                print('----------Begin to analyse the bugreort----------')
-                os.system(analyse)
-            else:
-                if not os.path.exists(bugreport_file):
-                    print('----------bugreport not exist----------')
-                elif os.path.getsize(bugreport_file) == 0:
-                    print('----------bugreport size 0----------')
+    bugreport_flag = input('Pls input num 1 to catch a bugreport other for not:')
+    bugreport_flag = int(bugreport_flag)
+    if bugreport_flag == 1:
+        devices = getDevices()
+        length = len(devices)
+        if length > 0:
+            print('----------Begin to get bugreport----------')
+            for i in xrange(length):
+                device = devices[i]
+                date = getDate()
+                if not os.path.exists(date):
+                    os.mkdir(date)
+                block = '-'
+                path = os.path.abspath(date)
+                bugreport_name = date + '-' + time.strftime('%H') + block + time.strftime('%M') + block + time.strftime('%S') + '.txt'
+                command_bugreport_tmp = command_bugreport%device
+                bugreport = '%s%s/%s' % (command_bugreport_tmp, path, bugreport_name)
+                print('----------bugreport:%s----------' % bugreport)
+                os.system(bugreport)
+                bugreport_file = '%s/%s'%(path,bugreport_name)
+                analyse = '%s/%s' % (command_bugreport_analyse, bugreport_file)
+                print('----------analyse:%s----------' % analyse)
+                if os.path.exists(bugreport_file) and os.path.getsize(bugreport_file) > 0 :
+                    print('----------Begin to analyse the bugreort----------')
+                    os.system(analyse)
+                else:
+                    if not os.path.exists(bugreport_file):
+                        print('----------bugreport not exist----------')
+                    elif os.path.getsize(bugreport_file) == 0:
+                        print('----------bugreport size 0----------')
     end = time.time()
     cost = end - begin
     print('----------Cost time:%s----------' % cost)
