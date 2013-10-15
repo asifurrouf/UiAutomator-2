@@ -74,15 +74,16 @@ def musicUi():
             bugreport = '%s%s/%s' % (command_bugreport_tmp, path, bugreport_name)
             print('----------bugreport:%s----------' % bugreport)
             os.system(bugreport)
-            analyse = '%s%s/%s' % (command_bugreport_analyse, path, bugreport_name)
+            bugreport_file = '%s/%s'%(path,bugreport_name)
+            analyse = '%s/%s' % (command_bugreport_analyse, bugreport_file)
             print('----------analyse:%s----------' % analyse)
-            if os.path.exists(bugreport) and os.path.getsize(bugreport) > 0 :
+            if os.path.exists(bugreport_file) and os.path.getsize(bugreport_file) > 0 :
                 print('----------Begin to analyse the bugreort----------')
                 os.system(analyse)
             else:
-                if not os.path.exists(bugreport):
+                if not os.path.exists(bugreport_file):
                     print('----------bugreport not exist----------')
-                elif os.path.getsize(bugreport) == 0:
+                elif os.path.getsize(bugreport_file) == 0:
                     print('----------bugreport size 0----------')
     end = time.time()
     cost = end - begin
