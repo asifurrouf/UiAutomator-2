@@ -1611,7 +1611,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view_child_count = list_view.getChildCount();
         play_all = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         play_all.click();
-        sleep(1000);
+        sleep(2000);
         device.pressBack();
         sleep(500);
 
@@ -1619,25 +1619,24 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject song;
         int rnd;
-        rnd = randomIndex(list_view_child_count,ZERO);
+        rnd = randomIndex(list_view_child_count,NOT_ZERO);
         song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
         song.longClick();
         sleep(1000);
 
-        list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        list_view_child_count = list_view.getChildCount();
-        rnd = randomIndex(list_view_child_count,ZERO);
-        song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
-        UiObject change_pos = song.getChild(new UiSelector().index(0));
 
-        int swipe_pos_x;
-        int swipe_pos_y;
-        swipe_pos_x = change_pos.getBounds().centerX();
-        swipe_pos_y = change_pos.getBounds().centerY();
-
-        int end_y;
-        end_y = height - swipe_pos_y;
-        for (int i = 0; i < 3 ;i++){
+        for (int i = 0; i < 5 ;i++){
+            list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+            list_view_child_count = list_view.getChildCount();
+            rnd = randomIndex(list_view_child_count,NOT_ZERO);
+            song = list_view.getChild(new UiSelector().className("android.widget.RelativeLayout").index(rnd));
+            UiObject change_pos = song.getChild(new UiSelector().index(0));
+            int swipe_pos_x;
+            int swipe_pos_y;
+            swipe_pos_x = change_pos.getBounds().centerX();
+            swipe_pos_y = change_pos.getBounds().centerY();
+            int end_y;
+            end_y = height - swipe_pos_y;
             device.swipe(swipe_pos_x,swipe_pos_y,swipe_pos_x,end_y,SWIPE_STEPS*3);
             sleep(1000);
         }

@@ -61,6 +61,7 @@ def musicUi():
     bugreport_flag = input('Pls input num 1 to catch a bugreport other for not:')
     bugreport_flag = int(bugreport_flag)
     if bugreport_flag == 1:
+        print('----------bugreport_flag==%d----------'% bugreport_flag)
         devices = getDevices()
         length = len(devices)
         if length > 0:
@@ -88,6 +89,8 @@ def musicUi():
                         print('----------bugreport not exist----------')
                     elif os.path.getsize(bugreport_file) == 0:
                         print('----------bugreport size 0----------')
+    else:
+        print('----------bugreport_flag==%d----------'% bugreport_flag)
     end = time.time()
     cost = end - begin
     print('----------Cost time:%s----------' % cost)
