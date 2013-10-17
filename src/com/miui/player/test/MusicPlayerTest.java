@@ -1624,7 +1624,6 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         song.longClick();
         sleep(1000);
 
-
         for (int i = 0; i < 5 ;i++){
             list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
             list_view_child_count = list_view.getChildCount();
@@ -1654,7 +1653,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 case 0:
                     /*播放*/
                     e_play.click();
-                    sleep(1000);
+                    sleep(2000);
                     device.pressBack();
                     break;
                 case 1:
@@ -2242,7 +2241,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
                 case 0:
                     /*播放*/
                     e_play.click();
-                    sleep(1000);
+                    sleep(2000);
                     device.pressBack();
                     break;
                 case 1:
@@ -2478,7 +2477,7 @@ public class MusicPlayerTest extends UiAutomatorTestCase{
         play_all = page.getChild(new UiSelector().className("android.widget.RelativeLayout").index(0));
         /*debug("play_all=" + play_all.getBounds(),1);*/
         play_all.click();
-        sleep(1000);
+        sleep(2000);
         device.unfreezeRotation();
         sleep(500);
         if (device.isNaturalOrientation()){
