@@ -688,6 +688,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         waitMsg("Pls wait for the live loading.",8000);
         killVideo();
         launchVideo();
+        loadingContent();
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject more_live;
         more_live = list_view.getChild(new UiSelector().className("android.widget.LinearLayout").index(2))
