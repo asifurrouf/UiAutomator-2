@@ -703,6 +703,7 @@ public class OnlineVideoTest extends UiAutomatorTestCase{
         all_lives.click();
         loadingContent();
         swipePhone(TOP,1);
+        loadingContent();
         list_view = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         int list_view_child_count;
         list_view_child_count = list_view.getChildCount();
