@@ -5,6 +5,12 @@ import sys
 import time
 import hashlib
 
+DEV_MIUI = 'miui_'
+ZIP = 'zip'
+DEV_IMAGES = '_images_'
+TAR = 'tar'
+STABLE_MIUI = 'J'
+ORIGIN = 'N'
 
 RomNames = ['M1/M1S 开发版','M1/M1S 开发版',
             'M2/M2S 开发版','M2/M2S 开发版',
@@ -38,18 +44,15 @@ str_Marks = ['_Mioneplus_','mione_plus_',
 def walk_dir(dir,topdown=True):
 
     info = {}
-    miui = 'miui_'
-    z_type = 'zip'
-    image = '_images_'
-    t_type = 'tar'
+
     for root, dirs, files in os.walk(dir, topdown):
         for file_name in files:
             tmp = []
             print os.path.abspath(file_name)
-            if miui in file_name and z_type in file_name:
+            if DEV_MIUI in file_name and ZIP in file_name:
+                print('开发版zip')
                 c_name = getRomCName(file_name)
-                size = os.path.getsize(os.path.join(root,file_name))/1024/1024
-                size = str(size) + 'M'
+                size = getRomSize(os.path.join(root,file_name))
                 md5 = GetFileMd5(os.path.join(root,file_name))
                 tmp.append(size)
                 tmp.append(md5)
@@ -59,10 +62,10 @@ def walk_dir(dir,topdown=True):
                     info[c_name].append(tmp)
                 else:
                     info[c_name].append(tmp)
-            elif image in file_name and t_type in file_name:
+            elif DEV_IMAGES in file_name and TAR in file_name:
+                print('开发版tar')
                 c_name = getRomCName(file_name)
-                size = os.path.getsize(os.path.join(root,file_name))/1024/1024
-                size = str(size) + 'M'
+                size = getRomSize(os.path.join(root,file_name))
                 md5 = GetFileMd5(os.path.join(root,file_name))
                 tmp.append(size)
                 tmp.append(md5)
@@ -72,6 +75,11 @@ def walk_dir(dir,topdown=True):
                     info[c_name].append(tmp)
                 else:
                     info[c_name].append(tmp)
+            elif file_name.startswith(STABLE_MIUI):
+                print('稳定版')
+            elif file_name.startswith(ORIGIN):
+                print('原生')
+
     #print(info)
     return info
 
@@ -98,6 +106,20 @@ def getRomCName(name):
             break
     return rom_c_name
 
+def getRomSize(filename):
+    size = os.path.getsize(filename)/1024/1024
+    size = str(size) + 'M'
+    return size
+
+def getDate():
+    block = '.'
+    year,mon,day= time.strftime('%Y'),time.strftime('%m'),time.strftime('%d')
+    year = year[-1]
+    mon = str(int(mon))
+    day = str(int(day))
+    mDate = year + block + mon + block + day
+    return mDate
+
 class Generate:
 
     mFolder = ''
@@ -106,23 +128,21 @@ class Generate:
         self.getFolder()
 
     def getFolder(self):
-        block = '.'
         argv_len = len(sys.argv)
         if argv_len >= 2:
             mFolder = sys.argv[1]
         else:
-            year,mon,day= time.strftime('%Y'),time.strftime('%m'),time.strftime('%d')
-            year = year[-1]
-            mon = str(int(mon))
-            day = str(int(day))
-            mFolder = year + block + mon + block + day
+            mFolder = getDate()
         self.mFolder = mFolder
 
     def gDownloadUrl(self):
 
         mFolder = self.mFolder
         info = walk_dir(mFolder)
-        version = sys.argv[2]
+        if len(sys.argv)>=3:
+            version = sys.argv[2]
+        else:
+            version = getDate()
         body = ''
         head = '【升级提醒】\n—————————————————————————————————————————————————— \n\n'
         end = ' '

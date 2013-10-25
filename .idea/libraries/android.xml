@@ -4,7 +4,6 @@
       <root url="jar://$USER_HOME$/vm/adt-bundle-linux/sdk/platforms/android-4.2/android.jar!/" />
       <root url="jar://$USER_HOME$/vm/adt-bundle-linux/sdk/platforms/android-4.2/uiautomator.jar!/" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>
