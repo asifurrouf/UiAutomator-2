@@ -5,6 +5,16 @@ import sys
 import time
 import hashlib
 
+BLOCK = ' '
+#PYTHON_FILE_PATH = '/data/files'
+#USER_OTA_PATH = '/data/ota/'
+#ENG_PATH = '/data/eng/'
+
+
+PYTHON_FILE_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test'
+USER_OTA_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/ota/'
+ENG_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/eng/'
+
 DEV_MIUI = 'miui_'
 ZIP = 'zip'
 DEV_IMAGES = '_images_'
@@ -75,11 +85,10 @@ def walk_dir(dir,topdown=True):
                     info[c_name].append(tmp)
                 else:
                     info[c_name].append(tmp)
-            elif file_name.startswith(STABLE_MIUI):
-                print('稳定版')
-            elif file_name.startswith(ORIGIN):
-                print('原生')
-
+#            elif file_name.startswith(STABLE_MIUI) and (TAR or ZIP) in file_name:
+#                print('稳定版')
+#            elif file_name.startswith(ORIGIN):
+#                print('原生')
     #print(info)
     return info
 
@@ -120,12 +129,53 @@ def getDate():
     mDate = year + block + mon + block + day
     return mDate
 
+def createPath():
+    cwd = str(os.getcwd()).strip('\n').strip('\r')
+    if cwd == PYTHON_FILE_PATH:
+        print('File path correct,begin to create path.')
+        version = getDate()
+        internal_version = version + '-internal'
+        if not os.path.exists(version):
+            print('Path %s is not exist'%version)
+            os.mkdir(version)
+        else:
+            print('Path %s is already exist'%version)
+        if not os.path.exists(internal_version):
+            print('Path %s is not exist'%internal_version)
+            os.mkdir(internal_version)
+        else:
+            print('Path %s is already exist'%internal_version)
+    else:
+        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+
+def moveFilesAndPaths():
+    cwd = str(os.getcwd()).strip('\n').strip('\r')
+    if cwd == PYTHON_FILE_PATH:
+        version = getDate()
+        internal_version = version + '-internal'
+        move_internal = 'mv *internal* ' + internal_version
+        move_other = 'mv *' + version + '*.zip* *' + version + '*.tar* ' + version
+        print('Move internal files to path:%s.'%internal_version)
+        os.system(move_internal)
+        print('Move internal files to path:%s.'%internal_version)
+        os.system(move_other)
+        move_user_ota = 'mv ' + version + BLOCK + USER_OTA_PATH
+        move_eng = 'mv ' + internal_version +  BLOCK + ENG_PATH
+        print('Move ota path to path:%s.'%USER_OTA_PATH)
+        os.system(move_user_ota)
+        print('Move internal path to path:%s.'%ENG_PATH)
+        os.system(move_eng)
+    else:
+        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+
 class Generate:
 
     mFolder = ''
+    mVersion = ''
 
     def __init__(self):
         self.getFolder()
+        self.getVersion()
 
     def getFolder(self):
         argv_len = len(sys.argv)
@@ -135,14 +185,18 @@ class Generate:
             mFolder = getDate()
         self.mFolder = mFolder
 
-    def gDownloadUrl(self):
-
-        mFolder = self.mFolder
-        info = walk_dir(mFolder)
+    def getVersion(self):
         if len(sys.argv)>=3:
             version = sys.argv[2]
         else:
             version = getDate()
+        self.mVersion = version
+
+    def getDownloadUrl(self):
+
+        mFolder = self.mFolder
+        info = walk_dir(mFolder)
+        version = self.mVersion
         body = ''
         head = '【升级提醒】\n—————————————————————————————————————————————————— \n\n'
         end = ' '
@@ -169,7 +223,18 @@ class Generate:
         url =  head + body + end
         return url
 
+def writePrintFormat(version,msg):
+    read_mode = 'w'
+    file_name = version + '-url.txt'
+    file_obj = open(file_name,read_mode)
+    file_obj.write(msg)
+    file_obj.close()
+
 if __name__ == '__main__':
+    createPath()
+    moveFilesAndPaths()
     generate = Generate()
-    url = generate.gDownloadUrl()
+    url = generate.getDownloadUrl()
     print url
+    writePrintFormat(generate.mVersion,url)
+

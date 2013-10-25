@@ -92,7 +92,7 @@
       <file leaf-file-name="getfile_url.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getfile_url.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="16" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.5289256">
+            <state line="236" column="33" selection-start="7583" selection-end="7583" vertical-scroll-proportion="0.75206614">
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
               </folding>
@@ -103,7 +103,7 @@
       <file leaf-file-name="Tommy.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/test/Tommy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="28" selection-start="3707" selection-end="3707" vertical-scroll-proportion="0.0">
+            <state line="245" column="0" selection-start="7844" selection-end="8021" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#51#60#0" expanded="true" />
               </folding>
@@ -114,7 +114,7 @@
       <file leaf-file-name="friday.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/friday.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="19" selection-start="2562" selection-end="2562" vertical-scroll-proportion="0.0">
+            <state line="165" column="0" selection-start="4859" selection-end="5068" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -685,14 +685,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/friday.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="19" selection-start="2562" selection-end="2562" vertical-scroll-proportion="0.0">
+        <state line="165" column="0" selection-start="4859" selection-end="5068" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/test/Tommy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="28" selection-start="3707" selection-end="3707" vertical-scroll-proportion="0.0">
+        <state line="245" column="0" selection-start="7844" selection-end="8021" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#51#60#0" expanded="true" />
           </folding>
@@ -701,7 +701,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getfile_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="16" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.5289256">
+        <state line="236" column="33" selection-start="7583" selection-end="7583" vertical-scroll-proportion="0.75206614">
           <folding>
             <element signature="e#25#34#0" expanded="true" />
           </folding>
