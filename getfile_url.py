@@ -198,8 +198,8 @@ class Generate:
     mVersion = ''
 
     def __init__(self):
-        self.getFolder()
         self.getVersion()
+        self.getFolder()
 
     def getFolder(self):
         argv_len = len(sys.argv)
@@ -207,7 +207,7 @@ class Generate:
             mFolder = sys.argv[1]
         else:
             mFolder = getDate()
-        self.mFolder = mFolder
+        self.mFolder = USER_OTA_PATH + mFolder
 
     def getVersion(self):
         if len(sys.argv)>=3:

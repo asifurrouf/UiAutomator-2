@@ -89,10 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getfile_url.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="getfile_url.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getfile_url.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="43" selection-start="4147" selection-end="4147" vertical-scroll-proportion="0.0">
+            <state line="209" column="36" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.5785124">
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
               </folding>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tommy.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Tommy.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="31" selection-start="5298" selection-end="5298" vertical-scroll-proportion="-1.4049587">
+            <state line="220" column="30" selection-start="7021" selection-end="7021" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/bin/test/Tommy.py" />
-        <option value="$PROJECT_DIR$/getfile_url.py" />
         <option value="$PROJECT_DIR$/bin/Tommy.py" />
+        <option value="$PROJECT_DIR$/getfile_url.py" />
       </list>
     </option>
   </component>
@@ -676,15 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getfile_url.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="43" selection-start="4147" selection-end="4147" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/test/Tommy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="275" column="8" selection-start="8893" selection-end="8893" vertical-scroll-proportion="0.0">
@@ -696,8 +687,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="31" selection-start="5298" selection-end="5298" vertical-scroll-proportion="-1.4049587">
+        <state line="220" column="30" selection-start="7021" selection-end="7021" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getfile_url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="36" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.5785124">
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
