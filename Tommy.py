@@ -131,6 +131,14 @@ def getDate():
     mDate = year + block + mon + block + day
     return mDate
 
+def getArgv():
+    length = len(sys.argv)
+    if length >= 2:
+        print('')
+    else:
+        return
+
+
 def createPath():
     cwd = str(os.getcwd()).strip('\n').strip('\r')
     version = getDate()
@@ -165,8 +173,6 @@ def moveFilesAndPaths():
 #    choose = int(choose)
 #    if choose == 1:
     if cwd == PYTHON_FILE_PATH:
-        version = getDate()
-        internal_version = version + '-internal'
         move_internal = 'sudo mv *internal* ' + internal_version
         move_other = 'sudo mv *' + version + '*.zip* *' + version + '*.tar* ' + version
         mv_xml = 'sudo mv *.xml ' + internal_version

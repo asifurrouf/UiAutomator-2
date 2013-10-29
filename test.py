@@ -7,5 +7,8 @@ import time
 def haha():
     os.system('sudo ./monkey')
 
+def argvTest():
+    print(len(sys.argv))
 
-haha()
+
+argvTest()

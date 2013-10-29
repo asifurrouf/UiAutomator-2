@@ -89,21 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getfile_url.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/getfile_url.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="36" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.5785124">
-              <folding>
-                <element signature="e#25#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tommy.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Tommy.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="30" selection-start="7021" selection-end="7021" vertical-scroll-proportion="0.0">
+            <state line="53" column="39" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.7933884">
               <folding />
             </state>
           </provider>
@@ -132,10 +121,8 @@
       <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="6" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1382616392950" expanded="true" signature="95:126" placeholder="..." />
-              </folding>
+            <state line="13" column="10" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,8 +158,8 @@
         <option value="$PROJECT_DIR$/src/com/miui/player/test/MusicPlayerTest.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestWithLive.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTest.java" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/bin/test/Tommy.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/bin/Tommy.py" />
         <option value="$PROJECT_DIR$/getfile_url.py" />
       </list>
@@ -660,15 +647,6 @@
         <state line="732" column="48" selection-start="26674" selection-end="26674" vertical-scroll-proportion="0.4502814" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1382616392950" expanded="true" signature="95:126" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/friday.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="165" column="0" selection-start="4859" selection-end="5068" vertical-scroll-proportion="0.0">
@@ -685,19 +663,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="30" selection-start="7021" selection-end="7021" vertical-scroll-proportion="0.0">
+        <state line="13" column="10" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getfile_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="36" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.5785124">
+        <state line="21" column="17" selection-start="484" selection-end="484" vertical-scroll-proportion="0.2231405">
           <folding>
             <element signature="e#25#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="39" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.7933884">
+          <folding />
         </state>
       </provider>
     </entry>
