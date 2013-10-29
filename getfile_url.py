@@ -131,42 +131,63 @@ def getDate():
 
 def createPath():
     cwd = str(os.getcwd()).strip('\n').strip('\r')
-    if cwd == PYTHON_FILE_PATH:
-        print('File path correct,begin to create path.')
-        version = getDate()
-        internal_version = version + '-internal'
-        if not os.path.exists(version):
-            print('Path %s is not exist'%version)
-            os.mkdir(version)
+    version = getDate()
+    internal_version = version + '-internal'
+    choose = raw_input('Pls input 1 to create path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
+    choose = choose.strip('\r').strip('\n')
+    choose = int(choose)
+    if choose == 1:
+        if cwd == PYTHON_FILE_PATH:
+            print('File path correct,begin to create path.')
+            if not os.path.exists(version):
+                print('Path %s is not exist'%version)
+                os.mkdir(version)
+            else:
+                print('Path %s is already exist'%version)
+            if not os.path.exists(internal_version):
+                print('Path %s is not exist'%internal_version)
+                os.mkdir(internal_version)
+            else:
+                print('Path %s is already exist'%internal_version)
         else:
-            print('Path %s is already exist'%version)
-        if not os.path.exists(internal_version):
-            print('Path %s is not exist'%internal_version)
-            os.mkdir(internal_version)
-        else:
-            print('Path %s is already exist'%internal_version)
+            print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
     else:
-        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+        return
 
 def moveFilesAndPaths():
     cwd = str(os.getcwd()).strip('\n').strip('\r')
-    if cwd == PYTHON_FILE_PATH:
-        version = getDate()
-        internal_version = version + '-internal'
-        move_internal = 'mv *internal* ' + internal_version
-        move_other = 'mv *' + version + '*.zip* *' + version + '*.tar* ' + version
-        print('Move internal files to path:%s.'%internal_version)
-        os.system(move_internal)
-        print('Move internal files to path:%s.'%internal_version)
-        os.system(move_other)
-        move_user_ota = 'mv ' + version + BLOCK + USER_OTA_PATH
-        move_eng = 'mv ' + internal_version +  BLOCK + ENG_PATH
-        print('Move ota path to path:%s.'%USER_OTA_PATH)
-        os.system(move_user_ota)
-        print('Move internal path to path:%s.'%ENG_PATH)
-        os.system(move_eng)
+    version = getDate()
+    internal_version = version + '-internal'
+    choose = raw_input('Pls input 1 to move files to path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
+    choose = choose.strip('\r').strip('\n')
+    choose = int(choose)
+    if choose == 1:
+        if cwd == PYTHON_FILE_PATH:
+            version = getDate()
+            internal_version = version + '-internal'
+            move_internal = 'mv *internal* ' + internal_version
+            move_other = 'mv *' + version + '*.zip* *' + version + '*.tar* ' + version
+            print('Move internal files to path:%s.'%internal_version)
+            os.system(move_internal)
+            print('Move internal files to path:%s.'%internal_version)
+            os.system(move_other)
+            move_user_ota = 'mv ' + version + BLOCK + USER_OTA_PATH
+            move_eng = 'mv ' + internal_version +  BLOCK + ENG_PATH
+            print('Move ota path to path:%s.'%USER_OTA_PATH)
+            os.system(move_user_ota)
+            print('Move internal path to path:%s.'%ENG_PATH)
+            os.system(move_eng)
+        else:
+            print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
     else:
-        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+        return
+
+def writePrintFormat(version,msg):
+    read_mode = 'w'
+    file_name = version + '-url.txt'
+    file_obj = open(file_name,read_mode)
+    file_obj.write(msg)
+    file_obj.close()
 
 class Generate:
 
@@ -223,18 +244,11 @@ class Generate:
         url =  head + body + end
         return url
 
-def writePrintFormat(version,msg):
-    read_mode = 'w'
-    file_name = version + '-url.txt'
-    file_obj = open(file_name,read_mode)
-    file_obj.write(msg)
-    file_obj.close()
-
 if __name__ == '__main__':
     createPath()
     moveFilesAndPaths()
     generate = Generate()
     url = generate.getDownloadUrl()
     print url
-    writePrintFormat(generate.mVersion,url)
+    #writePrintFormat(generate.mVersion,url)
 

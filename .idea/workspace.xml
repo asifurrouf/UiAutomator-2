@@ -89,10 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getfile_url.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="getfile_url.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getfile_url.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="33" selection-start="7583" selection-end="7583" vertical-scroll-proportion="0.75206614">
+            <state line="238" column="17" selection-start="7749" selection-end="7749" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
               </folding>
@@ -100,10 +100,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Tommy.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="86" selection-end="171" vertical-scroll-proportion="-5.247934">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Tommy.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/test/Tommy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="0" selection-start="7844" selection-end="8021" vertical-scroll-proportion="0.0">
+            <state line="275" column="8" selection-start="8893" selection-end="8893" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#51#60#0" expanded="true" />
               </folding>
@@ -150,7 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/miui/player/test/dasdas.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/OnlineVideoTestNoLive.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/smswithaudio.java" />
         <option value="$PROJECT_DIR$/src/com/miui/player/test/MmsWithAudio.java" />
@@ -166,6 +174,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/bin/test/Tommy.py" />
         <option value="$PROJECT_DIR$/getfile_url.py" />
+        <option value="$PROJECT_DIR$/bin/Tommy.py" />
       </list>
     </option>
   </component>
@@ -173,8 +182,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="x" value="66" />
+    <option name="y" value="25" />
     <option name="width" value="1617" />
     <option name="height" value="1058" />
   </component>
@@ -240,24 +249,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UiAutomator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UiAutomator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,7 +495,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1617" height="1058" extended-state="6" />
+    <frame x="66" y="25" width="1617" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.49968052" order="7" side_tool="false" content_ui="tabs" />
@@ -612,11 +603,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="17" selection-start="0" selection-end="2638" vertical-scroll-proportion="0.27669346" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="33" selection-start="2129" selection-end="2129" vertical-scroll-proportion="1.0733945">
@@ -692,7 +678,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/test/Tommy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="0" selection-start="7844" selection-end="8021" vertical-scroll-proportion="0.0">
+        <state line="275" column="8" selection-start="8893" selection-end="8893" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#51#60#0" expanded="true" />
           </folding>
@@ -701,10 +687,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getfile_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="33" selection-start="7583" selection-end="7583" vertical-scroll-proportion="0.75206614">
+        <state line="238" column="17" selection-start="7749" selection-end="7749" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#25#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/Tommy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="86" selection-end="171" vertical-scroll-proportion="-5.247934">
+          <folding />
         </state>
       </provider>
     </entry>
