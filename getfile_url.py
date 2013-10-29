@@ -6,14 +6,14 @@ import time
 import hashlib
 
 BLOCK = ' '
-#PYTHON_FILE_PATH = '/data/files'
-#USER_OTA_PATH = '/data/ota/'
-#ENG_PATH = '/data/eng/'
+PYTHON_FILE_PATH = '/data/files'
+USER_OTA_PATH = '/data/ota/'
+ENG_PATH = '/data/eng/'
 
 
-PYTHON_FILE_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test'
-USER_OTA_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/ota/'
-ENG_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/eng/'
+#PYTHON_FILE_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test'
+#USER_OTA_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/ota/'
+#ENG_PATH = '/mnt/hgfs/vmshare/jiahuixing/UiAutomator/bin/test/test/eng/'
 
 DEV_MIUI = 'miui_'
 ZIP = 'zip'
@@ -133,54 +133,57 @@ def createPath():
     cwd = str(os.getcwd()).strip('\n').strip('\r')
     version = getDate()
     internal_version = version + '-internal'
-    choose = raw_input('Pls input 1 to create path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
-    choose = choose.strip('\r').strip('\n')
-    choose = int(choose)
-    if choose == 1:
-        if cwd == PYTHON_FILE_PATH:
-            print('File path correct,begin to create path.')
-            if not os.path.exists(version):
-                print('Path %s is not exist'%version)
-                os.mkdir(version)
-            else:
-                print('Path %s is already exist'%version)
-            if not os.path.exists(internal_version):
-                print('Path %s is not exist'%internal_version)
-                os.mkdir(internal_version)
-            else:
-                print('Path %s is already exist'%internal_version)
+#    choose = raw_input('Pls input 1 to create path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
+#    choose = choose.strip('\r').strip('\n')
+#    choose = int(choose)
+#    if choose == 1:
+    if cwd == PYTHON_FILE_PATH:
+        print('File path correct,begin to create path.')
+        if not os.path.exists(version):
+            print('Path %s is not exist'%version)
+            os.mkdir(version)
         else:
-            print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+            print('Path %s is already exist'%version)
+        if not os.path.exists(internal_version):
+            print('Path %s is not exist'%internal_version)
+            os.mkdir(internal_version)
+        else:
+            print('Path %s is already exist'%internal_version)
     else:
-        return
+        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+#    else:
+#        return
 
 def moveFilesAndPaths():
     cwd = str(os.getcwd()).strip('\n').strip('\r')
     version = getDate()
     internal_version = version + '-internal'
-    choose = raw_input('Pls input 1 to move files to path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
-    choose = choose.strip('\r').strip('\n')
-    choose = int(choose)
-    if choose == 1:
-        if cwd == PYTHON_FILE_PATH:
-            version = getDate()
-            internal_version = version + '-internal'
-            move_internal = 'mv *internal* ' + internal_version
-            move_other = 'mv *' + version + '*.zip* *' + version + '*.tar* ' + version
-            print('Move internal files to path:%s.'%internal_version)
-            os.system(move_internal)
-            print('Move internal files to path:%s.'%internal_version)
-            os.system(move_other)
-            move_user_ota = 'mv ' + version + BLOCK + USER_OTA_PATH
-            move_eng = 'mv ' + internal_version +  BLOCK + ENG_PATH
-            print('Move ota path to path:%s.'%USER_OTA_PATH)
-            os.system(move_user_ota)
-            print('Move internal path to path:%s.'%ENG_PATH)
-            os.system(move_eng)
-        else:
-            print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+#    choose = raw_input('Pls input 1 to move files to path:\'%s\' and path :\'%s\'.\n'%(version,internal_version))
+#    choose = choose.strip('\r').strip('\n')
+#    choose = int(choose)
+#    if choose == 1:
+    if cwd == PYTHON_FILE_PATH:
+        version = getDate()
+        internal_version = version + '-internal'
+        move_internal = 'sudo mv *internal* ' + internal_version
+        move_other = 'sudo mv *' + version + '*.zip* *' + version + '*.tar* ' + version
+        mv_xml = 'sudo mv *.xml ' + internal_version
+        print('Move internal files to path:%s.'%internal_version)
+        os.system(move_internal)
+        print('Move xml files to path:%s.'%internal_version)
+        os.system(mv_xml)
+        print('Move ota zip and tar files to path:%s.'%version)
+        os.system(move_other)
+        move_user_ota = 'sudo mv ' + version + BLOCK + USER_OTA_PATH
+        move_eng = 'sudo mv ' + internal_version +  BLOCK + ENG_PATH
+        print('Move ota path to path:%s.'%USER_OTA_PATH)
+        os.system(move_user_ota)
+        print('Move internal path to path:%s.'%ENG_PATH)
+        os.system(move_eng)
     else:
-        return
+        print('Pls move this python file to path:%s.'%PYTHON_FILE_PATH)
+#    else:
+#        return
 
 def writePrintFormat(version,msg):
     read_mode = 'w'
