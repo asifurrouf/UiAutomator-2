@@ -4,7 +4,7 @@ if [[ $#>0 ]]; then
 	#statements
 	flash="$1"
 	echo "--------$flash--------"
-	file_prefix=${flash%.*}
+	file_prefix=${flash%_*}
 	echo "--------$file_prefix--------"
 	if [[ "${flash##*.}" = "tar" ]]; then
 		#statements
